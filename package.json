@@ -1,0 +1,30 @@
+{
+  "name": "project",
+  "version": "1.0.0",
+  "description": "",
+  "main": "gulpfile.js",
+  "type": "module",
+  "scripts": {
+    "dev": "gulp",
+    "build": "gulp build",
+    "lint": "stylelint \"src/scss/**/*.scss\""
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "browser-sync": "^2.29.3",
+    "del": "^7.1.0",
+    "gulp": "^4.0.2",
+    "gulp-autoprefixer": "^10.0.0",
+    "gulp-clean-css": "^4.3.0",
+    "gulp-cli": "^3.1.0",
+    "gulp-file-include": "^2.3.0",
+    "gulp-group-css-media-queries": "^1.2.2",
+    "gulp-rename": "^2.1.0",
+    "gulp-replace": "^1.1.4",
+    "gulp-sass": "^6.0.1",
+    "sass": "^1.98.0",
+    "stylelint": "^17.14.1",
+    "stylelint-config-standard-scss": "^17.0.0"
+  }
+}

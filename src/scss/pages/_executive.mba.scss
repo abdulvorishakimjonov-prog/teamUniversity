@@ -1,0 +1,611 @@
+@use '../config/mixins' as *;
+
+.executive-mba {
+
+   &-main {
+      background: #FFFFFF;
+      border-radius: 32px;
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin-bottom: 20px;
+
+      @include devices(md) {
+         border-radius: 24px;
+         padding: 20px;
+      }
+
+      @include devices(sm) {
+         border-radius: 20px;
+         padding: 14px;
+      }
+
+      &-wrapper {
+         display: grid;
+         grid-template-columns: repeat(3, minmax(0, 1fr));
+         gap: 20px 24px;
+         background: #F5F7F9;
+         border-radius: 24px;
+         padding: 16px;
+
+         @include devices(lg) {
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+         }
+
+         @include devices(md) {
+            gap: 16px 20px;
+            border-radius: 20px;
+            padding: 14px;
+         }
+
+         @include devices(sm) {
+            grid-template-columns: 1fr;
+            gap: 14px;
+            padding: 12px;
+         }
+
+         &-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            min-width: 0;
+
+            &-icon {
+               display: flex;
+               align-items: center;
+               justify-content: center;
+               flex: 0 0 48px;
+               width: 48px;
+               height: 48px;
+               padding: 10px;
+               background: #FFFFFF;
+               border-radius: 16px;
+
+               @include devices(sm) {
+                  flex-basis: 40px;
+                  width: 40px;
+                  height: 40px;
+                  padding: 8px;
+                  border-radius: 12px;
+               }
+
+               img {
+                  width: 100%;
+                  height: 100%;
+                  object-fit: contain;
+               }
+            }
+
+            &-text {
+               display: flex;
+               flex-direction: column;
+               gap: 2px;
+               min-width: 0;
+            }
+         }
+      }
+   }
+
+   &-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+      background: #FFFFFF;
+      border-radius: 32px;
+      padding: 24px;
+      margin-bottom: 20px;
+
+      @include devices(lg) {
+         flex-direction: column;
+         align-items: flex-start;
+      }
+
+      @include devices(md) {
+         gap: 20px;
+         border-radius: 24px;
+         padding: 20px;
+      }
+
+      @include devices(sm) {
+         gap: 16px;
+         border-radius: 20px;
+         padding: 14px;
+      }
+
+      &-main {
+         display: flex;
+         align-items: center;
+         gap: 16px;
+         min-width: 0;
+
+         @include devices(sm) {
+            flex-direction: column;
+            align-items: flex-start;
+         }
+
+         &-logo {
+            flex: 0 0 auto;
+            height: 110px;
+            width: 251px;
+            max-width: 100%;
+            object-fit: contain;
+
+            @include devices(md) {
+               height: 88px;
+               width: 200px;
+            }
+
+            @include devices(sm) {
+               height: 72px;
+               width: 164px;
+            }
+         }
+
+         &-line {
+            flex: 0 0 1px;
+            align-self: stretch;
+            background: #E2E8F0;
+
+            @include devices(sm) {
+               display: none;
+            }
+         }
+
+         &-text {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+            max-width: 500px;
+
+            @include devices(lg) {
+               max-width: 420px;
+            }
+
+            @include devices(sm) {
+               max-width: 100%;
+            }
+         }
+      }
+
+      &-accreditations {
+         display: flex;
+         align-items: center;
+         gap: 45px;
+         // flex-wrap: wrap;
+
+         @include devices(md) {
+            gap: 28px;
+         }
+
+         @include devices(sm) {
+            gap: 20px 24px;
+         }
+
+         img {
+            height: 70px;
+            width: auto;
+            max-width: 100%;
+
+            @include devices(md) {
+               height: 52px;
+            }
+
+            @include devices(sm) {
+               height: 36px;
+            }
+         }
+      }
+   }
+
+   &-events {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      background: #FFFFFF;
+      border-radius: 32px;
+      padding: 24px;
+      margin-bottom: 20px;
+
+      @include devices(md) {
+         border-radius: 24px;
+         padding: 20px;
+      }
+
+      @include devices(sm) {
+         border-radius: 20px;
+         padding: 14px;
+      }
+
+      &-wrapper {
+         display: grid;
+         grid-template-columns: minmax(0, 1fr) 372px;
+         gap: 20px;
+         background: #F5F7F9;
+         border-radius: 24px;
+         padding: 12px;
+         align-items: start;
+
+         @include devices(lg) {
+            grid-template-columns: 1fr;
+            gap: 16px;
+         }
+
+         @include devices(sm) {
+            gap: 12px;
+            padding: 8px;
+            border-radius: 20px;
+         }
+      }
+
+      &-list {
+         display: flex;
+         flex-direction: column;
+         gap: 16px;
+
+         @include devices(sm) {
+            gap: 12px;
+         }
+      }
+
+      &-card {
+         display: flex;
+         align-items: center;
+         gap: 16px;
+         padding: 16px;
+         background: #FFFFFF;
+         border-radius: 16px;
+
+         @include devices(md) {
+            gap: 14px;
+            padding: 12px;
+         }
+
+         @include devices(sm) {
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 12px;
+            padding: 10px;
+         }
+
+         &-image {
+            flex: 0 0 148px;
+            width: 148px;
+            height: 138px;
+            border-radius: 12px;
+            overflow: hidden;
+
+            @include devices(md) {
+               flex-basis: 120px;
+               width: 120px;
+               height: 112px;
+            }
+
+            @include devices(sm) {
+               width: 100%;
+               flex-basis: auto;
+               height: 160px;
+            }
+
+            img {
+               width: 100%;
+               height: 100%;
+               object-fit: cover;
+            }
+         }
+
+         &-text {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            min-width: 0;
+
+            &-info {
+               display: flex;
+               align-items: center;
+               flex-wrap: wrap;
+               gap: 8px 14px;
+               margin: 2px 0;
+
+               p {
+                  display: flex;
+                  align-items: center;
+                  gap: 4px;
+                  font-size: 15px;
+
+                  i {
+                     font-size: 18px;
+                     color: #1C398E;
+                  }
+               }
+
+               &-badge {
+                  padding: 3px 14px;
+                  font-size: 14px;
+                  color: var(--red700);
+                  background: #FEE2E2;
+                  border-radius: 20px;
+               }
+            }
+         }
+      }
+
+      &-calendar {
+         display: flex;
+         flex-direction: column;
+         gap: 16px;
+         padding: 16px;
+         background: #FFFFFF;
+         border-radius: 16px;
+
+         @include devices(sm) {
+            gap: 12px;
+            padding: 12px;
+         }
+
+         &-title {
+            padding-bottom: 16px;
+            border-bottom: 1px solid #E2E8F0;
+         }
+
+         &-box {
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+
+            @include devices(sm) {
+               gap: 14px;
+            }
+
+            &-head {
+               display: flex;
+               align-items: center;
+               justify-content: space-between;
+
+               &-nav {
+                  display: flex;
+                  gap: 8px;
+
+                  button {
+                     display: flex;
+                     align-items: center;
+                     justify-content: center;
+                     padding: 4px;
+                     color: var(--slate800);
+                     background: transparent;
+                     border: 0;
+                     border-radius: 50%;
+                     cursor: pointer;
+                     transition: background 0.2s ease;
+
+                     &:hover {
+                        background: #F1F5F9;
+                     }
+                  }
+               }
+            }
+
+            &-grid {
+               display: grid;
+               grid-template-columns: repeat(7, 1fr);
+               row-gap: 4px;
+               text-align: center;
+
+               span {
+                  display: flex;
+                  align-items: center;
+                  justify-content: center;
+                  height: 32px;
+                  font-size: 13px;
+
+                  @include devices(xs) {
+                     height: 28px;
+                     font-size: 12px;
+                  }
+                  color: var(--slate800);
+               }
+
+               .is-head {
+                  font-size: 12px;
+                  color: var(--slate500);
+               }
+
+               .is-event {
+                  color: var(--red700);
+                  background: #FEE2E2;
+               }
+
+               .is-event.is-start {
+                  border-radius: 8px 0 0 8px;
+               }
+
+               .is-event.is-end {
+                  border-radius: 0 8px 8px 0;
+               }
+
+               .is-event.is-start.is-end {
+                  border-radius: 8px;
+               }
+            }
+         }
+      }
+   }
+
+   &-item {
+      background: #FFFFFF;
+      border-radius: 32px;
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      margin-top: 20px;
+
+      @include devices(md) {
+         border-radius: 24px;
+         padding: 20px;
+      }
+
+      @include devices(sm) {
+         gap: 14px;
+         border-radius: 20px;
+         padding: 14px;
+      }
+
+      &-card {
+         background: #F5F7F9;
+         border-radius: 24px;
+         padding: 16px;
+         display: grid;
+         grid-template-columns: 148px 1fr;
+         gap: 16px;
+         align-items: center;
+
+         @include devices(sm) {
+            grid-template-columns: 1fr;
+            border-radius: 20px;
+            padding: 12px;
+         }
+
+         &-image {
+            max-width: 148px;
+            min-height: 148px;
+            border-radius: 16px;
+
+            @include devices(sm) {
+               max-width: 100%;
+               max-height: 200px;
+            }
+
+            img {
+               width: 100%;
+               height: 148px;
+               object-fit: cover;
+               border-radius: 16px;
+            }
+         }
+
+         &-title {
+            display: flex;
+            flex-direction: column;
+            gap: 39px;
+
+            @include devices(sm) {
+               gap: 16px;
+            }
+         }
+      }
+   }
+}
+// Executive Education reuses the programme, course, leadership and event components above.
+.executive-education {
+   .international-content {
+      padding: 24px;
+      position: relative;
+      overflow: hidden;
+
+      .international-content-main { margin-bottom: 0; position: relative; z-index: 1; }
+      .international-content-main-box { overflow: hidden; position: relative; z-index: 1; }
+      .international-content-main-box img { width: 100%; height: 100%; object-fit: cover; }
+      .about-section-carousel { position: absolute; left: 0; right: 0; bottom: 24px; z-index: 0; pointer-events: none; }
+   }
+
+   .programs-section-wrapper { margin-top: 20px; }
+   .executive-mba-events-card-text { flex: 1; }
+   .executive-mba-events-card-image { height: 148px; }
+   .executive-mba-events-card-text-info img { width: 22px; height: 22px; flex-shrink: 0; }
+   .executive-status { display: flex; align-items: center; gap: 4px; }
+   .executive-status img { width: 12px; height: 12px; flex-shrink: 0; }
+   .executive-status--open { color: #009966; }
+   .executive-status--soon { color: #FF9900; }
+   .executive-status--closed { color: #64748B; }
+   .executive-status--selected { color: #C10007; }
+
+   .executive-calendar-legend {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 16px 8px;
+      padding-top: 16px;
+      border-top: 1px solid #E2E8F0;
+      p { font-size: 16px; }
+   }
+
+   .executive-mba-events-calendar-box-head-nav a {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 4px;
+      color: var(--slate800);
+      border-radius: 50%;
+      &:hover { background: #F1F5F9; }
+   }
+
+   .executive-mba-events-calendar-box-grid {
+      a { display: flex; align-items: center; justify-content: center; height: 32px; font-size: 13px; }
+      .executive-status--open { color: #009966; background: #D1FAE5; }
+      .executive-status--soon { color: #B45309; background: #FEF3C7; }
+      .executive-status--closed { color: #64748B; background: #E2E8F0; }
+      .is-today { font-weight: 600; }
+   }
+
+   .executive-education-upcoming .executive-mba-events-card { background: #F5F7F9; }
+
+   @include devices(lg) {
+      .international-content-main { grid-template-columns: minmax(0, 1fr) 30%; gap: 20px; }
+   }
+
+   @include devices(sm) {
+      .international-content { padding: 14px; }
+      .international-content-main { grid-template-columns: 1fr; }
+      .international-content-main-box { max-width: none; height: 220px; }
+      .international-content .about-section-carousel { position: static; margin-top: 12px; }
+      .executive-mba-events-card-image { height: 180px; }
+   }
+}
+
+.executive-education-detail {
+   .course-wrapper-card-inner { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px 20px; }
+   .course-wrapper-card-inner-info { min-width: 0; }
+   .course-wrapper-card-inner-info-icon { flex-shrink: 0; }
+   .course-wrapper-card-item p span { flex-shrink: 0; }
+   .course-wrapper-card > .grid { margin-top: 20px; }
+   .leadership-wrapper-card { max-width: none; }
+   .leadership-wrapper-card:hover .leadership-wrapper-card-content { height: 85px; }
+   .course-faq .question { width: 100%; text-align: left; border: 0; background: transparent; }
+   .foundation-info-wrapper-item h3 { margin: 0; }
+
+   .foundation-main {
+      position: relative;
+      overflow: hidden;
+      background-image: none;
+      .foundation-main-title { max-width: 650px; position: relative; z-index: 1; }
+      .button { position: relative; z-index: 1; }
+      &::before { content: ''; position: absolute; inset: 0; background: linear-gradient(90deg, #FFF 40%, rgba(255, 255, 255, 0) 85%); z-index: 1; pointer-events: none; }
+   }
+   .executive-education-banner { position: absolute; right: 0; top: 0; width: 62%; height: 100%; object-fit: cover; object-position: center 65%; }
+
+   @include devices(xl) {
+      .about-page-content-wrapper { flex-wrap: wrap; justify-content: flex-start; }
+      .about-page-content-wrapper-line { display: none; }
+      .about-page-content-wrapper-card { flex: 1 1 40%; }
+      .course-wrapper-card-inner { grid-template-columns: 1fr; }
+   }
+
+   @include devices(sm) {
+      .foundation-main .foundation-main-title { max-width: 100%; }
+      .executive-education-banner { display: none; }
+      .foundation-main::before { display: none; }
+      .about-page-content-wrapper-card { min-width: 0; }
+      .leadership-wrapper-card { height: 360px; }
+   }
+}
+
+// Keep speaker portraits at the existing card proportions on tablet widths.
+.executive-education-detail {
+   @include devices(md) {
+      .course-wrapper-card > .grid._4 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+   }
+   @include devices(xs) {
+      .course-wrapper-card > .grid._4 { grid-template-columns: 1fr; }
+   }
+}

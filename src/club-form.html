@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	@@include('components/layout/head.html', {"title":"Club Form","description":"TEAM University — the first entrepreneurial university in Uzbekistan, in partnership with London South Bank University."})
+</head>
+
+<body>
+	@@include('components/layout/header.html')
+	@@include('components/layout/menu.html')
+	@@include('components/layout/breadcrumb.html', {"title":"Club Form","first":"Club","last":"Form"})
+	<div class="layout">
+		<div class="container">
+			<div class="layout-content">
+				<div class="club-form">
+					<div class="sudents-label">
+						<div class="sudents-label-title">
+							<h5 class="subtitle2 slate900">Apply to TEAM University</h5>
+							<p class="body3 slate600">
+								Submit your undergraduate application online.
+							</p>
+						</div>
+
+						<form class="sudents-label-form" action="" method="post" data-form="club-form">
+<!-- BACKEND: CSRF token (Laravel: @csrf) va action URL shu yerga -->
+	<div class="sudents-label-form-section">
+		<h6 class="sudents-label-form-section-title subtitle4 slate900">About you</h6>
+
+		<div class="sudents-label-form-grid">
+			<div class="sudents-label-form-group">
+				<label for="club-form-full-name">Full name</label>
+				<input autocomplete="name" type="text" id="club-form-full-name" name="full_name" placeholder="Full name">
+			</div>
+
+			<div class="sudents-label-form-group">
+				<label for="club-form-your-emba-cohort">Your EMBA cohort *</label>
+				<input type="text" id="club-form-your-emba-cohort" name="your_emba_cohort" placeholder="Your EMBA cohort " required>
+			</div>
+
+			<div class="sudents-label-form-group">
+				<label for="club-form-phone">Phone</label>
+				<input autocomplete="tel" type="tel" id="club-form-phone" name="phone" placeholder="Phone number">
+			</div>
+
+			<div class="sudents-label-form-group">
+				<label for="club-form-email">Email</label>
+				<input autocomplete="email" type="email" id="club-form-email" name="email" placeholder="Email">
+			</div>
+		</div>
+	</div>
+
+	<div class="sudents-label-form-section">
+		<h6 class="sudents-label-form-section-title subtitle4 slate900">About the candidate</h6>
+
+		<div class="sudents-label-form-grid">
+
+			<div class="sudents-label-form-group">
+				<label for="club-form-candidates-full-name">Candidate's full name *</label>
+				<input type="text" id="club-form-candidates-full-name" name="candidates_full_name" placeholder="Full name" required>
+			</div>
+
+			<div class="sudents-label-form-group">
+				<label for="club-form-about-the-candidate-phone">Phone *</label>
+				<input autocomplete="tel" type="tel" id="club-form-about-the-candidate-phone" name="about_the_candidate_phone" placeholder="Your EMBA cohort " required>
+			</div>
+
+			<div class="sudents-label-form-group">
+				<label for="club-form-about-the-candidate-email">Email</label>
+				<input autocomplete="email" type="email" id="club-form-about-the-candidate-email" name="about_the_candidate_email" placeholder="Email">
+			</div>
+
+			<div class="sudents-label-form-group">
+				<label for="club-form-company">Company *</label>
+				<input type="email" id="club-form-company" name="company" placeholder="Company" required>
+			</div>
+
+			<div class="sudents-label-form-group">
+				<label for="club-form-position">Position *</label>
+				<input type="email" id="club-form-position" name="position" placeholder="Position " required>
+			</div>
+
+			<div class="sudents-label-form-group">
+				<label for="club-form-how-you-know-the-candidate">How you know the candidate</label>
+				<input type="email" id="club-form-how-you-know-the-candidate" name="how_you_know_the_candidate" placeholder="How you know the candidate">
+			</div>
+
+			<div class="sudents-label-form-group">
+				<label for="club-form-about-the-candidate-how-you-know-the-candidate">How you know the candidate</label>
+				<input type="email" id="club-form-about-the-candidate-how-you-know-the-candidate" name="about_the_candidate_how_you_know_the_candidate" placeholder="How you know the candidate">
+			</div>
+		</div>
+	</div>
+
+	<div class="sudents-label-form-footer">
+		<label class="sudents-label-form-consent">
+			<input id="club-form-consent" type="checkbox" name="consent" required>
+			<span class="body3 slate700">I confirm that the candidate agreed to be contacted</span>
+		</label>
+		<label class="sudents-label-form-consent">
+			<input id="club-form-about-the-candidate-consent" type="checkbox" name="about_the_candidate_consent" required>
+			<span class="body3 slate700">Consent to personal data processing</span>
+		</label>
+
+		<button class="sudents-label-form-submit button" type="submit">
+			Book a consultation
+			<i class="i-arrow"></i>
+		</button>
+	</div>
+	</form>
+	</div>
+	</div>
+	</div>
+	<div class="layout-sidebar">
+		@@include('components/layout/sidebar.html')
+	</div>
+	</div>
+	</div>
+
+	@@include('components/layout/footer.html')
+
+</body>
+
+</html>

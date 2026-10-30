@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   width="24"
+   height="24"
+   viewBox="0 0 24 24"
+   fill="none"
+   version="1.1"
+   id="svg6"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <defs
+     id="defs6" />
+  <path
+     style="baseline-shift:baseline;display:inline;overflow:visible;vector-effect:none;fill:#0f172a;stroke-linecap:round;stroke-linejoin:round;enable-background:accumulate;stop-color:#000000;stop-opacity:1;opacity:1"
+     d="m 4.5,18.25 c -0.27879,0 -0.4526996,-0.0085 -0.6816406,0.03711 -0.7707816,0.153915 -1.3779149,0.762399 -1.53125,1.533203 C 2.2415894,20.049097 2.25,20.2212 2.25,20.5 c 0,0.2788 -0.00841,0.450903 0.037109,0.679687 0.1533351,0.770805 0.7604684,1.379289 1.53125,1.533204 C 4.0473004,22.758513 4.22121,22.75 4.5,22.75 h 15 c 0.2788,0 0.452683,0.0085 0.681641,-0.03711 0.770159,-0.1538 1.37745,-0.761091 1.53125,-1.53125 v -0.002 C 21.758088,20.951702 21.75,20.778004 21.75,20.5 c 0,-0.278004 0.0081,-0.451702 -0.03711,-0.679688 v -0.002 C 21.559091,19.0482 20.9518,18.440909 20.181641,18.287109 19.952683,18.241476 19.7788,18.25 19.5,18.25 Z m 0,1.5 h 15 c 0.2788,0 0.383877,0.0072 0.386719,0.0078 a 0.750075,0.750075 0 0 0 0.002,0 c 0.180418,0.03586 0.317659,0.173098 0.353515,0.353516 a 0.750075,0.750075 0 0 0 0,0.002 c 5.67e-4,0.0028 0.0078,0.107919 0.0078,0.386719 0,0.2788 -0.0072,0.383877 -0.0078,0.386719 a 0.750075,0.750075 0 0 0 0,0.002 c -0.03586,0.180418 -0.173097,0.317659 -0.353515,0.353515 a 0.750075,0.750075 0 0 0 -0.002,0 C 19.883877,21.242754 19.7788,21.25 19.5,21.25 h -15 c -0.27879,0 -0.3838198,-0.0072 -0.3867188,-0.0078 a 0.750075,0.750075 0 0 0 -0.00195,0 C 3.930886,21.206329 3.7937408,21.069281 3.7578125,20.888672 3.7572125,20.885656 3.75,20.7788 3.75,20.5 c 0,-0.2788 0.00721,-0.385656 0.00781,-0.388672 0.035928,-0.180609 0.1730735,-0.317657 0.3535156,-0.353516 a 0.750075,0.750075 0 0 0 0.00195,0 C 4.1161802,19.757235 4.22121,19.75 4.5,19.75 Z"
+     id="path1" />
+  <path
+     style="baseline-shift:baseline;display:inline;overflow:visible;vector-effect:none;fill:#0f172a;stroke-linecap:round;stroke-linejoin:round;enable-background:accumulate;stop-color:#000000;stop-opacity:1;opacity:1"
+     d="m 12,1.25 c -0.461074,0 -0.913169,0.1236986 -1.310547,0.3574219 l -7.7558592,4.5625 C 2.5112162,6.418392 2.25,6.8732236 2.25,7.3632812 2.25,8.1199567 2.8800433,8.75 3.6367188,8.75 H 20.363281 C 21.119946,8.75 21.75,8.1199282 21.75,7.3632812 21.75,6.8732458 21.488793,6.4183977 21.066406,6.1699219 l -7.755859,-4.5625 C 12.913169,1.3736986 12.461074,1.25 12,1.25 Z m 0,1.5 c 0.193726,0 0.383759,0.052154 0.550781,0.1503906 L 19.945312,7.25 H 4.0546875 L 11.449219,2.9003906 C 11.616241,2.8021539 11.806274,2.75 12,2.75 Z"
+     id="path2" />
+  <path
+     style="baseline-shift:baseline;display:inline;overflow:visible;vector-effect:none;fill:#0f172a;stroke-linecap:round;stroke-linejoin:round;enable-background:accumulate;stop-color:#000000;stop-opacity:1;opacity:1"
+     d="M 18,10.25 A 0.75,0.75 0 0 0 17.25,11 v 8 A 0.75,0.75 0 0 0 18,19.75 0.75,0.75 0 0 0 18.75,19 V 11 A 0.75,0.75 0 0 0 18,10.25 Z"
+     id="path3" />
+  <path
+     style="baseline-shift:baseline;display:inline;overflow:visible;vector-effect:none;fill:#0f172a;stroke-linecap:round;stroke-linejoin:round;enable-background:accumulate;stop-color:#000000;stop-opacity:1;opacity:1"
+     d="M 14,10.25 A 0.75,0.75 0 0 0 13.25,11 v 8 A 0.75,0.75 0 0 0 14,19.75 0.75,0.75 0 0 0 14.75,19 V 11 A 0.75,0.75 0 0 0 14,10.25 Z"
+     id="path4" />
+  <path
+     style="baseline-shift:baseline;display:inline;overflow:visible;vector-effect:none;fill:#0f172a;stroke-linecap:round;stroke-linejoin:round;enable-background:accumulate;stop-color:#000000;stop-opacity:1;opacity:1"
+     d="M 10,10.25 A 0.75,0.75 0 0 0 9.25,11 v 8 A 0.75,0.75 0 0 0 10,19.75 0.75,0.75 0 0 0 10.75,19 V 11 A 0.75,0.75 0 0 0 10,10.25 Z"
+     id="path5" />
+  <path
+     style="baseline-shift:baseline;display:inline;overflow:visible;vector-effect:none;fill:#0f172a;stroke-linecap:round;stroke-linejoin:round;enable-background:accumulate;stop-color:#000000;stop-opacity:1;opacity:1"
+     d="M 6,10.25 A 0.75,0.75 0 0 0 5.25,11 v 8 A 0.75,0.75 0 0 0 6,19.75 0.75,0.75 0 0 0 6.75,19 V 11 A 0.75,0.75 0 0 0 6,10.25 Z"
+     id="path6" />
+</svg>

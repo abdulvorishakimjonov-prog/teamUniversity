@@ -1,0 +1,733 @@
+@use '../config/mixins' as *;
+
+
+.header {
+	position: fixed;
+	z-index: 111;
+	top: 0;
+	left: 0;
+	right: 0;
+	width: 100%;
+	min-height: var(--height-header);
+	background: white;
+	transition: background-color .2s ease, box-shadow .2s ease;
+
+	:where(a, button, i, img) {
+		transition: color .2s ease, background-color .2s ease, opacity .2s ease, transform .2s ease;
+	}
+
+	:where(a, button):focus-visible {
+		outline: 2px solid var(--blue800, #1E3A8A);
+		outline-offset: 2px;
+	}
+
+	&.index {
+		background-color: transparent;
+	}
+
+	&-container {
+		display: flex;
+		flex-direction: column;
+		align-items: stretch;
+		padding: 12px max(16px, env(safe-area-inset-right)) 0 max(16px, env(safe-area-inset-left));
+		gap: 0;
+
+		@include devices(md) {
+			flex-direction: row;
+			align-items: center;
+			justify-content: space-between;
+			padding: 10px max(10px, env(safe-area-inset-right)) 10px max(10px, env(safe-area-inset-left));
+			gap: 8px;
+		}
+
+		@include devices(sm) {
+			padding-top: 6px;
+			padding-bottom: 6px;
+			gap: 4px;
+		}
+	}
+
+	&-top {
+		display: grid;
+		grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
+		align-items: center;
+		gap: 16px;
+		padding-bottom: 16px;
+
+		@include devices(lg) {
+			gap: 12px;
+			padding-bottom: 12px;
+		}
+
+		@include devices(md) {
+			display: flex;
+			flex: 1;
+			min-width: 0;
+			justify-content: center;
+			order: 2;
+			padding: 0;
+		}
+	}
+
+	&-contacts {
+		display: flex;
+		align-items: center;
+		flex-wrap: wrap;
+		min-width: 0;
+		gap: 4px 24px;
+
+		@include devices(lg) {
+			gap: 4px 16px;
+		}
+
+		@include devices(md) {
+			display: none;
+		}
+	}
+
+	&-links {
+		display: flex;
+		align-items: center;
+		justify-content: flex-end;
+		flex-wrap: wrap;
+		min-width: 0;
+		gap: 4px 24px;
+
+		@include devices(lg) {
+			gap: 4px 16px;
+		}
+
+		@include devices(md) {
+			display: none;
+		}
+	}
+
+	&-contact,
+	&-link {
+		display: inline-flex;
+		align-items: center;
+		gap: 6px;
+		white-space: nowrap;
+		text-decoration: none;
+
+		i {
+			flex-shrink: 0;
+			color: #1C398E;
+		}
+
+		img {
+			width: 22px;
+			height: 22px;
+		}
+
+		@include devices(lg) {
+			font-size: 13px;
+		}
+	}
+
+	&-link {
+
+		&--accent {
+			color: var(--blue800, #1E3A8A);
+		}
+	}
+
+	&-logo {
+		display: block;
+		flex-shrink: 0;
+		width: auto;
+		height: 44px;
+		max-width: 60vw;
+
+		@include devices(md) {
+			height: 40px;
+		}
+
+		@include devices(sm) {
+			height: 36px;
+			max-width: 50vw;
+		}
+
+		&-img {
+			display: block;
+			width: 100%;
+			height: 100%;
+			object-fit: contain;
+		}
+	}
+
+	&-bottom {
+		display: flex;
+		align-items: center;
+		gap: 8px;
+		border-top: 1px solid var(--slate200);
+		min-height: 54px;
+
+		@include devices(md) {
+			display: contents;
+			border: 0;
+		}
+	}
+
+	&-lang {
+		position: relative;
+		display: flex;
+
+		&.hidden {
+			display: none;
+		}
+
+		&-dropdown {
+			cursor: pointer;
+			transition: none;
+			top: 0 !important;
+			padding: 5px;
+			border-radius: 12px;
+			right: 16px;
+			display: none;
+			flex-direction: column;
+			gap: 6px;
+			// RESP: kichik ekranda dropdown ekrandan chiqib ketmasin
+			max-width: calc(100vw - 32px);
+			max-height: 70dvh;
+			overflow-y: auto;
+
+			@include devices(sm) {
+				right: 8px;
+				max-width: calc(100vw - 16px);
+			}
+
+			&.show {
+				display: flex;
+			}
+		}
+
+		&-btn {
+			display: flex;
+			align-items: center;
+			gap: 8px;
+			background: transparent;
+			color: inherit;
+			cursor: pointer;
+
+			img {
+				width: 20px;
+				height: 20px;
+				border-radius: 111px;
+			}
+		}
+
+		&-item {
+			list-style: none;
+		}
+
+		&-link {
+			display: flex;
+			align-items: center;
+			gap: 8px;
+			padding: 6px 10px !important;
+			text-decoration: none;
+			transition: all 0.3s ease;
+			color: var(--black2) !important;
+			border-radius: 10px;
+
+			&:hover {
+				background: var(--blue2);
+				color: var(--slate800) !important;
+			}
+
+			&--active {
+				background: var(--blue1);
+				color: var(--slate800) !important;
+			}
+
+			img {
+				width: 20px;
+				border-radius: 111px;
+				height: 20px;
+			}
+		}
+	}
+
+	.vl {
+		display: block;
+		width: 0;
+		height: 24px;
+		border: 1px solid var(--slate200);
+
+		@include devices(md) {
+			display: none;
+		}
+	}
+
+	&-button {
+		background: transparent;
+		border: 0;
+		border-radius: 60px;
+		padding: 0;
+		position: relative;
+		top: 2px;
+		cursor: pointer;
+
+		i {
+			font-size: 24px;
+			color: var(--slate700);
+		}
+
+		@include devices(md) {
+			// RESP: barmoq bilan bosish uchun kamida 44x44px
+			display: inline-flex;
+			align-items: center;
+			justify-content: center;
+			min-width: 44px;
+			min-height: 44px;
+			top: 0;
+
+			&:first-child {
+				order: 1;
+			}
+
+			&:last-child {
+				order: 3;
+			}
+		}
+	}
+
+	&-search-input {
+		flex: 1;
+		min-width: 0;
+		height: 44px;
+		padding: 0 12px;
+		border: 0;
+		outline: 0;
+		background: transparent;
+		color: var(--slate800);
+		font: inherit;
+
+		@include devices(md) {
+			order: 2;
+		}
+	}
+
+	&-search-input[hidden],
+	&-search-close[hidden],
+	&-search-toggle [hidden] {
+		display: none;
+	}
+
+	&-search-close {
+		i {
+			display: inline-block;
+			transform: rotate(45deg);
+		}
+
+		@include devices(md) {
+			order: 3;
+		}
+	}
+
+	&-search-toggle {
+		@include devices(md) {
+			order: 4 !important;
+		}
+	}
+
+	&-bottom.is-searching {
+
+		.header-menu,
+		.vl:nth-of-type(3) {
+			display: none;
+		}
+	}
+
+	&.is-searching .header-top {
+		@include devices(md) {
+			display: none;
+		}
+	}
+
+	&-menu {
+		display: flex;
+		flex: 1;
+		min-width: 0;
+		align-items: center;
+		justify-content: space-between;
+		list-style: none;
+		margin: 0;
+		padding: 0;
+		position: relative;
+
+		@include devices(md) {
+			display: none;
+		}
+
+		&.hidden {
+			display: none;
+		}
+
+		&-item {
+			list-style: none;
+			position: relative;
+
+			&--dropdown {
+				cursor: pointer;
+			}
+		}
+
+		// Oxirgi 2 ta bandning submenyusi o'ngga chiqib ketmasligi uchun
+		// o'ng chetga tekislanadi...
+		.header-menu-item:nth-last-child(-n+2) > .header-menu-submenu {
+			left: auto;
+			right: 0;
+			transform: translate(0, -10px);
+		}
+
+		.header-menu-item:nth-last-child(-n+2):hover > .header-menu-submenu,
+		.header-menu-item:nth-last-child(-n+2):focus-within > .header-menu-submenu {
+			transform: translate(0, 0);
+		}
+
+		// RESP: ...ichki (2-daraja) submenyu esa chapga ochiladi
+		.header-menu-item:nth-last-child(-n+2) .header-menu-submenu-item--dropdown > .header-menu-submenu {
+			left: auto;
+			right: calc(100% - 1px);
+
+			&::before {
+				left: auto;
+				right: -12px;
+			}
+		}
+
+		&-link {
+			color: var(--slate800);
+			display: flex;
+			align-items: center;
+			gap: 6px;
+			padding: 16px 14px;
+			white-space: nowrap;
+			text-transform: uppercase;
+
+			// RESP: oraliq kengliklarda menyu sig'ishi uchun bosqichma-bosqich kichrayadi
+			@include devices(xl) {
+				padding: 16px 10px;
+				font-size: 14px;
+			}
+
+			@include devices(lg) {
+				padding: 12px 6px;
+				font-size: 13px;
+				gap: 4px;
+			}
+
+			i {
+				font-size: 18px;
+				color: var(--red800);
+
+				@include devices(lg) {
+					font-size: 16px;
+				}
+			}
+
+			span {
+				color: inherit;
+			}
+		}
+
+		&-submenu {
+			position: absolute;
+			top: 100%;
+			left: 50%;
+			// RESP: tor ekranda submenyu viewport'dan katta bo'lib ketmasin
+			min-width: min(300px, calc(100vw - 32px));
+			max-width: calc(100vw - 32px);
+			padding: 8px 0;
+			margin: 0;
+			list-style: none;
+			background-color: #FFFFFF;
+			border-radius: 12px;
+			box-shadow: 0 12px 35px rgba(15, 23, 42, 0.10);
+			opacity: 0;
+			visibility: hidden;
+			transform: translate(-50%, -10px);
+			z-index: 100;
+			pointer-events: none;
+			transition:
+				opacity 0.2s ease,
+				visibility 0.2s ease,
+				transform 0.2s ease;
+
+			// RESP: :focus-within — klaviatura va sensorli planshetlarda ham ochiladi
+			.header-menu-item--dropdown:hover > &,
+			.header-menu-item--dropdown:focus-within > & {
+				opacity: 1;
+				visibility: visible;
+				transform: translate(-50%, 0);
+				pointer-events: auto;
+			}
+
+			&-item {
+				list-style: none;
+				position: relative;
+
+				&:not(:last-child) {
+					border-bottom: 1px solid var(--blue2);
+				}
+
+				&--dropdown {
+
+					> .header-menu-submenu-link {
+						justify-content: space-between;
+
+						i {
+							flex: 0 0 auto;
+							transform: rotate(0deg);
+							transition: transform 0.2s ease;
+						}
+					}
+
+					&:hover,
+					&:focus-within {
+
+						> .header-menu-submenu-link {
+							color: var(--orange2);
+
+							i {
+								transform: rotate(-90deg);
+							}
+						}
+
+						> .header-menu-submenu {
+							opacity: 1;
+							visibility: visible;
+							transform: translate(0, 0);
+							pointer-events: auto;
+						}
+					}
+				}
+			}
+
+			.header-menu-submenu-item--dropdown > & {
+				top: 0;
+				left: calc(100% - 1px);
+				min-width: min(300px, calc(100vw - 32px));
+				transform: translate(0, 0);
+				border-radius: 12px;
+				z-index: 101;
+
+				&::before {
+					content: "";
+					position: absolute;
+					top: 0;
+					left: -12px;
+					width: 12px;
+					height: 100%;
+					background: transparent;
+				}
+			}
+
+			&-link {
+				display: flex;
+				align-items: center;
+				justify-content: space-between;
+				gap: 12px;
+				width: 100%;
+				padding: 10px 16px;
+				text-decoration: none;
+				color: var(--slate800);
+				border: 0;
+				cursor: pointer;
+				text-align: left;
+				transition:
+					color 0.2s ease,
+					background-color 0.2s ease;
+
+				&:hover {
+					color: var(--orange2);
+					opacity: 1;
+				}
+
+				i {
+					flex: 0 0 auto;
+					font-size: 14px;
+				}
+			}
+		}
+
+		&-test {
+			display: flex;
+			align-items: center;
+			gap: 8px;
+			font-size: 16px;
+			border-radius: 55px;
+			background: rgba(255, 255, 255, 0.2);
+			color: var(--slate800);
+			padding: 2px 12px;
+			animation: rgb 6s ease-in-out infinite forwards;
+			white-space: nowrap;
+			flex: 0 0 auto;
+
+			@include devices(sm) {
+				display: none !important;
+			}
+
+			// RESP: harakatni kamaytirishni so'ragan foydalanuvchilar uchun
+			@media (prefers-reduced-motion: reduce) {
+				animation: none;
+			}
+		}
+
+		&-warning {
+
+			&-text {
+
+				@include devices(xl) {
+					display: none;
+				}
+			}
+		}
+
+		@keyframes rgb {
+
+			0% {
+				color: red;
+			}
+
+			20% {
+				color: yellow;
+			}
+
+			40% {
+				color: orange;
+			}
+
+			60% {
+				color: magenta;
+			}
+
+			80% {
+				color: cyan;
+			}
+
+			100% {
+				color: red;
+			}
+		}
+
+		&-btn {
+			display: inline-flex;
+			align-items: center;
+			gap: 8px;
+			background: transparent;
+			color: inherit;
+			cursor: pointer;
+			border-radius: 555px;
+			border: 1px solid #FFFFFF1A;
+			padding: 13px;
+		}
+	}
+
+	.button {
+		white-space: nowrap;
+	}
+}
+
+// ---------- Menyu holatlari (Figma: "Navbar items") ----------
+// Yuqori daraja: matn to'q, hover/ochiq holatda ko'k; chevron doim qizil va pastga qaragan.
+// Dropdown ichidagi bandlar: matn to'q, hover/ochiq holatda ko'k; chevron qizil va o'ngga qaragan.
+.header {
+	.header-menu-link {
+		color: var(--slate900);
+		transition: color 0.2s ease;
+
+		i {
+			color: var(--red700);
+			transform: none;
+		}
+	}
+
+	.header-menu-link:hover,
+	.header-menu-item--dropdown:hover > .header-menu-link,
+	.header-menu-item--dropdown:focus-within > .header-menu-link {
+		color: var(--blue900);
+	}
+
+	.header-menu-submenu-link {
+		color: var(--slate900);
+
+		i {
+			font-size: 18px;
+			color: var(--red700);
+			transform: rotate(-90deg);
+		}
+	}
+
+	.header-menu-submenu-link:hover,
+	.header-menu-submenu-item--dropdown:hover > .header-menu-submenu-link,
+	.header-menu-submenu-item--dropdown:focus-within > .header-menu-submenu-link {
+		color: var(--blue900);
+
+		i {
+			color: var(--red700);
+			transform: rotate(-90deg);
+		}
+	}
+}
+
+// Birinchi band chap chetga yaqin: dropdown ekrandan chiqib ketmasligi uchun chapga tekislanadi
+.header {
+	.header-menu-item:first-child > .header-menu-submenu {
+		left: 0;
+		transform: translate(0, -10px);
+	}
+
+	.header-menu-item:first-child:hover > .header-menu-submenu,
+	.header-menu-item:first-child:focus-within > .header-menu-submenu {
+		transform: translate(0, 0);
+	}
+}
+
+// ---------- RESP: menyu har qanday kenglikda sig'sin ----------
+// 992px dan 1920px gacha menyu bandlari ekran kengligiga qarab kichrayadi (avval 1580px dan
+// pastda oxirgi band qidiruv tugmasi ustiga chiqib ketardi).
+.header {
+	.header-menu-link {
+		gap: 4px;
+		padding: 16px clamp(5px, 0.7vw, 14px);
+		font-size: clamp(11.5px, 0.93vw, 16px);
+
+		i {
+			font-size: clamp(14px, 1.1vw, 18px);
+		}
+	}
+
+	// 992–1199px: joy yetmaydi, chevronlar yashiriladi (dropdown hover bilan baribir ochiladi)
+	@include devices(lg) {
+		.header-menu-link {
+			padding: 16px 4px;
+			font-size: 11px;
+
+			i {
+				display: none;
+			}
+		}
+	}
+}
+
+// ---------- Skroldan keyingi holat: yuqori qator och ko'k fonda, pastki qator oq ----------
+@media (min-width: 992px) {
+	.header:not(.index) {
+		background: #FFFFFF;
+		box-shadow: 0 4px 16px rgba(15, 23, 42, 0.06);
+
+		.header-top {
+			background: var(--slate50);
+			// fon konteynerdan tashqariga, ekranning to'liq kengligigacha chiqadi
+			box-shadow: 0 0 0 100vmax var(--slate50);
+			clip-path: inset(-12px -100vmax 0);
+		}
+
+		.header-bottom {
+			border-top-color: transparent;
+		}
+	}
+}

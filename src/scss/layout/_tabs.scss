@@ -1,0 +1,70 @@
+@use '../config/mixins' as *;
+
+.tab-navigation {
+	display: flex;
+	padding: 0 0 9px;
+	position: relative;
+	margin-bottom: 20px;
+	width: 100%;
+	gap: 18px;
+	flex-wrap: wrap;
+	border-bottom: 1px solid #E2E8F0;
+
+	@include devices(md) {
+		margin-bottom: 16px;
+		flex-wrap: wrap;
+	}
+
+	.tab-button {
+		width: fit-content;
+		border: none;
+		background: transparent;
+		cursor: pointer;
+		position: relative;
+		z-index: 1;
+		transition: all 0.3s ease;
+		display: flex;
+		align-items: center;
+		font-weight: 500;
+		justify-content: center;
+		white-space: nowrap;
+		color: #64748B;
+
+		&::after {
+			content: '';
+			position: absolute;
+			left: 0;
+			right: 0;
+			bottom: -10px; // 9px padding + 1px border: chiziq border ustiga tushadi
+			height: 2px;
+			border-radius: 2px;
+			background: #155DFC;
+			transform: scaleX(0);
+			transition: transform 0.3s ease;
+		}
+
+		&.active {
+			color: #155DFC;
+
+			&::after {
+				transform: scaleX(1);
+			}
+		}
+
+		&:hover {
+			background: var(var(--blue500));
+		}
+
+		&:hover:not(.active) {
+			background: var(var(--blue500));
+		}
+
+		&:focus {
+			outline-offset: 2px;
+		}
+
+		@include devices(sm) {
+			padding: 8px 6px;
+		}
+	}
+}

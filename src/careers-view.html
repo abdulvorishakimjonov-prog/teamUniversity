@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	@@include('components/layout/head.html', {"title":"Careers View","description":"TEAM University — the first entrepreneurial university in Uzbekistan, in partnership with London South Bank University."})
+</head>
+
+<body>
+	@@include('components/layout/header.html')
+	@@include('components/layout/menu.html')
+	@@include('components/layout/breadcrumb.html', {"title":"Careers View","first":"Careers","last":"View"})
+	<div class="layout">
+		<div class="container">
+			<div class="layout-content">
+				<div class="careers-view">
+					<div class="careers-view-content">
+						<h5>Assistant Professor of Finance</h5>
+						<div class="careers-view-content-link">
+							<p class="body3 slate700">Employment: <i class="i-view"></i>Full time</p>
+							<p class="body3 slate700">Employment: <i class="i-view"></i>Full time</p>
+						</div>
+						<div class="careers-view-content-line"></div>
+						<div class="careers-view-content-title">
+							<b class="subtitle8 slate900">About the Position</b>
+							<p class="body3 slate600">Join our dynamic faculty to inspire and mentor the next generation
+								of financial leaders.
+								As an Assistant Professor of Finance, you will contribute to the academic environment
+								and support students in developing their knowledge and skills in finance.</p>
+						</div>
+						<div class="careers-view-content-line"></div>
+						<div class="careers-view-content-subtitle">
+							<b class="subtitle8 slate900">What You Will Do</b>
+							<div class="body3 slate600">
+								<p><span></span>Contribute to the academic environment.</p>
+								<p><span></span>Support and mentor students.</p>
+								<p><span></span>Inspire the next generation of financial leaders.</p>
+								<p><span></span>Contribute to students’ development in finance.</p>
+							</div>
+						</div>
+					</div>
+
+					<div class="careers-view-contact">
+						<h5 class="subtitle3 slate900">Apply for This Position</h5>
+
+						<form class="careers-view-contact-form" action="" method="post" enctype="multipart/form-data" data-form="careers-view">
+<!-- BACKEND: CSRF token (Laravel: @csrf) va action URL shu yerga -->
+	<div class="careers-view-contact-form-col">
+		<label>
+			<span class="body8 slate600">Full name</span>
+			<input id="careers-view-full-name" name="full_name" autocomplete="name" type="text" placeholder="Full name">
+		</label>
+		<label>
+			<span class="body8 slate600">Full name</span>
+			<input id="careers-view-full-name-2" name="full_name_2" autocomplete="name" type="text" placeholder="Full name">
+		</label>
+		<label>
+			<span class="body8 slate600">Full name</span>
+			<input id="careers-view-full-name-3" name="full_name_3" autocomplete="name" type="text" placeholder="Full name">
+		</label>
+	</div>
+
+	<div class="careers-view-contact-form-item">
+		<label>
+			<span>Motivation letter</span>
+			<textarea name="motivation_letter" id="careers-view-motivation-letter" placeholder="Motivation letter"></textarea>
+		</label>
+		<label>
+			<span>Upload CV</span>
+
+			<div class="careers-view-contact-form-item-upload">
+				<input name="cv" type="file" id="careers-view-cv" accept=".pdf">
+				<span>Upload file or drag</span>
+			</div>
+		</label>
+	</div>
+	</form>
+
+	<div class="button">
+		<p>Send</p>
+		<i class="i-telegram"></i>
+	</div>
+	</div>
+	</div>
+	</div>
+	<div class="layout-sidebar">
+		@@include('components/layout/sidebar.html')
+	</div>
+
+	</div>
+	</div>
+
+
+	@@include('components/layout/footer.html')
+
+</body>
+
+</html>

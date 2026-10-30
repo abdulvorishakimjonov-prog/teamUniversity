@@ -1,0 +1,378 @@
+@use '../config/mixins' as *;
+
+.sidebar {
+	position: sticky;
+	top: calc(10px + var(--height-header));
+	border-radius: 24px;
+	overflow: hidden;
+
+	@include devices(md) {
+		position: static;
+		top: auto;
+	}
+
+	&__title {
+		padding: 16px 16px 35px;
+		position: relative;
+		overflow: hidden;
+
+		background: #1C398E;
+		color: #FFFFFF;
+
+		@include devices(md) {
+			font-size: 16px;
+			font-weight: 600;
+		}
+
+		&::after {
+			content: '';
+			position: absolute;
+			bottom: -15%;
+			right: 5%;
+
+			width: 50px;
+			height: 50px;
+
+			transform: rotate(-15deg);
+
+			background: url("../images/icon-transparent.svg") no-repeat;
+			background-size: contain;
+
+			z-index: 1;
+		}
+	}
+
+	&__list {
+		position: relative;
+		top: -19px;
+
+		margin: 0;
+		padding: 0;
+
+		list-style: none;
+
+		border-radius: 24px;
+		background-color: #FFFFFF;
+
+		color: #334155;
+
+		overflow: hidden;
+
+		* {
+			transition: all 0.2s ease;
+		}
+
+		&--item {
+			cursor: pointer;
+
+			&:hover:not(.has-dropdown),
+			&.active:not(.has-dropdown) {
+
+				.sidebar__link {
+					padding-left: 38px;
+					padding-right: 0;
+
+					&::before {
+						width: 10px;
+						height: 10px;
+
+						opacity: 1;
+
+						border-radius: 60px;
+
+						background: #C10007;
+
+						box-shadow:
+							0 5px 5px 0 color-mix(in srgb,
+								#C10007 10%,
+								transparent);
+					}
+				}
+
+				&.active:not(.has-dropdown) .sidebar__link {
+					color: var(--red700);
+				}
+			}
+
+			&.has-dropdown {
+				padding: 0;
+
+				> .sidebar__button {
+					display: flex;
+					align-items: center;
+					justify-content: space-between;
+
+					width: 100%;
+					padding: 12px;
+					text-align: start;
+
+					color: #334155;
+				}
+
+				&.active > .sidebar__button {
+					color: var(--red700);
+				}
+
+				&.open {
+
+					> .sidebar__button {
+						color: #1C398E;
+						font-weight: 500;
+					}
+
+					.sidebar__icon {
+						transform: rotate(0deg);
+					}
+
+					.sidebar__dropdown {
+						max-height: 500px;
+						opacity: 1;
+
+						margin: 0 8px 8px;
+						padding: 8px 0;
+						border-color: #F5F7F9;
+					}
+				}
+			}
+		}
+	}
+
+	&__link {
+		position: relative;
+
+		display: flex;
+		align-items: center;
+
+		padding: 12px 18px 12px 12px;
+
+		color: #334155;
+
+		&::before {
+			content: '';
+
+			position: absolute;
+			top: 50%;
+			left: 12px;
+
+			width: 0;
+			height: 0;
+
+			transform: translateY(-50%);
+
+			opacity: 0;
+
+			border-radius: 60px;
+
+			background: #C10007;
+
+			transition: all 0.2s ease;
+		}
+	}
+
+	&__button {
+		position: relative;
+
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+
+		width: 100%;
+
+		padding: 12px;
+
+		cursor: pointer;
+
+		color: #334155;
+
+		transition: color 0.2s ease;
+	}
+
+	&__icon {
+		flex-shrink: 0;
+
+		font-size: 20px;
+
+		// closed: chevron points right, open: points down
+		transform: rotate(-90deg);
+
+		transition: transform 0.3s ease;
+	}
+
+	&__dropdown {
+		max-height: 0;
+
+		margin: 0;
+		padding: 0;
+
+		list-style: none;
+
+		overflow: hidden;
+
+		opacity: 0;
+
+		border: 1px solid transparent;
+		border-radius: 16px;
+		background-color: #F8FAFC;
+
+		transition:
+			max-height 0.3s ease,
+			opacity 0.2s ease;
+
+		&--item {
+			&.active .sidebar__dropdown--link {
+				color: var(--red700);
+			}
+
+			&:hover,
+			&.active {
+
+				.sidebar__dropdown--link {
+					padding-left: 28px;
+
+					&::before {
+						width: 10px;
+						height: 10px;
+
+						opacity: 1;
+
+						border-radius: 60px;
+
+						background: #C10007;
+
+						box-shadow:
+							0 5px 5px 0 color-mix(in srgb,
+								#C10007 10%,
+								transparent);
+					}
+				}
+			}
+		}
+
+		&--link {
+			position: relative;
+
+			display: block;
+
+			padding: 8px 12px 8px 8px;
+
+			color: #334155;
+
+			&::before {
+				content: '';
+
+				position: absolute;
+				top: 50%;
+				left: 8px;
+
+				width: 0;
+				height: 0;
+
+				transform: translateY(-50%);
+
+				opacity: 0;
+
+				border-radius: 60px;
+
+				background: #C10007;
+
+				transition: all 0.2s ease;
+			}
+		}
+	}
+}
+
+// Event details card under the sidebar menu (event page, Figma 1254:18374)
+.sidebar-event {
+	margin-top: 20px;
+	padding: 16px;
+	border-radius: 24px;
+	background: #FFFFFF;
+	display: flex;
+	flex-direction: column;
+	gap: 16px;
+
+	@include devices(md) {
+		border-radius: 20px;
+	}
+
+	&-list {
+		display: flex;
+		flex-direction: column;
+		gap: 20px;
+		padding: 12px;
+		border-radius: 16px;
+		background: #F5F7F9;
+
+		&-item {
+			display: flex;
+			align-items: center;
+			justify-content: space-between;
+			gap: 8px;
+
+			span {
+				display: flex;
+				align-items: center;
+				gap: 6px;
+
+				i {
+					font-size: 20px;
+				}
+			}
+
+			b {
+				font-weight: 500;
+				text-align: right;
+			}
+		}
+	}
+
+	&-contact {
+		display: flex;
+		flex-direction: column;
+		gap: 10px;
+		padding: 12px;
+		border-radius: 16px;
+		background: #EFF6FF;
+
+		h6,
+		a {
+			display: flex;
+			align-items: center;
+			gap: 6px;
+
+			i {
+				font-size: 22px;
+			}
+		}
+
+		a {
+			word-break: break-all;
+		}
+	}
+
+	&-button {
+		width: 100%;
+		justify-content: space-between;
+		gap: 8px;
+
+		span {
+			white-space: nowrap;
+		}
+	}
+}
+
+// Keep the menu and any extra sidebar cards together when the page scrolls.
+.sidebar-stack {
+	position: sticky;
+	top: calc(10px + var(--height-header));
+
+	> .sidebar {
+		position: static;
+		top: auto;
+	}
+
+	@include devices(md) {
+		position: static;
+		top: auto;
+	}
+}

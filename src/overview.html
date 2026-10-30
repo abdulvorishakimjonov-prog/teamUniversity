@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	@@include('components/layout/head.html', {"title":"Overview","description":"TEAM University — the first entrepreneurial university in Uzbekistan, in partnership with London South Bank University."})
+</head>
+
+<body>
+	@@include('components/layout/header.html')
+	@@include('components/layout/menu.html')
+	@@include('components/layout/breadcrumb.html', {"title":"Overview","first":"Overview","last":""})
+	<div class="layout">
+		<div class="container">
+			<div class="layout-content">
+				<div class="overview">
+					<div class="sudents-image">
+						<div class="course-bg">
+							<img src="@/images/memberships-1.png" alt="">
+							<div class="course-bg-title">
+								<div class="course-bg-title-text">
+									<h5 class="subtitle2 slate900">Programmes for companies</h5>
+									<p class="body3 slate700">We design training for teams and leaders around your company's goals — from
+										short workshops to long-term development programmes.</p>
+								</div>
+								<div class="sudents-image-inner">
+									<div class="button">
+										<p>Submit a request</p>
+										<i class="i-arrow"></i>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<div class="overview-main">
+						<h5 class="subtitle2 slate900">Learning That Fits Your Business</h5>
+						<div class="grid _2">
+							<div class="overview-main-card">
+								<div class="overview-main-card-icon">
+									<img src="@/images/overview-img-1.svg" alt="">
+								</div>
+								<div class="overview-main-card-text">
+									<h6 class="subtitle5 blue900">Tailored Programmes</h6>
+									<p class="body3 slate600">Description: Validation of undergraduate programmes, with postgraduate
+										programmes to </p>
+								</div>
+							</div>
+							<div class="overview-main-card">
+								<div class="overview-main-card-icon">
+									<img src="@/images/overview-img-2.svg" alt="">
+								</div>
+								<div class="overview-main-card-text">
+									<h6 class="subtitle5 blue900">Practical Learning</h6>
+									<p class="body3 slate600">Opportunities for student and staff exchange and internatio nal academic
+										experience.</p>
+								</div>
+							</div>
+							<div class="overview-main-card">
+								<div class="overview-main-card-icon">
+									<img src="@/images/overview-img-3.svg" alt="">
+								</div>
+								<div class="overview-main-card-text">
+									<h6 class="subtitle5 blue900">Flexible Formats</h6>
+									<p class="body3 slate600">Collaborative research activities between TEAM University and LSBU. </p>
+								</div>
+							</div>
+							<div class="overview-main-card">
+								<div class="overview-main-card-icon">
+									<img src="@/images/overview-img-4.svg" alt="">
+								</div>
+								<div class="overview-main-card-text">
+									<h6 class="subtitle5 blue900">Leadership Development</h6>
+									<p class="body3 slate600">Collaborative research activities between TEAM University and LSBU.</p>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="layout-sidebar">
+				@@include('components/layout/sidebar.html')
+			</div>
+		</div>
+	</div>
+
+	@@include('components/layout/footer.html')
+
+</body>
+
+</html>

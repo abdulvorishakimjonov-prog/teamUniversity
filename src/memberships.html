@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	@@include('components/layout/head.html', {"title":"Memberships","description":"TEAM University — the first entrepreneurial university in Uzbekistan, in partnership with London South Bank University."})
+</head>
+
+<body>
+	@@include('components/layout/header.html')
+	@@include('components/layout/menu.html')
+	@@include('components/layout/breadcrumb.html', {"title":"Memberships","first":"Memberships","last":""})
+	<div class="layout">
+		<div class="container">
+			<div class="layout-content">
+				<div class="memberships">
+					<div class="partnership-item">
+						<img src="@/images/memberships-1.png" alt="">
+						<div class="partnership-item-main">
+							<div class="partnership-item-main-box">
+								<h5 class="subtitle2 slate900">Accreditations & Memberships</h5>
+								<p class="body3 slate600">TEAM University is a member of the Business Graduates Association (BGA), the international network for business schools within AMBA & BGA.</p>
+							</div>
+						</div>
+					</div>
+
+					<div class="network-contact">
+						<div class="network-contact-text">
+							<h5 class="subtitle2 slate900">Triple-accredited business education</h5>
+							<p class="body3 slate600">Kozminski University holds three leading international business school accreditations.</p>
+						</div>
+						<div class="grid _4">
+							<div class="network-contact-card">
+								<img src="@/images/network-1.svg" alt="">
+							</div>
+							<div class="network-contact-card">
+								<img src="@/images/network-2.svg" alt="">
+							</div>
+							<div class="network-contact-card">
+								<img src="@/images/network-3.svg" alt="">
+							</div>
+							<div class="network-contact-card">
+								<img src="@/images/network-4.svg" alt="">
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="layout-sidebar">
+				@@include('components/layout/sidebar.html')
+			</div>
+
+		</div>
+	</div>
+
+
+	@@include('components/layout/footer.html')
+
+</body>
+
+</html>

@@ -1,0 +1,717 @@
+@use '../config/mixins' as *;
+
+.about {
+	position: relative;
+
+	&-section {
+		display: flex;
+		flex-direction: column;
+		gap: 20px;
+
+		@include devices(md) {
+			gap: 12px;
+		}
+
+		&-container {
+			padding: 32px;
+			background: white;
+			border-radius: 32px;
+			margin-top: 106px;
+			margin-bottom: 75px;
+
+			@include devices(lg) {
+				margin-top: 80px;
+				margin-bottom: 60px;
+			}
+
+			@include devices(md) {
+				padding: 14px;
+				border-radius: 24px;
+				margin-top: 60px;
+				margin-bottom: 45px;
+			}
+
+			@include devices(sm) {
+				padding: 12px;
+				border-radius: 20px;
+				margin-top: 40px;
+				margin-bottom: 32px;
+			}
+		}
+
+		@include devices(md) {
+			flex-direction: column;
+		}
+
+		&-overlay {
+			position: absolute;
+			left: 0;
+			top: 0;
+			bottom: 0;
+			object-fit: fill;
+			object-position: left;
+			width: auto;
+			height: 100%;
+			min-width: 60%;
+
+			@include devices(md) {
+				min-width: 75%;
+			}
+
+			@include devices(sm) {
+				min-width: 100%;
+				width: 100%;
+				opacity: 0.7;
+			}
+
+			&::after {
+				content: '';
+				position: absolute;
+				inset: 0;
+				width: 100%;
+				height: 100%;
+				background: linear-gradient(90deg,
+						rgba(255, 255, 255, 0.91) 0%,
+						#FFFFFF 100%);
+				z-index: 2;
+
+				@include devices(sm) {
+					background: linear-gradient(90deg,
+							rgba(255, 255, 255, 0.88) 0%,
+							rgba(255, 255, 255, 0.96) 100%);
+				}
+			}
+
+			img {
+				object-fit: cover;
+				width: 100%;
+				z-index: 1;
+				height: 100%;
+			}
+		}
+
+		&-content {
+			display: flex;
+			flex-direction: column;
+			align-items: flex-start;
+			gap: 16px;
+
+			@include devices(md) {
+				gap: 12px;
+			}
+
+			@include devices(sm) {
+				gap: 10px;
+			}
+
+			.section-top {
+				flex-direction: column;
+				align-items: flex-start !important;
+
+				@include devices(md) {
+					align-items: center !important;
+					justify-content: center;
+					margin: 0 0 16px;
+					width: 100%;
+					text-align: center;
+				}
+
+				@include devices(sm) {
+					margin-bottom: 12px;
+				}
+			}
+		}
+
+		&-carousel {
+			width: calc(100% + 48px);
+			margin: 0 -24px;
+			overflow: hidden;
+
+			@include devices(md) {
+				width: calc(100% + 28px);
+				margin: 0 -14px;
+			}
+
+			@include devices(sm) {
+				width: calc(100% + 24px);
+				margin: 0 -12px;
+			}
+
+			.owl-stage {
+				display: flex;
+				width: max-content !important;
+				animation: carousel-marquee 24s linear infinite alternate;
+			}
+
+			.owl-item {
+				width: 160px !important;
+				flex: 0 0 160px;
+
+				@include devices(sm) {
+					width: 140px !important;
+					flex: 0 0 140px;
+				}
+			}
+		}
+
+		@keyframes carousel-marquee {
+			from {
+				transform: translate3d(0, 0, 0);
+			}
+
+			to {
+				transform: translate3d(-50%, 0, 0);
+			}
+		}
+
+		&-item {
+			position: relative;
+			overflow: hidden;
+			max-height: 84px;
+			display: flex;
+			align-items: center;
+
+			background: #EFF6FF;
+			padding: 24px 16px;
+			border-radius: 24px;
+			gap: 12px;
+
+			@include devices(md) {
+				padding: 20px 14px;
+				border-radius: 20px;
+				gap: 10px;
+			}
+
+			@include devices(sm) {
+				padding: 16px 12px;
+				border-radius: 16px;
+				gap: 8px;
+			}
+
+			img,
+			p {
+				position: relative;
+				z-index: 2;
+			}
+
+			img {
+				width: 36px;
+				height: 36px;
+				object-fit: cover;
+
+				@include devices(md) {
+					width: 32px;
+					height: 32px;
+				}
+
+				@include devices(sm) {
+					width: 28px;
+					height: 28px;
+				}
+			}
+
+			p {
+				color: #0F172A;
+
+				@include devices(sm) {
+					font-size: 14px;
+					line-height: 20px;
+				}
+			}
+
+			&::before {
+				content: '';
+				position: absolute;
+				top: -13px;
+				left: -43px;
+
+				width: 115px;
+				height: 100%;
+				border-radius: 18px;
+				transform: rotate(-20deg);
+				background: #DBEAFE;
+				z-index: 1;
+
+				@include devices(sm) {
+					width: 90px;
+					left: -35px;
+				}
+			}
+
+			&::after {
+				content: '';
+				position: absolute;
+				top: -2px;
+				left: -17px;
+
+				width: 115px;
+				height: 100%;
+
+				background: #DBEAFE;
+				border-radius: 18px;
+				transform: rotate(-20deg);
+				opacity: .5;
+				z-index: 1;
+
+				@include devices(sm) {
+					width: 90px;
+					left: -14px;
+				}
+			}
+		}
+	}
+
+	&-page {
+
+		&-content {
+			background: #FFFFFF;
+			border-radius: 32px;
+			padding: 24px;
+			margin-bottom: 20px;
+
+			@include devices(md) {
+				border-radius: 24px;
+				padding: 12px;
+			}
+
+			@include devices(sm) {
+				border-radius: 20px;
+				padding: 10px;
+			}
+
+			&-item {
+				display: grid;
+				grid-template-columns: 1fr 440px;
+				align-items: flex-end;
+				gap: 20px;
+				margin-bottom: 20px;
+
+				@include devices(lg) {
+					grid-template-columns: 1fr 360px;
+				}
+
+				@include devices(md) {
+					grid-template-columns: 1fr;
+					gap: 16px;
+				}
+
+				@include devices(sm) {
+					gap: 12px;
+					margin-bottom: 16px;
+				}
+
+				&-text {
+					display: flex;
+					flex-direction: column;
+					gap: 8px;
+
+					@include devices(sm) {
+						gap: 6px;
+					}
+
+					ul {
+						display: flex;
+						flex-direction: column;
+						gap: 25px;
+
+						@include devices(md) {
+							gap: 18px;
+						}
+
+						@include devices(sm) {
+							gap: 14px;
+						}
+					}
+				}
+
+				&-image {
+					position: relative;
+					overflow: hidden;
+					border-radius: 24px;
+
+					@include devices(md) {
+						border-radius: 20px;
+					}
+
+					@include devices(sm) {
+						border-radius: 16px;
+					}
+
+					img {
+						display: block;
+						width: 100%;
+						height: 100%;
+						object-fit: cover;
+
+						@include devices(md) {
+							height: auto;
+						}
+					}
+
+					&-play {
+						position: absolute;
+						top: 50%;
+						left: 50%;
+						width: 64px;
+						height: 64px;
+
+						display: flex;
+						align-items: center;
+						justify-content: center;
+
+						transform: translate(-50%, -50%);
+						border: 7px solid transparent;
+						border-radius: 50%;
+						// blue disc inside a metallic ring
+						background:
+							linear-gradient(#1C398E, #1C398E) padding-box,
+							conic-gradient(from 200deg,
+								#F4F4F4 0%,
+								#8C8C80 18%,
+								#D9D9D2 35%,
+								#6E6E64 52%,
+								#EDEDE8 70%,
+								#9A9A8E 85%,
+								#F4F4F4 100%) border-box;
+						box-shadow:
+							0 4px 12px rgba(0, 0, 0, .25),
+							inset 0 0 0 1px rgba(255, 255, 255, .35);
+						z-index: 2;
+
+						@include devices(sm) {
+							width: 52px;
+							height: 52px;
+						}
+
+						i {
+							font-size: 24px;
+							color: white;
+
+							@include devices(sm) {
+								font-size: 20px;
+							}
+						}
+					}
+				}
+			}
+
+			&-wrapper {
+				display: flex;
+				justify-content: space-between;
+				margin-top: 20px;
+				gap: 20px;
+
+				@include devices(md) {
+					display: grid;
+					grid-template-columns: repeat(2, 1fr);
+					gap: 16px;
+				}
+
+				@include devices(sm) {
+					grid-template-columns: 1fr;
+					gap: 12px;
+				}
+
+				&-card {
+					display: flex;
+					align-items: center;
+					gap: 12px;
+
+					@include devices(sm) {
+						gap: 10px;
+					}
+
+					&-image {
+						width: 63px;
+						height: 63px;
+						border-radius: 16px;
+						padding: 10px;
+						background: #EFF6FF;
+						flex-shrink: 0;
+
+						@include devices(md) {
+							width: 56px;
+							height: 56px;
+							padding: 8px;
+						}
+
+						@include devices(sm) {
+							width: 48px;
+							height: 48px;
+							border-radius: 12px;
+							padding: 7px;
+						}
+
+						img {
+							display: block;
+							width: 100%;
+							height: 100%;
+							object-fit: contain;
+						}
+					}
+
+					&-content {
+						display: flex;
+						flex-direction: column;
+					}
+				}
+
+				&-line {
+					width: 1px;
+					background: #E2E8F0;
+
+					@include devices(md) {
+						display: none;
+					}
+				}
+
+				// only two cards: split in half, line in the middle, cards start from the left of each half
+				&:has(> .about-page-content-wrapper-card:nth-child(3):last-child) {
+					justify-content: flex-start;
+
+					> .about-page-content-wrapper-card {
+						flex: 1;
+					}
+				}
+			}
+		}
+
+		&-cards {
+			display: grid;
+			grid-template-columns: repeat(2, 1fr);
+			gap: 20px;
+			margin-bottom: 20px;
+
+			@include devices(md) {
+				grid-template-columns: 1fr;
+				gap: 16px;
+			}
+
+			@include devices(sm) {
+				gap: 12px;
+				margin-bottom: 16px;
+			}
+
+			&-item {
+				border-radius: 32px;
+				padding: 20px;
+
+				@include devices(md) {
+					border-radius: 24px;
+					padding: 16px;
+				}
+
+				@include devices(sm) {
+					border-radius: 20px;
+					padding: 14px;
+				}
+
+				&-title {
+					display: flex;
+					align-items: flex-start;
+					justify-content: space-between;
+					margin-bottom: 9px;
+					gap: 15px;
+
+					@include devices(sm) {
+						margin-bottom: 8px;
+					}
+
+					&-icon {
+						width: 52px;
+						height: 52px;
+						border-radius: 16px;
+						padding: 10px;
+						flex-shrink: 0;
+
+						@include devices(md) {
+							width: 56px;
+							height: 56px;
+							padding: 9px;
+						}
+
+						@include devices(sm) {
+							width: 48px;
+							height: 48px;
+							border-radius: 12px;
+							padding: 8px;
+						}
+
+						img {
+							width: 100%;
+							height: 100%;
+							object-fit: contain;
+						}
+					}
+				}
+
+				&:nth-child(1) {
+					background: radial-gradient(50.08% 100% at 0% 0%,
+							#FFE2E2 0%,
+							#FFFFFF 100%);
+
+					.about-page-cards-item-title-icon {
+						background: #C10007;
+					}
+				}
+
+				&:nth-child(2) {
+					background: radial-gradient(50.08% 100% at 0% 0%,
+							#DBEAFE 0%,
+							#FFFFFF 100%);
+
+					.about-page-cards-item-title-icon {
+						background: #1C398E;
+					}
+				}
+			}
+		}
+
+		&-stats {
+			background: white;
+			border-radius: 32px;
+
+			@include devices(md) {
+				border-radius: 24px;
+			}
+
+			@include devices(sm) {
+				border-radius: 20px;
+			}
+
+			&-title {
+				padding: 24px;
+
+				@include devices(md) {
+					padding: 20px;
+				}
+
+				@include devices(sm) {
+					padding: 16px;
+				}
+			}
+		}
+
+		&-interview {
+			background: #FFFFFF;
+			border-radius: 32px;
+			padding: 24px;
+
+			@include devices(md) {
+				border-radius: 24px;
+				padding: 20px;
+			}
+
+			@include devices(sm) {
+				border-radius: 20px;
+				padding: 14px;
+			}
+
+			&-title {
+				display: flex;
+				align-items: flex-end;
+				justify-content: space-between;
+				margin-bottom: 24px;
+				gap: 20px;
+
+				@include devices(md) {
+					align-items: flex-start;
+					flex-direction: column;
+					margin-bottom: 18px;
+				}
+
+				@include devices(sm) {
+					gap: 12px;
+					margin-bottom: 14px;
+				}
+
+				&-text {
+					max-width: 451px;
+
+					@include devices(md) {
+						max-width: 100%;
+					}
+				}
+			}
+
+			&-image {
+				position: relative;
+				z-index: 0;
+				overflow: hidden;
+				border-radius: 24px;
+
+				@include devices(md) {
+					border-radius: 20px;
+				}
+
+				@include devices(sm) {
+					border-radius: 16px;
+				}
+
+				img {
+					position: relative;
+					z-index: 1;
+					display: block;
+					width: 100%;
+					height: auto;
+				}
+
+				&-icon {
+					position: absolute;
+					top: 50%;
+					left: 50%;
+					transform: translate(-50%, -50%);
+					z-index: 2;
+
+					border: 7px solid transparent;
+					border-radius: 50%;
+					// blue disc inside a metallic ring
+					background:
+						linear-gradient(#1C398E, #1C398E) padding-box,
+						conic-gradient(from 200deg,
+							#F4F4F4 0%,
+							#8C8C80 18%,
+							#D9D9D2 35%,
+							#6E6E64 52%,
+							#EDEDE8 70%,
+							#9A9A8E 85%,
+							#F4F4F4 100%) border-box;
+					box-shadow:
+						0 4px 12px rgba(0, 0, 0, .25),
+						inset 0 0 0 1px rgba(255, 255, 255, .35);
+					padding: 0;
+
+					display: flex;
+					align-items: center;
+					justify-content: center;
+
+					width: 64px;
+					height: 64px;
+
+					cursor: pointer;
+
+					@include devices(md) {
+						width: 56px;
+						height: 56px;
+						border-width: 6px;
+					}
+
+					@include devices(sm) {
+						width: 48px;
+						height: 48px;
+						border-width: 5px;
+					}
+
+					i {
+						font-size: 24px;
+						color: #FFFFFF;
+
+						@include devices(sm) {
+							font-size: 18px;
+						}
+					}
+				}
+			}
+		}
+	}
+}

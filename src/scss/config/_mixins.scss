@@ -1,0 +1,43 @@
+@use "sass:map";
+
+@mixin line-fix($lines, $lh: 1.3em) {
+	display: -webkit-box;
+	-webkit-line-clamp: $lines;
+	line-clamp: $lines;
+	-webkit-box-orient: vertical;
+	overflow: hidden;
+	text-overflow: ellipsis;
+
+	line-height: $lh !important;
+	min-height: $lines * $lh;
+}
+
+@mixin font($size: 16px, $weight: 500, $style: normal, $line-height: 1.3, $letter-spacing: 0) {
+	font-size: $size;
+	font-style: $style;
+	font-weight: $weight;
+	line-height: $line-height;
+	letter-spacing: $letter-spacing;
+}
+
+$device-breakpoints: (
+	xxl: 1712px,
+	xl: 1400px,
+	lg: 1199px,
+	md: 991px,
+	sm: 768px,
+	xs: 574px,
+	xxs: 350px
+);
+
+@mixin devices($breakpoint, $type: "max") {
+	$resolved-breakpoint: $breakpoint;
+
+	@if map.has-key($device-breakpoints, $breakpoint) {
+		$resolved-breakpoint: map.get($device-breakpoints, $breakpoint);
+	}
+
+	@media (max-width: $resolved-breakpoint) {
+		@content;
+	}
+}

@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	@@include('components/layout/head.html', {"title":"Contacts","description":"TEAM University — the first entrepreneurial university in Uzbekistan, in partnership with London South Bank University."})
+</head>
+
+<body>
+	@@include('components/layout/header.html')
+	@@include('components/layout/menu.html')
+	@@include('components/layout/breadcrumb.html', {"title":"Contacts","first":"Contacts","last":""})
+	<div class="layout">
+		<div class="container">
+			<div class="contacts">
+				<div class="contacts-content">
+					<h5 class="subtitle2 slate800">Contact information</h5>
+					<div class="contacts-content-wrapper">
+						<div class="contacts-content-wrapper-card">
+							<div class="contacts-content-wrapper-card-image">
+								<img src="@/images/contacts-img-1.svg" alt="">
+							</div>
+							<div>
+								<p class="subtitle8">+998 78 113 08 28</p>
+							</div>
+						</div>
+						<div class="contacts-content-wrapper-card">
+							<div class="contacts-content-wrapper-card-image">
+								<img src="@/images/contacts-img-2.svg" alt="">
+							</div>
+							<div>
+								<p class="subtitle8">info@teamuni.uz</p>
+							</div>
+						</div>
+						<div class="contacts-content-wrapper-card">
+							<div class="contacts-content-wrapper-card-image">
+								<img src="@/images/contacts-img-3.svg" alt="">
+							</div>
+							<div>
+								<p class="subtitle8">Tashkent, Temur Malik Street, 146.</p>
+							</div>
+						</div>
+						<div class="contacts-content-wrapper-card">
+							<div class="contacts-content-wrapper-card-image">
+								<i class="i-instagram"></i>
+							</div>
+							<div class="contacts-content-wrapper-card-image">
+								<i class="i-facebook"></i>
+							</div>
+							<div class="contacts-content-wrapper-card-image">
+								<i class="i-telegram"></i>
+							</div>
+							<div class="contacts-content-wrapper-card-image">
+								<i class="i-linkedin"></i>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="contacts-main">
+
+					<div class="contacts-main-link">
+						<h5 class="subtitle2 slate800">Send us a message</h5>
+
+						<form class="contacts-main-link-form" action="" method="post" data-form="contacts">
+<!-- BACKEND: CSRF token (Laravel: @csrf) va action URL shu yerga -->
+
+	<div class="contacts-main-link-form-fields">
+		<label>
+			<span class="body8">Full name</span>
+			<input id="contacts-full-name" name="full_name" autocomplete="name" type="text" placeholder="Full name">
+		</label>
+
+		<label>
+			<span class="body8">Phone number</span>
+			<input id="contacts-phone-number" name="phone_number" autocomplete="tel" type="tel" placeholder="Phone number">
+		</label>
+	</div>
+
+	<label class="contacts-main-link-form-message">
+		<span>Message</span>
+		<textarea id="contacts-message" name="message" placeholder="Motivation letter"></textarea>
+	</label>
+
+	<button type="submit" class="button">
+		<p>Send</p>
+		<i class="i-arrow"></i>
+	</button>
+
+	</form>
+	</div>
+
+
+	<div class="contacts-main-map">
+		<h5 class="subtitle2 slate800">View from the map</h5>
+
+		<iframe
+			src="https://yandex.uz/map-widget/v1/?ll=69.344272%2C41.309051&mode=search&oid=142050076946&ol=biz&z=17.14"
+			width="100%" height="368" border-radius="24px" frameborder="0" allowfullscreen>
+		</iframe>
+	</div>
+
+	</div>
+	</div>
+	</div>
+	</div>
+
+
+	@@include('components/layout/footer.html')
+
+</body>
+
+</html>

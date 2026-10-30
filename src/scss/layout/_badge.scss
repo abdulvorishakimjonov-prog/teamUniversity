@@ -1,0 +1,31 @@
+.badge {
+	padding: 4px 12px;
+	border-radius: 11px;
+	font-weight: 500;
+	font-size: 14px;
+	line-height: 130%;
+	box-shadow: 0px -5px 5px 0px #F6F6F6 inset;
+	background: white;
+	color: var(--gray600);
+	border: 2px solid #E5E7EB;
+
+	&-blue {
+		background: var(--blue50, #EFF6FF);
+		color: var(--blue600);
+		border: 1px solid var(--blue200, #BFDBFE)
+	}
+
+	&-green {
+		box-shadow: 0px -5px 5px 0px #04785726 inset;
+		background: #ECFDF5;
+		color: #047857;
+		border: 2px solid #A7F3D0;
+	}
+
+	&-yellow {
+		box-shadow: 0px -5px 5px 0px #D9770626 inset;
+		background: #FFFBEB;
+		color: #D97706;
+		border: 2px solid #FDE68A;
+	}
+}

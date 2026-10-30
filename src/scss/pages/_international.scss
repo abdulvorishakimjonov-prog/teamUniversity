@@ -1,0 +1,643 @@
+@use '../config/mixins' as *;
+
+.international {
+
+	&-content {
+		background: #FFFFFF;
+		border-radius: 32px;
+		padding: 24px 16px;
+		margin-bottom: 20px;
+
+		@include devices(md) {
+			border-radius: 24px;
+			padding: 20px 16px;
+		}
+
+		@include devices(sm) {
+			border-radius: 20px;
+			padding: 14px;
+		}
+
+		&-main {
+			display: grid;
+			grid-template-columns: 1fr 357px;
+			gap: 32px;
+			margin-bottom: 10px;
+
+			&-title {
+				display: flex;
+				flex-direction: column;
+
+				p {
+					margin: 8px 0 32px;
+				}
+
+				&-bottom {
+					display: flex;
+					align-items: center;
+					gap: 32px;
+				}
+			}
+
+			&-box {
+				max-width: 357px;
+				width: 100%;
+				height: 244px;
+				border-radius: 16px;
+				background: #DDDDDD;
+
+				img {
+					width: 100%;
+					height: 100%;
+					object-fit: cover;
+					border-radius: 16px;
+				}
+			}
+		}
+	}
+
+	&-tab {
+		background: #FFFFFF;
+		border-radius: 32px;
+		padding: 24px;
+		margin-top: 20px;
+
+		@include devices(md) {
+			border-radius: 24px;
+			padding: 20px 16px;
+		}
+
+		@include devices(sm) {
+			border-radius: 20px;
+			padding: 14px;
+		}
+
+		h5 {
+			margin-bottom: 20px;
+		}
+
+		.bottom {
+			margin-top: 20px;
+		}
+
+		.top {
+			margin-top: 50px;
+		}
+
+		&-grid {
+			background: #F1F5F9;
+			padding: 16px;
+			border-radius: 24px;
+
+			&-text {
+				display: flex;
+				flex-direction: column;
+				gap: 8px;
+				margin-bottom: 20px;
+
+				
+			}
+
+			&-card {
+				background: #1C398E;
+				border-radius: 16px;
+				padding: 16px;
+
+				&-flex {
+					display: flex;
+					align-items: center;
+					justify-content: space-between;
+
+					&-icon {
+						width: 44px;
+						height: 44px;
+						background: #FFFFFF1A;
+						border: 1px solid #FFFFFF33;
+						backdrop-filter: blur(10px);
+						border-radius: 12px;
+						padding: 9px;
+						display: flex;
+						flex-direction: column;
+						gap: 32px;
+					}
+
+					p {
+						font-size: 34px;
+						font-weight: 600;
+						background: linear-gradient(180deg,
+							#FFFFFF 0%,
+							rgba(255, 255, 255, 0.15) 70.45%);
+
+						-webkit-background-clip: text;
+						-webkit-text-fill-color: transparent;
+						background-clip: text;
+						color: transparent;
+					}
+				}
+
+				&-text {
+					display: flex;
+					flex-direction: column;
+					gap: 8px;
+					color: #FFFFFF;
+				}
+			}
+
+			&-item {
+				background: #FFFFFF;
+				border-radius: 16px;
+				padding: 16px;
+				display: flex;
+				flex-direction: column;
+				justify-content: space-between;
+				min-height: 276px;
+
+				&-text {
+					display: flex;
+					flex-direction: column;
+
+					h4 {
+						margin: 10px 0 4px;
+					}
+				}
+
+				&-bottom {
+					display: flex;
+					align-items: center;
+					justify-content: space-between;
+					background: #EFF6FF;
+					border-radius: 12px;
+					padding: 10px;
+
+
+				}
+			}
+		}
+
+		&-inner {
+			background: var(--color-blue-50, #EFF6FF);
+			border: 1px solid var(--color-blue-200, #BEDBFF);
+			width: 100%;
+			border-radius: 24px;
+			padding: 32px;
+			text-align: center;
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			justify-content:center;
+			margin-top: 20px;
+
+			h6 {
+				margin: 4px 0 16px;
+			}
+
+			p {
+				max-width: 575px;
+			}
+		}
+
+		&-info {
+			background: #F5F7F9;
+			border-radius: 24px;
+			padding: 16px;
+			margin-top: 20px;
+
+			&-text {
+				display: flex;
+				flex-direction: column;
+				gap: 4px;
+				margin-bottom: 20px;
+			}
+
+			&-card {
+				background: #FFFFFF;
+				border-radius: 16px;
+				padding: 12px;
+				display: grid;
+				grid-template-columns: 148px 1fr;
+				align-items: center;
+				gap: 12px;
+				max-height: 119px;
+
+				&-image {
+					background: #F5F7F9;
+					width: 148px;
+					height: 76px;
+					border-radius: 12px;
+					padding: 16px;
+
+					img {
+						width: 100%;
+						height: 100%;
+						object-fit: contain;
+					}
+				}
+
+				&-text {
+					display: flex;
+					flex-direction: column;
+					gap: 4px;
+
+					&-icon {
+						width: fit-content;
+						display: flex;
+						align-items: center;
+						gap: 8px;
+						padding: 4px;
+						border-radius: 44px;
+						background: #F5F7F9;
+
+						img {
+							width: 24px;
+							height: 24px;
+							object-fit: cover;
+						}
+					}
+				}
+			}
+		}
+
+
+	}
+
+	&-wrapper {
+		background: #FFFFFF;
+		border-radius: 32px;
+		padding: 24px;
+		margin: 20px 0;
+
+		@include devices(md) {
+			border-radius: 24px;
+			padding: 20px 16px;
+		}
+
+		@include devices(sm) {
+			border-radius: 20px;
+			padding: 14px;
+		}
+
+		&-text {
+			display: flex;
+			flex-direction: column;
+			gap: 8px;
+			margin-bottom: 20px;
+		}
+
+		&-cards {
+			display: grid;
+			grid-template-columns: repeat(2, 1fr);
+			gap: 20px;
+
+			&-card {
+				background: #F5F7F9;
+				padding: 16px;
+				border-radius: 24px;
+				display: grid;
+				grid-template-columns: 150px 1fr;
+				align-items: center;
+				gap: 12px;
+				margin-bottom: 25px;
+
+				&-image {
+					width: 150px;
+					height: 104px;
+					border-radius: 12px;
+					padding: 10px 21px;
+					background: #FFFFFF;
+
+					img {
+						width: 100%;
+						height: 100%;
+						object-fit: contain;
+					}
+				}
+
+				&-title {
+					display: flex;
+					flex-direction: column;
+					gap: 6px;
+				}
+			}
+
+			&-item {
+				display: flex;
+				flex-direction: column;
+				gap: 10px;
+				border-radius: 24px;
+				padding: 0 16px 16px;
+
+				&:nth-child(1) {
+					background: #EFF6FF;
+
+					.advantages-item-icon {
+						background: #1C398E;
+					}
+				}
+
+				&:nth-child(2) {
+					background: #F0FDF4;
+
+					.advantages-item-icon {
+						background: #15803D;
+					}
+				}
+
+				&:nth-child(3) {
+					background: #EFF6FF;
+
+					.international-wrapper-cards-item-icon {
+						background: #1C398E;
+					}
+				}
+
+				&:nth-child(4) {
+					background: #FEF2F2;
+
+					.international-wrapper-cards-item-icon {
+						background: #C10007;
+					}
+				}
+
+				&-icon {
+					width: 48px;
+					height: 48px;
+					border-radius: 16px;
+					padding: 10px;
+					margin-top: -25px;
+
+					img {
+						width: 100%;
+						height: 100%;
+						object-fit: cover;
+					}
+				}
+			}
+		}
+
+
+	}
+
+	&-info {
+		background: #FFFFFF;
+		border-radius: 32px;
+		padding: 24px;
+		margin-bottom: 20px;
+
+		@include devices(md) {
+			border-radius: 24px;
+			padding: 20px 16px;
+		}
+
+		@include devices(sm) {
+			border-radius: 20px;
+			padding: 14px;
+		}
+
+		&-title {
+			display: flex;
+			flex-direction: column;
+			gap: 8px;
+			margin-bottom: 20px;
+		}
+
+		&-list {
+			display: grid;
+			grid-template-columns: repeat(2, 1fr);
+			gap: 20px;
+
+			&-card {
+				background: #F5F7F9;
+				border-radius: 24px;
+				padding: 16px;
+				display: grid;
+				grid-template-columns: 150px 1fr;
+				align-items: center;
+				gap: 12px;
+
+				&-image {
+					background: #FFFFFF;
+					width: 150px;
+					height: 88px;
+					padding: 10px;
+					border-radius: 12px;
+
+					img {
+						width: 100%;
+						height: 100%;
+						object-fit: contain;
+					}
+				}
+
+				&-subtitle {
+					display: flex;
+					flex-direction: column;
+					gap: 6px;
+
+					&-title {
+						display: flex;
+						align-items: center;
+						justify-content: space-between;
+
+						&-icon {
+							display: flex;
+							align-items: center;
+							gap: 8px;
+							padding: 4px;
+							border-radius: 44px;
+							background: #FFFFFF;
+
+							img {
+								width: 24px;
+								height: 24px;
+								object-fit: cover;
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+
+	&-bg {
+		position: relative;
+
+		>img {
+			display: block;
+			width: 100%;
+			height: 450px;
+			object-fit: cover;
+			border-radius: 24px;
+		}
+
+		&-box {
+			position: absolute;
+			z-index: 2;
+			top: 50%;
+			left: 24px;
+			transform: translateY(-50%);
+
+			width: calc(100% - 48px);
+			max-width: 663px;
+
+			background: #FFFFFF;
+			border-radius: 24px;
+			padding: 24px 16px 16px;
+
+			&-text {
+				display: flex;
+				flex-direction: column;
+				gap: 8px;
+				margin-bottom: 20px;
+				padding: 0 0 20px;
+				border-bottom: 1px solid #E2E8F0;
+			}
+
+			&-inner {
+				display: grid;
+				grid-template-columns: repeat(2, 1fr);
+				gap: 21px;
+				margin-bottom: 18px;
+
+				&-line {
+					display: flex;
+					flex-direction: column;
+					gap: 4px;
+
+					p {
+						display: flex;
+						align-items: center;
+						gap: 4px;
+
+						i {
+							font-size: 20px;
+							color: #1C398E;
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
+// ---------- RESP: responsive ----------
+.international-content-main {
+	@include devices(md) {
+		grid-template-columns: 1fr;
+		gap: 20px;
+	}
+}
+
+.international-content-main-box {
+	@include devices(md) {
+		max-width: 100%;
+		height: 220px;
+	}
+
+	@include devices(sm) {
+		height: 180px;
+	}
+}
+
+.international-content-main-title-bottom {
+	@include devices(sm) {
+		flex-wrap: wrap;
+		gap: 16px;
+	}
+}
+
+.international-tab-info-card,
+.international-wrapper-cards-card,
+.international-info-list-card {
+	@include devices(sm) {
+		grid-template-columns: 1fr;
+		max-height: none;
+	}
+}
+
+.international-tab-info-card-image,
+.international-wrapper-cards-card-image,
+.international-info-list-card-image {
+	@include devices(sm) {
+		width: 100%;
+	}
+}
+
+.international-wrapper-cards,
+.international-info-list {
+	@include devices(md) {
+		grid-template-columns: 1fr;
+		gap: 16px;
+	}
+}
+
+.international-tab-grid-card-flex p {
+	@include devices(sm) {
+		font-size: 28px;
+	}
+}
+
+.international-bg {
+	@include devices(md) {
+		> img {
+			height: 380px;
+		}
+	}
+
+	@include devices(sm) {
+		display: flex;
+		flex-direction: column;
+
+		> img {
+			height: 200px;
+			border-radius: 20px 20px 0 0;
+		}
+	}
+}
+
+.international-bg-box {
+	@include devices(sm) {
+		position: relative;
+		top: auto;
+		left: auto;
+		transform: none;
+		width: 100%;
+		max-width: none;
+		padding: 16px;
+		border-radius: 0 0 20px 20px;
+	}
+}
+
+.international-bg-box-inner {
+	@include devices(sm) {
+		grid-template-columns: 1fr;
+		gap: 14px;
+	}
+}
+
+// Partners / Grants tablari
+.international-tab-grid-text.partner-main-item-text {
+	margin-bottom: 66px;
+
+	@include devices(sm) {
+		margin-bottom: 44px;
+	}
+}
+
+.international-tab-grid .partner-main-item-card-title-image.is-light {
+	background: #FFFFFF;
+	border: 1px solid #E2E8F0;
+}
+
+.international-tab-grid-item-text > span {
+	text-transform: uppercase;
+}
+
+.international-tab-inner > span {
+	text-transform: uppercase;
+}
+
+.international-tab-info-card {
+	@include devices(sm) {
+		grid-template-columns: 1fr;
+	}
+}

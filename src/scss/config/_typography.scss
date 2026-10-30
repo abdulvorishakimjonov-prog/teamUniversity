@@ -1,0 +1,197 @@
+@use "./mixins" as *;
+
+@for $i from 1 through 5 {
+	.line-clamp-#{$i} {
+		display: -webkit-box;
+		-webkit-line-clamp: $i;
+		line-clamp: $i;
+		-webkit-box-orient: vertical;
+		overflow: hidden;
+
+		text-overflow: ellipsis;
+
+		// .tooltip marks clamped text that shows its full text on hover (main.js);
+		// undo Bootstrap's .tooltip popup styles on the text itself
+		&.tooltip {
+			opacity: 1;
+			z-index: auto;
+			font-family: inherit;
+			text-align: inherit;
+			text-decoration: inherit;
+			text-shadow: inherit;
+			text-transform: inherit;
+			white-space: inherit;
+			word-break: inherit;
+			word-spacing: inherit;
+			word-wrap: inherit;
+			line-break: inherit;
+		}
+	}
+}
+
+@for $i from 1 through 5 {
+	.line-fix-#{$i} {
+		@include line-fix($i);
+	}
+}
+
+.headline1 {
+	@include font($size: 58px, $weight: 700);
+	overflow-wrap: break-word;
+
+	@include devices(md) {
+		font-size: 48px;
+	}
+
+	@include devices(sm) {
+		font-size: 36px;
+	}
+}
+
+.headline2 {
+	@include font($size: 52px, $weight: 700);
+	overflow-wrap: break-word;
+
+	@include devices(md) {
+		font-size: 44px;
+	}
+
+	@include devices(sm) {
+		font-size: 34px;
+	}
+}
+
+.headline3 {
+	@include font($size: 48px, $weight: 700);
+	overflow-wrap: break-word;
+
+	@include devices(md) {
+		font-size: 40px;
+	}
+
+	@include devices(sm) {
+		font-size: 32px;
+	}
+}
+
+.headline4 {
+	@include font($size: 42px, $weight: 700);
+	overflow-wrap: break-word;
+
+	@include devices(md) {
+		font-size: 36px;
+	}
+
+	@include devices(sm) {
+		font-size: 28px;
+	}
+}
+
+.headline5 {
+	@include font($size: 36px, $weight: 700);
+	overflow-wrap: break-word;
+
+	@include devices(md) {
+		font-size: 32px;
+	}
+
+	@include devices(sm) {
+		font-size: 26px;
+	}
+}
+
+.subtitle1 {
+	@include font($size: 32px, $weight: 700);
+	overflow-wrap: break-word;
+
+	@include devices(md) {
+		font-size: 30px;
+	}
+
+	@include devices(sm) {
+		font-size: 26px;
+	}
+}
+
+.subtitle2 {
+	@include font($size: 28px, $weight: 600);
+	overflow-wrap: break-word;
+
+	@include devices(md) {
+		font-size: 26px;
+	}
+
+	@include devices(sm) {
+		font-size: 24px;
+	}
+}
+
+.subtitle3 {
+	@include font($size: 24px, $weight: 600);
+}
+
+.subtitle4 {
+	@include font($size: 24px, $weight: 500);
+}
+
+.subtitle5 {
+	@include font($size: 22px, $weight: 600);
+}
+
+// subtitle6 va subtitle8 bir xil uslub (20px / 500)
+.subtitle6,
+.subtitle8 {
+	@include font($size: 20px, $weight: 500);
+}
+
+.subtitle7 {
+	@include font($size: 20px, $weight: 600);
+}
+
+.subtitle9 {
+	@include font($size: 20px, $weight: 400);
+}
+
+.body1 {
+	@include font($size: 18px, $weight: 600);
+}
+
+.body2 {
+	@include font($size: 18px, $weight: 500);
+}
+
+.body3 {
+	@include font($size: 18px, $weight: 400);
+}
+
+.body6 {
+	@include font($size: 16px, $weight: 600);
+}
+
+.body7 {
+	@include font($size: 16px, $weight: 500);
+}
+
+.body8 {
+	@include font($size: 16px, $weight: 400);
+}
+
+.body9 {
+	@include font($size: 14px, $weight: 600);
+}
+
+.body10 {
+	@include font($size: 14px, $weight: 500);
+}
+
+.body11 {
+	@include font($size: 14px, $weight: 400);
+}
+
+.button1 {
+	@include font($size: 16px, $weight: 500, $line-height: 24px);
+}
+
+.button2 {
+	@include font($size: 18px, $weight: 500, $line-height: 24px);
+}

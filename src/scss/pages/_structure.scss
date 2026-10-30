@@ -1,0 +1,204 @@
+@use '../config/mixins' as *;
+
+.structure {
+
+	&-main {
+		position: relative;
+		display: flex;
+		flex-direction: column;
+		gap: 20px;
+		margin-top: 20px;
+
+		@include devices(md) {
+			gap: 16px;
+		}
+
+		@include devices(sm) {
+			gap: 12px;
+			margin-top: 16px;
+		}
+
+
+		&::before {
+			content: '';
+			position: absolute;
+			top: 0;
+			bottom: 0;
+			left: 25px;
+			width: 2px;
+			background: #E2E8F0;
+			z-index: 0;
+
+			// RESP: chiziq kichraygan qizil belgining o'rtasidan o'tishi kerak (40px / 2)
+			@include devices(sm) {
+				left: 19px;
+			}
+		}
+
+		&-item {
+			position: relative;
+			z-index: 1;
+
+			display: flex;
+
+			&-left {
+				background: linear-gradient(270deg, #9F0712 0%, #C10007 50%);
+				border-top-left-radius: 16px;
+				border-bottom-left-radius: 16px;
+				width: 50px;
+				height: 45px;
+				padding: 10px 16px 10px 10px;
+				color: #FFFFFF;
+				margin-top: 30px;
+				// RESP: o'ng blok kengayganda belgi siqilib qolmasin
+				flex-shrink: 0;
+
+				@include devices(sm) {
+					width: 40px;
+					height: 38px;
+					padding: 8px 12px 8px 8px;
+					margin-top: 24px;
+					border-top-left-radius: 12px;
+					border-bottom-left-radius: 12px;
+				}
+			}
+
+			&-right {
+				width: 100%;
+				// RESP: ichidagi uzun matn blokni kengaytirib yubormasin
+				min-width: 0;
+				background: #FFFFFF;
+				border-radius: 32px;
+				padding: 20px;
+
+				@include devices(md) {
+					border-radius: 24px;
+					padding: 16px;
+				}
+
+				@include devices(sm) {
+					border-radius: 20px;
+					padding: 14px;
+				}
+
+				&-title {
+					display: flex;
+					align-items: start;
+					justify-content: space-between;
+					border-bottom: 1px solid #E2E8F0;
+					padding: 0 0 16px;
+					margin-bottom: 16px;
+
+					// RESP: tor ekranda sarlavha va yonidagi element o'raladi
+					@include devices(sm) {
+						flex-wrap: wrap;
+						gap: 8px 12px;
+						padding-bottom: 12px;
+						margin-bottom: 12px;
+					}
+
+					h6 {
+						margin-bottom: 4px;
+					}
+				}
+
+				&-forum {
+					display: flex;
+					flex-direction: column;
+					gap: 12px;
+
+					@include devices(sm) {
+						gap: 10px;
+					}
+
+					&-wrapper {
+						display: grid;
+						// RESP: minmax(0, 1fr) — uzun matn ustunni kengaytirib yubormasin
+						grid-template-columns: repeat(2, minmax(0, 1fr));
+						gap: 16px;
+
+						@include devices(md) {
+							gap: 12px;
+						}
+
+						// RESP: telefonda kartalar bitta ustunda
+						@include devices(sm) {
+							grid-template-columns: minmax(0, 1fr);
+							gap: 10px;
+						}
+
+						&-card {
+							position: relative;
+							overflow: hidden;
+							background: #F5F7F9;
+							border-radius: 16px;
+							padding: 16px;
+							display: flex;
+							align-items: center;
+							justify-content: space-between;
+							color: #0F172A;
+							gap: 16px;
+							transition: color .4s ease;
+							overflow-wrap: break-word;
+
+							@include devices(md) {
+								padding: 14px;
+								gap: 12px;
+							}
+
+							@include devices(sm) {
+								border-radius: 14px;
+								padding: 12px 14px;
+							}
+
+							&::before {
+								content: '';
+								position: absolute;
+								inset: 0;
+								border-radius: inherit;
+
+								background: radial-gradient(100% 2980.61% at 100% 50%,
+									#1C398E 0%,
+									#355BCA 100%);
+
+								opacity: 0;
+								transition: opacity .4s ease;
+
+								z-index: 0;
+							}
+
+							> * {
+								position: relative;
+								z-index: 1;
+								min-width: 0;
+							}
+
+							i {
+								font-size: 24px;
+								color: #1C398E;
+								transition: color .4s ease;
+								flex-shrink: 0;
+
+								@include devices(sm) {
+									font-size: 22px;
+								}
+							}
+
+							&:hover {
+								color: #FFFFFF;
+
+								&::before {
+									opacity: 1;
+								}
+
+								i {
+									color: #FFFFFF;
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}

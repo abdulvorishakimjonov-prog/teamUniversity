@@ -1,0 +1,140 @@
+@use '../config/mixins' as *;
+
+.grid {
+	display: grid;
+	grid-template-columns: repeat(1, 1fr);
+	gap: 16px;
+
+	// RESP: grid katakchalari kontentdan kengaymasin
+	> * {
+		min-width: 0;
+	}
+
+	&._2 {
+		grid-template-columns: repeat(2, 1fr);
+
+		@include devices(sm) {
+			grid-template-columns: repeat(1, 1fr);
+		}
+	}
+
+	&._3 {
+		grid-template-columns: repeat(3, 1fr);
+
+		@include devices(md) {
+			grid-template-columns: repeat(2, 1fr);
+		}
+
+		@include devices(sm) {
+			grid-template-columns: repeat(1, 1fr);
+		}
+	}
+
+	&._4 {
+		grid-template-columns: repeat(4, 1fr);
+
+		@include devices(lg) {
+			grid-template-columns: repeat(3, 1fr);
+		}
+
+		@include devices(md) {
+			grid-template-columns: repeat(2, 1fr);
+		}
+
+		@include devices(sm) {
+			grid-template-columns: repeat(1, 1fr);
+		}
+	}
+
+	&._5 {
+		grid-template-columns: repeat(5, 1fr);
+
+		@include devices(lg) {
+			grid-template-columns: repeat(4, 1fr);
+		}
+
+		@include devices(md) {
+			grid-template-columns: repeat(2, 1fr);
+		}
+
+		@include devices(sm) {
+			grid-template-columns: repeat(1, 1fr);
+		}
+	}
+
+	&._6 {
+		grid-template-columns: repeat(6, 1fr);
+
+		@include devices(lg) {
+			grid-template-columns: repeat(4, 1fr);
+		}
+
+		@include devices(md) {
+			grid-template-columns: repeat(2, 1fr);
+		}
+
+		@include devices(sm) {
+			grid-template-columns: repeat(1, 1fr);
+		}
+	}
+
+	&._7 {
+		grid-template-columns: repeat(7, 1fr);
+
+		@include devices(lg) {
+			grid-template-columns: repeat(4, 1fr);
+		}
+
+		@include devices(md) {
+			grid-template-columns: repeat(2, 1fr);
+		}
+
+		@include devices(sm) {
+			grid-template-columns: repeat(1, 1fr);
+		}
+	}
+
+	&._8 {
+		grid-template-columns: repeat(8, 1fr);
+
+		@include devices(lg) {
+			grid-template-columns: repeat(4, 1fr);
+		}
+
+		@include devices(md) {
+			grid-template-columns: repeat(2, 1fr);
+		}
+
+		@include devices(sm) {
+			grid-template-columns: repeat(1, 1fr);
+		}
+	}
+
+	.span {
+
+		&_2 {
+			grid-column: span 2;
+		}
+
+		&_3 {
+			grid-column: span 3;
+		}
+
+		&_4 {
+			grid-column: span 4;
+		}
+
+		&_5 {
+			grid-column: span 5;
+		}
+
+		&_6 {
+			grid-column: span 6;
+		}
+
+		&_7 {
+			grid-column: span 7;
+		}
+
+	}
+}

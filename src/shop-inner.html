@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	@@include('components/layout/head.html', {"title":"Shop Inner","description":"TEAM University — the first entrepreneurial university in Uzbekistan, in partnership with London South Bank University."})
+</head>
+
+<body>
+	@@include('components/layout/header.html')
+	@@include('components/layout/menu.html')
+	@@include('components/layout/breadcrumb.html', {"title":"Shop Inner","first":"Shop","last":"Inner"})
+	<div class="layout">
+		<div class="container">
+			<div class="shop">
+				<div class="shop-checkout">
+					<div class="shop-checkout-order">
+						<div class="shop-checkout-order-list" data-shop-cart-list>
+							<div class="shop-checkout-order-item" data-shop-item data-id="1" data-name="T-shirt" data-price="129000" data-img="leadership-img-1.png">
+								<img src="@/images/leadership-img-1.png" alt="T-shirt">
+								<div class="shop-checkout-order-item-text">
+									<h6 class="subtitle5 slate900">T-shirt</h6>
+									<p class="body8 slate600">Lorem ipsum dolor sit amet consectetur. Euismod lectus nisl urna nascetur consequat suscipit praesent donec rhoncus. Vitae lobortis scelerisque eget integer. Amet euismod arcu morbi dui.</p>
+									<div class="shop-checkout-order-item-text-row">
+										<div class="shop-qty" data-shop-qty>
+											<button type="button" data-minus aria-label="Decrease"><img src="@/images/minus.svg" alt=""></button>
+											<span data-value>1</span>
+											<button type="button" data-plus aria-label="Increase"><img src="@/images/plus.svg" alt=""></button>
+										</div>
+										<button type="button" class="shop-checkout-order-item-remove" data-shop-remove aria-label="Remove"><svg viewBox="0 0 24 24" width="14" height="14" aria-hidden="true"><path d="M4 7h16M10 11v6M14 11v6M6 7l1 13h10l1-13M9 7V4h6v3" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+									</div>
+								</div>
+								<p class="shop-checkout-order-item-price subtitle5 blue900" data-shop-line>129 000 UZS</p>
+							</div>
+						</div>
+						<div class="shop-checkout-order-total">
+							<p class="body3 slate900">Total:</p>
+							<p class="subtitle5 blue900" data-shop-total>129 000 UZS</p>
+						</div>
+					</div>
+					<form class="shop-checkout-form" data-shop-form novalidate action="" method="post" data-form="shop-inner">
+<!-- BACKEND: CSRF token (Laravel: @csrf) va action URL shu yerga -->
+	<h6 class="subtitle5 slate900">Your order:</h6>
+	<div class="shop-checkout-form-fields">
+	<label class="shop-checkout-form-field">
+		<span class="body8 slate900">Full name</span>
+		<input id="shop-inner-full-name" name="full_name" autocomplete="name" type="text" placeholder="Full name" required>
+	</label>
+	<label class="shop-checkout-form-field">
+		<span class="body8 slate900">Phone number</span>
+		<input id="shop-inner-phone-number" name="phone_number" autocomplete="tel" type="tel" placeholder="Phone number" required>
+	</label>
+	<label class="shop-checkout-form-field">
+		<span class="body8 slate900">Email</span>
+		<input id="shop-inner-email" name="email" autocomplete="email" type="email" placeholder="Email" required>
+	</label>
+	</div>
+	<p class="shop-checkout-form-message body8" data-shop-message hidden></p>
+	<button type="submit" class="shop-buy">Buy T-Shirt<span class="shop-buy-icon"><img src="@/images/shop.svg" alt=""></span></button>
+	</form>
+	</div>
+	</div>
+	</div>
+	</div>
+	@@include('components/layout/footer.html')
+
+</body>
+
+</html>

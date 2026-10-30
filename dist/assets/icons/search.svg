@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   width="24"
+   height="24"
+   viewBox="0 0 24 24"
+   fill="none"
+   version="1.1"
+   id="svg2"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <defs
+     id="defs2" />
+  <path
+     style="baseline-shift:baseline;display:inline;overflow:visible;vector-effect:none;fill:#334155;stroke-linecap:round;stroke-linejoin:round;enable-background:accumulate;stop-color:#000000;stop-opacity:1;opacity:1"
+     d="m 17,16.25 a 0.75,0.75 0 0 0 -0.53125,0.21875 0.75,0.75 0 0 0 0,1.0625 l 4,4 a 0.75,0.75 0 0 0 1.0625,0 0.75,0.75 0 0 0 0,-1.0625 l -4,-4 A 0.75,0.75 0 0 0 17,16.25 Z"
+     id="path1" />
+  <path
+     style="baseline-shift:baseline;display:inline;overflow:visible;vector-effect:none;fill:#334155;stroke-linecap:round;stroke-linejoin:round;enable-background:accumulate;stop-color:#000000;stop-opacity:1;opacity:1"
+     d="m 11,2.25 c -4.8236097,0 -8.75,3.9263903 -8.75,8.75 0,4.823628 3.9263926,8.75 8.75,8.75 4.823626,0 8.75,-3.926374 8.75,-8.75 0,-4.8236074 -3.926372,-8.75 -8.75,-8.75 z m 0,1.5 c 4.012972,0 7.25,3.2370474 7.25,7.25 0,4.012974 -3.237026,7.25 -7.25,7.25 C 6.9870474,18.25 3.75,15.012972 3.75,11 3.75,6.9870497 6.9870497,3.75 11,3.75 Z"
+     id="path2" />
+</svg>

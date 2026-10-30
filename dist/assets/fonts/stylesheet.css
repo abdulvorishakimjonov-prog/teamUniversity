@@ -1,0 +1,127 @@
+/* Mazzard H — asosiy shrift (Figma dizayni). Fayllar shu papkada: MazzardH-*.otf */
+@font-face {
+    font-family: MazzardH;
+    src: url("MazzardH-Light.woff2") format("woff2"),
+         url("MazzardH-Light.otf") format("opentype");
+    font-weight: 300;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: MazzardH;
+    src: url("MazzardH-LightItalic.woff2") format("woff2"),
+         url("MazzardH-LightItalic.otf") format("opentype");
+    font-weight: 300;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: MazzardH;
+    src: url("MazzardH-Regular.woff2") format("woff2"),
+         url("MazzardH-Regular.otf") format("opentype");
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
+/* Oddiy (400) kursiv fayli yo'q: brauzer sun'iy qiyshaytirmasligi uchun haqiqiy kursiv (Medium Italic) ulandi */
+@font-face {
+    font-family: MazzardH;
+    src: url("MazzardH-MediumItalic.woff2") format("woff2"),
+         url("MazzardH-MediumItalic.otf") format("opentype");
+    font-weight: 400;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: MazzardH;
+    src: url("MazzardH-Medium.woff2") format("woff2"),
+         url("MazzardH-Medium.otf") format("opentype");
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: MazzardH;
+    src: url("MazzardH-MediumItalic.woff2") format("woff2"),
+         url("MazzardH-MediumItalic.otf") format("opentype");
+    font-weight: 500;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: MazzardH;
+    src: url("MazzardH-SemiBold.woff2") format("woff2"),
+         url("MazzardH-SemiBold.otf") format("opentype");
+    font-weight: 600;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: MazzardH;
+    src: url("MazzardH-SemiBoldItalic.woff2") format("woff2"),
+         url("MazzardH-SemiBoldItalic.otf") format("opentype");
+    font-weight: 600;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: MazzardH;
+    src: url("MazzardH-Bold.woff2") format("woff2"),
+         url("MazzardH-Bold.otf") format("opentype");
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: MazzardH;
+    src: url("MazzardH-BoldItalic.woff2") format("woff2"),
+         url("MazzardH-BoldItalic.otf") format("opentype");
+    font-weight: 700;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: MazzardH;
+    src: url("MazzardH-ExtraBold.woff2") format("woff2"),
+         url("MazzardH-ExtraBold.otf") format("opentype");
+    font-weight: 800;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: MazzardH;
+    src: url("MazzardH-ExtraBoldItalic.woff2") format("woff2"),
+         url("MazzardH-ExtraBoldItalic.otf") format("opentype");
+    font-weight: 800;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: MazzardH;
+    src: url("MazzardH-Black.woff2") format("woff2"),
+         url("MazzardH-Black.otf") format("opentype");
+    font-weight: 900;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: MazzardH;
+    src: url("MazzardH-BlackItalic.woff2") format("woff2"),
+         url("MazzardH-BlackItalic.otf") format("opentype");
+    font-weight: 900;
+    font-style: italic;
+    font-display: swap;
+}

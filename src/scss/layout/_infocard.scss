@@ -1,0 +1,96 @@
+@use '../config/mixins' as *;
+
+.infocard {
+	display: flex;
+	align-items: center;
+	gap: 14px;
+	width: 100%;
+	box-sizing: border-box;
+	border-radius: 18px;
+	color: #fff;
+
+	&-media {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		width: 64px;
+		height: 64px;
+		flex: 0 0 64px;
+		border-radius: 15px;
+		overflow: hidden;
+		border: 1px solid #FFFFFF26;
+		background: #FFFFFF1A;
+
+	}
+
+	&-image {
+		width: 100%;
+		height: 100%;
+		object-fit: contain;
+		padding: 10px;
+		font-size: 32px;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+	}
+
+	&-icon {
+		width: 32px;
+		height: 32px;
+		font-size: 32px;
+	}
+
+	&-content {
+		min-width: 0;
+	}
+
+	&-value,
+	&-subtitle {
+		font-family: MazzardH, sans-serif;
+		font-size: 28px;
+		line-height: 1.1;
+		font-weight: 600;
+		text-align: start;
+		white-space: nowrap;
+	}
+
+	&-label,
+	&-title {
+		margin-top: 4px;
+		text-align: start;
+		font-size: 16px;
+		line-height: 1.3;
+		font-weight: 400;
+		opacity: 0.8;
+	}
+}
+
+// ---------- RESP: responsive ----------
+.infocard {
+	@include devices(sm) {
+		gap: 10px;
+		border-radius: 16px;
+	}
+}
+
+.infocard-media {
+	@include devices(sm) {
+		width: 52px;
+		height: 52px;
+		flex-basis: 52px;
+	}
+}
+
+.infocard-value,
+.infocard-subtitle {
+	@include devices(sm) {
+		font-size: 22px;
+	}
+}
+
+.infocard-label,
+.infocard-title {
+	@include devices(sm) {
+		font-size: 14px;
+	}
+}

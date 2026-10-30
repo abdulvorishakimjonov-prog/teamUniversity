@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   width="24"
+   height="24"
+   viewBox="0 0 24 24"
+   fill="none"
+   version="1.1"
+   id="svg5"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <defs
+     id="defs5" />
+  <path
+     style="baseline-shift:baseline;display:inline;overflow:visible;vector-effect:none;fill:#0f172a;stroke-linecap:round;enable-background:accumulate;stop-color:#000000;stop-opacity:1;opacity:1"
+     d="m 12,5.25 c -3.7190397,0 -6.75,3.0309603 -6.75,6.75 0,1.994361 0.8653053,3.819193 2.25,5.058594 A 0.75,0.75 0 0 0 8.5585938,17 0.75,0.75 0 0 0 8.5,15.941406 C 7.4296947,14.983407 6.75,13.559639 6.75,12 6.75,9.0916197 9.0916197,6.75 12,6.75 c 2.908369,0 5.25,2.3416212 5.25,5.25 0,1.559639 -0.679695,2.983407 -1.75,3.941406 A 0.75,0.75 0 0 0 15.441406,17 0.75,0.75 0 0 0 16.5,17.058594 C 17.884695,15.819193 18.75,13.994361 18.75,12 18.75,8.2809588 15.719031,5.25 12,5.25 Z"
+     id="path1" />
+  <path
+     style="baseline-shift:baseline;display:inline;overflow:visible;vector-effect:none;fill:#0f172a;stroke-linecap:round;stroke-linejoin:round;enable-background:accumulate;stop-color:#000000;stop-opacity:1;opacity:1"
+     d="M 12,11.25 A 0.75,0.75 0 0 0 11.25,12 v 4.5 A 0.75,0.75 0 0 0 12,17.25 0.75,0.75 0 0 0 12.75,16.5 V 12 A 0.75,0.75 0 0 0 12,11.25 Z"
+     id="path2" />
+  <path
+     style="baseline-shift:baseline;display:inline;overflow:visible;vector-effect:none;fill:#0f172a;stroke-linecap:round;stroke-linejoin:round;enable-background:accumulate;stop-color:#000000;stop-opacity:1;opacity:1"
+     d="M 9.5,18.25 A 0.75,0.75 0 0 0 8.75,19 0.75,0.75 0 0 0 9.5,19.75 h 5 A 0.75,0.75 0 0 0 15.25,19 0.75,0.75 0 0 0 14.5,18.25 Z"
+     id="path3" />
+  <path
+     style="baseline-shift:baseline;display:inline;overflow:visible;vector-effect:none;fill:#0f172a;stroke-linecap:round;stroke-linejoin:round;enable-background:accumulate;stop-color:#000000;stop-opacity:1;opacity:1"
+     d="m 10.5,20.75 a 0.75,0.75 0 0 0 -0.75,0.75 0.75,0.75 0 0 0 0.75,0.75 h 3 A 0.75,0.75 0 0 0 14.25,21.5 0.75,0.75 0 0 0 13.5,20.75 Z"
+     id="path4" />
+  <path
+     style="baseline-shift:baseline;display:inline;overflow:visible;vector-effect:none;fill:#0f172a;stroke-linecap:round;stroke-linejoin:round;enable-background:accumulate;stop-color:#000000;stop-opacity:1;opacity:1"
+     d="M 12,1.75 A 0.75,0.75 0 0 0 11.25,2.5 v 1 A 0.75,0.75 0 0 0 12,4.25 0.75,0.75 0 0 0 12.75,3.5 v -1 A 0.75,0.75 0 0 0 12,1.75 Z M 5.2324219,4.4804687 a 0.75,0.75 0 0 0 -0.5292969,0.2207032 0.75,0.75 0 0 0 0.00195,1.0605468 l 0.75,0.7460938 a 0.75,0.75 0 0 0 1.0605469,-0.00195 0.75,0.75 0 0 0 -0.00195,-1.0605469 l -0.75,-0.7460938 a 0.75,0.75 0 0 0 -0.53125,-0.21875 z m 13.5390621,0 a 0.75,0.75 0 0 0 -0.53125,0.21875 l -0.75,0.7460938 a 0.75,0.75 0 0 0 -0.002,1.0605469 0.75,0.75 0 0 0 1.060547,0.00195 l 0.75,-0.7460938 a 0.75,0.75 0 0 0 0.002,-1.0605468 0.75,0.75 0 0 0 -0.529297,-0.2207032 z M 2.5,11.25 A 0.75,0.75 0 0 0 1.75,12 0.75,0.75 0 0 0 2.5,12.75 h 1 A 0.75,0.75 0 0 0 4.25,12 0.75,0.75 0 0 0 3.5,11.25 Z m 18,0 A 0.75,0.75 0 0 0 19.75,12 0.75,0.75 0 0 0 20.5,12.75 h 1 A 0.75,0.75 0 0 0 22.25,12 0.75,0.75 0 0 0 21.5,11.25 Z"
+     id="path5" />
+</svg>

@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	@@include('components/layout/head.html', {"title":"Admissions","description":"TEAM University — the first entrepreneurial university in Uzbekistan, in partnership with London South Bank University."})
+</head>
+
+<body>
+	@@include('components/layout/header.html')
+	@@include('components/layout/menu.html')
+	@@include('components/layout/breadcrumb.html', {"title":"Admissions","first":"Admissions","last":""})
+	<div class="layout">
+		<div class="container">
+			<div class="layout-content">
+				<div class="admissions">
+					<div class="sudents-image">
+						<div class="course-bg">
+							<img src="@/images/memberships-1.png" alt="">
+							<div class="course-bg-title">
+								<div class="course-bg-title-text">
+									<h5 class="subtitle2 slate900">Executive Admissions</h5>
+									<p class="body3 slate700">Admission to the Executive MBA and Executive Education programmes for business owners, senior and professionals.</p>
+								</div>
+								<div class="sudents-image-inner">
+									<div class="button">
+										<p>Apply now</p>
+										<i class="i-arrow"></i>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="sudents-info">
+						<div class="sudents-info-text">
+							<h5 class="subtitle2">Choose the right starting point</h5>
+							<p class="body3 slate600">TEAM offers routes for students at different stages of their education.
+							</p>
+						</div>
+						<div class="grid _3">
+							<a href="process.html" class="programs-section-card">
+								<div class="programs-section-card-image">
+									<img src="@/images/programs-img-1.png" alt="">
+									<div class="programs-section-card-image-icon">
+										<img src="@/images/programs-img-5.svg" alt="">
+									</div>
+								</div>
+								<div class="programs-section-card-content">
+									<div>
+										<h6 class="subtitle3 blue900">Executive MBA</h6>
+										<p class="body3 slate600">Prepare for university with <br>
+											confidence.</p>
+									</div>
+									<b class="link red800">Learn more <i class="i-arrow"></i></b>
+								</div>
+							</a>
+							<a href="process.html" class="programs-section-card">
+								<div class="programs-section-card-image">
+									<img src="@/images/programs-img-1.png" alt="">
+									<div class="programs-section-card-image-icon">
+										<img src="@/images/programs-img-5.svg" alt="">
+									</div>
+								</div>
+								<div class="programs-section-card-content">
+									<div>
+										<h6 class="subtitle3 blue900">Executive Education</h6>
+										<p class="body3 slate600">Prepare for university with <br>
+											confidence.</p>
+									</div>
+									<b class="link red800">Learn more <i class="i-arrow"></i></b>
+								</div>
+							</a>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="layout-sidebar">
+				@@include('components/layout/sidebar.html')
+			</div>
+		</div>
+	</div>
+
+	@@include('components/layout/footer.html')
+
+</body>
+
+</html>

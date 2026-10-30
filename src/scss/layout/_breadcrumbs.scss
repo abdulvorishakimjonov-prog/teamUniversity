@@ -1,0 +1,133 @@
+@use '../config/mixins' as *;
+
+.breadcrumbs {
+	margin-top: var(--height-header);
+	color: white;
+	overflow: hidden;
+	width: 100%;
+
+	@include devices(sm) {
+		background: transparent;
+	}
+
+	.container {
+		padding: 52px 0px 80px;
+		position: relative;
+
+		@include devices(md) {
+			padding: 40px 0;
+		}
+
+		&::after {
+			content: '';
+			position: absolute;
+			bottom: -15%;
+			right: 41%;
+			width: 125px;
+			height: 125px;
+			z-index: 1;
+			transform: rotate(-16deg);
+			background: url("../images/icon-transparent.svg");
+			background-size: contain;
+
+			@include devices(sm) {
+				content: unset;
+			}
+		}
+	}
+
+	&-wrapper {
+		max-width: 100%;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		flex-direction: column;
+		gap: 10px;
+
+		@include devices(sm) {
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			flex-direction: column;
+			max-width: 100%;
+		}
+
+		h1 {
+			margin-bottom: 1rem;
+		}
+
+		.d-flex {
+			@include devices(sm) {
+				gap: 12px !important;
+				flex-wrap: wrap;
+				justify-content: center;
+				text-align: center;
+			}
+		}
+	}
+
+	&::before {
+		content: '';
+		position: absolute;
+		inset: 0;
+		width: 100%;
+		height: 100%;
+	}
+
+
+
+	&-img {
+		position: absolute;
+		overflow: hidden;
+		right: 0;
+		top: 0;
+		bottom: 0;
+		width: 100%;
+		height: 520px;
+		z-index: -10;
+
+		@include devices(sm) {
+			width: 100%;
+			height: 520px;
+			z-index: -10;
+			backdrop-filter: blur(10px);
+		}
+
+		&::after {
+			content: '';
+			position: absolute;
+			left: 0;
+			top: 0;
+			bottom: 0;
+			width: 20px;
+			z-index: 1;
+			height: 100%;
+			background: var(--blue2);
+			transform: translate(20px) skew(-12deg);
+
+			@include devices(sm) {
+				width: 100%;
+				transform: none;
+				inset: 0;
+				opacity: 0.75;
+			}
+		}
+
+		img {
+			width: 100%;
+			height: 520px;
+			object-fit: cover;
+			object-position: center;
+			position: absolute;
+			left: 0;
+			right: 0;
+			top: 0;
+			z-index: -11;
+
+			@include devices(sm) {
+				clip-path: none;
+			}
+		}
+	}
+}
+

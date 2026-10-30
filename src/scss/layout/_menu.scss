@@ -1,0 +1,221 @@
+@use '../config/mixins' as *;
+
+// Offcanvas (mobil) menyu: oq fon, tepada loyiha logosi, ranglar saytniki (ko'k #1C398E, qizil #C10007)
+.offcanvas {
+	--bs-offcanvas-width: 340px;
+	--bs-offcanvas-bg: white;
+	// RESP: header z-index'i 9999, offcanvas uning ustida chiqishi kerak
+	--bs-offcanvas-zindex: 10001;
+	--bs-backdrop-zindex: 10000;
+
+	z-index: 10001;
+
+	&-backdrop {
+		z-index: 10000;
+	}
+
+	&-header {
+		flex: 0 0 auto;
+		justify-content: space-between;
+		min-height: 64px;
+		padding: 12px 20px;
+		background: #fff;
+		border-bottom: 1px solid var(--slate100);
+
+		.btn-close {
+			margin: 0;
+			padding: 10px;
+			opacity: 0.6;
+
+			&:hover {
+				opacity: 1;
+			}
+		}
+	}
+
+	&-logo {
+		display: flex;
+		align-items: center;
+
+		img {
+			display: block;
+			height: 36px;
+			width: auto;
+		}
+	}
+
+	&-body {
+		padding: 0;
+		overflow-y: auto;
+		display: flex;
+		flex-direction: column;
+		flex: 1 1 auto;
+	}
+
+	&-footer {
+		flex: 0 0 auto;
+		display: flex;
+		flex-direction: column;
+		gap: 12px;
+		padding: 16px 20px 20px;
+		background: var(--slate50);
+		border-top: 1px solid var(--slate100);
+
+		&-links,
+		&-contacts {
+			display: flex;
+			flex-wrap: wrap;
+			gap: 8px 16px;
+
+			a {
+				text-decoration: none;
+			}
+		}
+
+		&-contacts {
+			flex-direction: column;
+			gap: 4px;
+		}
+	}
+}
+
+.menu {
+	list-style: none;
+	margin: 0;
+	padding: 8px 0;
+	display: flex;
+	flex-direction: column;
+
+	.menu-item {
+		list-style: none;
+		border-bottom: 1px solid var(--slate100);
+
+		&:last-child {
+			border-bottom: none;
+		}
+
+		.menu-link {
+			display: flex;
+			align-items: center;
+			justify-content: space-between;
+			gap: 12px;
+			padding: 15px 20px;
+			color: var(--slate900);
+			text-decoration: none;
+			text-transform: uppercase;
+			font-size: 15px;
+			font-weight: 600;
+			letter-spacing: 0.02em;
+			transition: background-color 0.2s ease, color 0.2s ease;
+			cursor: pointer;
+			background: transparent;
+			border: none;
+			width: 100%;
+			text-align: left;
+
+			&:hover {
+				color: var(--blue900);
+			}
+
+			i {
+				flex: 0 0 auto;
+				font-size: 20px;
+				transition: transform 0.25s ease;
+				color: var(--red700);
+			}
+		}
+
+		// Dropdown ochiq: ko'k matn, chevron yuqoriga buriladi
+		&--dropdown {
+			.menu-link[aria-expanded="true"] {
+				color: var(--blue900);
+
+				i {
+					transform: rotate(180deg);
+				}
+			}
+		}
+	}
+
+	// Submenu
+	.submenu {
+		list-style: none;
+		margin: 0;
+		padding: 4px 0 8px 20px;
+		background: #fff;
+
+		&.collapse {
+			&:not(.show) {
+				display: none;
+			}
+		}
+
+		.submenu-item {
+			list-style: none;
+			border-left: 2px solid var(--slate100);
+
+			.submenu-link {
+				display: flex;
+				align-items: center;
+				justify-content: space-between;
+				gap: 12px;
+				padding: 11px 20px 11px 16px;
+				color: var(--slate900);
+				text-decoration: none;
+				font-size: 16px;
+				font-weight: 500;
+				transition: background-color 0.2s ease, color 0.2s ease;
+				cursor: pointer;
+				background: transparent;
+				border: none;
+				width: 100%;
+				text-align: left;
+
+				&:hover {
+					color: var(--blue900);
+				}
+
+				i {
+					flex: 0 0 auto;
+					font-size: 18px;
+					transition: transform 0.25s ease;
+					color: var(--red700);
+				}
+			}
+
+			// Ichki (2-daraja) dropdown
+			&--dropdown {
+				.submenu-link[aria-expanded="true"] {
+					color: var(--blue900);
+
+					i {
+						transform: rotate(180deg);
+					}
+				}
+
+				.submenu {
+					padding-left: 12px;
+					background: transparent;
+				}
+			}
+
+			&:has(> .submenu-link[aria-expanded="true"]),
+			&:has(> a.submenu-link:hover) {
+				border-left-color: var(--red700);
+			}
+		}
+	}
+}
+
+// Mobile responsiveness
+@include devices(md) {
+	.offcanvas {
+		--bs-offcanvas-width: 320px;
+	}
+}
+
+@include devices(sm) {
+	.offcanvas {
+		--bs-offcanvas-width: 100vw;
+	}
+}

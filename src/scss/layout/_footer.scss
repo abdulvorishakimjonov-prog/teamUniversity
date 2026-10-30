@@ -1,0 +1,653 @@
+@use '../config/mixins' as *;
+
+.footer {
+	position: relative;
+	background: linear-gradient(180deg, #1C398E 0%, #162456 100%);
+	margin: 20px;
+	border-radius: 32px;
+
+	@include devices(md) {
+		margin: 16px;
+		border-radius: 24px;
+	}
+
+	@include devices(sm) {
+		margin: 12px;
+		border-radius: 20px;
+	}
+
+	@include devices(xs) {
+		margin: 8px;
+		border-radius: 16px;
+	}
+
+
+	&::after {
+		content: '';
+		position: absolute;
+		bottom: 0;
+		left: 0;
+		right: 0;
+		width: 100%;
+		height: 130px;
+		background: url("../images/footer-bg.svg") no-repeat;
+		background-size: 100%;
+		z-index: 1;
+		pointer-events: none;
+
+		@include devices(md) {
+			height: 100px;
+			background-size: auto 100px;
+			background-position: center bottom;
+		}
+
+		@include devices(sm) {
+			height: 80px;
+			background-size: auto 80px;
+		}
+
+		@include devices(xs) {
+			height: 60px;
+			background-size: auto 60px;
+		}
+	}
+
+
+	&-banner {
+		position: relative;
+		background: #ffffff;
+		border-radius: 32px;
+		padding: 32px 0 0 32px;
+		max-height: 334px;
+		margin-top: -200px;
+		display: flex;
+		align-items: flex-end;
+		justify-content: space-between;
+		overflow: visible;
+
+		@include devices(xxl) {
+			justify-content: space-around;
+			align-items: center;
+		}
+
+		@include devices(md) {
+			flex-direction: column;
+			padding: 24px;
+			justify-content: center;
+			max-height: unset;
+		}
+
+		&-text {
+			position: relative;
+			z-index: 10;
+			max-width: 420px;
+			display: flex;
+			flex-direction: column;
+			align-items: flex-start;
+			justify-content: space-between;
+			padding-bottom: 40px;
+			flex-shrink: 0;
+
+			@include devices(lg) {
+				max-width: 360px;
+				padding-bottom: 32px;
+			}
+
+			@include devices(md) {
+				max-width: 300px;
+				padding-bottom: 24px;
+			}
+
+
+
+			&-link {
+				display: flex;
+				align-items: center;
+				gap: 10px;
+				margin-top: 66px;
+
+				@include devices(md) {
+					display: none;
+				}
+
+				p {
+					display: flex;
+					align-items: center;
+					gap: 10px;
+
+					span {
+						width: 8px;
+						height: 8px;
+						flex-shrink: 0;
+						border-radius: 50%;
+						background: #1C398E;
+					}
+				}
+
+				@include devices(md) {
+					margin-top: 24px;
+					gap: 10px;
+
+					p {
+						gap: 6px;
+					}
+				}
+
+				@include devices(sm) {
+					margin-top: 16px;
+					justify-content: center;
+					flex-wrap: wrap;
+				}
+			}
+		}
+
+
+		&-image {
+			flex: 1;
+			min-width: 0;
+			display: flex;
+			align-items: flex-end;
+			justify-content: flex-end;
+			margin-top: -60px;
+			margin-left: 16px;
+			padding: 0 60px 0 0;
+			clip-path: inset(-400px -24px 0 -24px);
+
+			@include devices(xxl) {
+				display: grid;
+				grid-template-columns: repeat(2, 1fr);
+				place-items: center;
+				padding: 0;
+				flex: unset;
+				gap: 16px;
+				clip-path: none;
+				margin: 0;
+			}
+
+			@include devices(lg) {
+				padding-right: 32px;
+			}
+
+			@include devices(md) {
+				margin-left: 8px;
+				padding-right: 16px;
+			}
+
+			@include devices(sm) {
+				display: flex;
+				flex-direction: column;
+				padding: 24px;
+				justify-content: center;
+				max-height: unset;
+			}
+
+
+			&-phone {
+				// Every phone takes a 192px slot at full height (scaled with --phone-height), whatever its real width
+				// (224px and up), so they overlap each other by the same step and the pills are evenly spaced.
+				position: relative;
+				display: flex;
+				justify-content: center;
+				align-items: flex-end;
+				align-self: flex-end;
+				flex: 0 0 calc(var(--phone-height) * 192 / 412);
+				min-width: 0;
+				color: inherit;
+				text-decoration: none;
+				--phone-height: 412px;
+
+
+				> img {
+					display: block;
+					flex: none;
+					width: auto;
+					max-width: none;
+					height: var(--phone-height);
+
+					@include devices(xxl) {
+						display: none;
+					}
+				}
+
+				// image and pill lift together; the overlay stays put so the bottom fade never moves.
+				// `translate` is separate from `transform`, so it does not fight the entrance animation.
+				> img {
+					transition: translate 0.3s ease;
+				}
+
+				&:hover,
+				&:focus-visible {
+
+					> img,
+					.footer-banner-image-phone-bottom {
+						translate: 0 -12px;
+					}
+				}
+
+				&:focus-visible {
+					outline: 2px solid #1C398E;
+					outline-offset: 4px;
+				}
+
+				&-overlay {
+					position: absolute;
+					left: 0;
+					right: 0;
+					bottom: 0;
+					height: 35%;
+					background: linear-gradient(0deg, #FFFFFF 0%, rgba(255, 255, 255, 0) 100%);
+					z-index: 6;
+					pointer-events: none;
+
+					@include devices(xxl) {
+						display: none;
+					}
+				}
+
+				&-bottom {
+					position: absolute;
+					left: 50%;
+					transform: translateX(-50%);
+					bottom: 32px;
+					z-index: 20;
+					width: max-content;
+					max-width: calc(100vw - 48px);
+					display: flex;
+					align-items: center;
+					justify-content: center;
+					gap: clamp(6px, 0.6vw, 12px);
+					padding: 3px clamp(10px, 0.9vw, 16px) 3px 4px;
+					background: #F1F5F980;
+					-webkit-backdrop-filter: blur(10px);
+					backdrop-filter: blur(35px);
+					border: 1px solid #FFFFFF66;
+					border-radius: 36px;
+					color: #0F172A;
+					font-size: clamp(12px, 0.95vw, 15px);
+					font-weight: 600;
+					white-space: nowrap;
+					box-shadow: 0 8px 25px rgba(15, 23, 42, 0.12);
+					text-decoration: none;
+					transition: translate 0.3s ease, box-shadow 0.25s ease;
+
+					@include devices(xxl) {
+						position: static;
+					}
+
+					@include devices(md) {
+						bottom: 24px;
+					}
+
+					@include devices(sm) {
+						bottom: 16px;
+						gap: 8px;
+						font-size: 14px;
+						padding: 3px 12px 3px 3px;
+					}
+
+					&-icon {
+						display: block;
+						width: clamp(28px, 2.2vw, 44px);
+						height: clamp(28px, 2.2vw, 44px);
+						padding: clamp(7px, 0.55vw, 10px);
+						border-radius: 50%;
+						background: #FFFFFF;
+						flex-shrink: 0;
+						display: flex;
+						justify-content: center;
+						align-items: center;
+
+						@include devices(sm) {
+							width: 38px;
+							height: 38px;
+							padding: 8px;
+						}
+
+						img {
+							width: 100%;
+							height: 100%;
+							object-fit: contain;
+						}
+					}
+				}
+			}
+		}
+	}
+
+	@keyframes footerPhoneUp {
+		0% {
+			opacity: 0;
+			transform: translateY(120px);
+		}
+
+		60% {
+			opacity: 1;
+		}
+
+		100% {
+			opacity: 1;
+			transform: translateY(0);
+		}
+	}
+
+
+	&-top {
+		padding: 50px 0;
+		color: white;
+
+		display: grid;
+		grid-template-columns: minmax(0, 1.75fr) repeat(4, minmax(0, 1fr));
+		justify-content: space-between;
+		gap: 16px;
+
+		@include devices(xl) {
+			grid-template-columns: minmax(0, 1.5fr) repeat(4, minmax(0, 1fr));
+			gap: 14px;
+		}
+
+		@include devices(lg) {
+			padding: 40px 0;
+			grid-template-columns: repeat(2, minmax(0, 1fr));
+			gap: 32px 20px;
+		}
+
+		@include devices(md) {
+			padding: 36px 0;
+			grid-template-columns: repeat(1, minmax(0, 1fr));
+			gap: 28px;
+		}
+
+		@include devices(sm) {
+			padding: 28px 0;
+			gap: 24px;
+		}
+
+		@include devices(xs) {
+			padding: 24px 0;
+			gap: 20px;
+		}
+
+
+		&--item {
+			@include devices(md) {
+				display: flex;
+				flex-direction: column;
+				justify-content: center;
+				align-items: center;
+				text-align: center;
+			}
+
+			@include devices(sm) {
+				display: none;
+			}
+
+
+			&:nth-child(2) {
+				@include devices(md) {
+					display: none;
+				}
+			}
+
+
+			&-logo {
+				margin-bottom: 32px;
+
+				@include devices(md) {
+					margin-bottom: 20px;
+				}
+
+				@include devices(sm) {
+					margin-bottom: 16px;
+				}
+
+
+				img {
+					width: 100%;
+					height: 60px;
+					object-fit: contain;
+					object-position: left;
+
+					@include devices(md) {
+						height: 50px;
+						object-position: center;
+					}
+
+					@include devices(sm) {
+						height: 44px;
+					}
+
+					@include devices(xs) {
+						height: 40px;
+					}
+				}
+			}
+
+
+			&-contact {
+				display: inline-flex;
+				align-items: center;
+				gap: 37px;
+				padding: 4px 4px 4px 16px;
+				border-radius: 36px;
+				background: #FFFFFF;
+				color: #0F172A;
+				text-decoration: none;
+
+				span {
+					display: flex;
+					align-items: center;
+					justify-content: center;
+					width: 44px;
+					height: 44px;
+					border-radius: 34px;
+					background: #1C398E;
+					color: #FFFFFF;
+
+					i {
+						font-size: 24px;
+					}
+				}
+			}
+
+			&-socials {
+				display: flex;
+				flex-direction: row;
+				gap: 12px;
+				align-items: center;
+
+				@include devices(sm) {
+					gap: 8px;
+				}
+
+
+				a {
+					display: flex;
+					align-items: center;
+					justify-content: center;
+
+					border: 1px solid #FFFFFF33;
+					background: #FFFFFF1A;
+					color: white;
+					border-radius: 12px;
+
+					backdrop-filter: blur(15px);
+					-webkit-backdrop-filter: blur(15px);
+					-moz-backdrop-filter: blur(15px);
+
+					transition: all .2s ease;
+					will-change: backdrop-filter;
+
+					aspect-ratio: 1/1;
+					min-width: 40px;
+
+					z-index: 2;
+					contain: layout style;
+					isolation: isolate;
+
+					@include devices(sm) {
+						min-width: 36px;
+						border-radius: 10px;
+					}
+
+					@include devices(xs) {
+						min-width: 34px;
+					}
+
+
+					i {
+						font-size: 22px;
+
+						@include devices(sm) {
+							font-size: 19px;
+						}
+
+						@include devices(xs) {
+							font-size: 18px;
+						}
+					}
+				}
+			}
+		}
+	}
+
+
+	&-bottom {
+		position: relative;
+		z-index: 2;
+
+		border-top: 1px solid #FFFFFF33;
+		padding: 16px;
+
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		flex-wrap: wrap;
+		gap: 16px;
+
+		color: white;
+		opacity: .8;
+
+		@include devices(md) {
+			flex-wrap: nowrap;
+			gap: 12px;
+			padding: 14px;
+		}
+
+		@include devices(sm) {
+			padding: 12px 8px;
+			gap: 8px;
+		}
+
+
+		&-item {
+			opacity: 0.6;
+			display: flex;
+			align-items: center;
+			gap: 4px;
+
+			@include devices(md) {
+				font-size: 15px;
+			}
+
+			@include devices(sm) {
+				font-size: 13px;
+			}
+
+			@include devices(xs) {
+				font-size: 12px;
+			}
+		}
+
+
+		a {
+			text-decoration: none;
+			opacity: 1;
+			transition: opacity 0.3s ease;
+			white-space: nowrap;
+			color: white;
+
+			&:hover {
+				opacity: 0.8;
+			}
+
+
+			img {
+				height: 28px;
+
+
+				@include devices(md) {
+					height: 26px;
+				}
+
+				@include devices(sm) {
+					height: 24px;
+				}
+
+				@include devices(xs) {
+					height: 22px;
+				}
+			}
+		}
+	}
+}
+
+// ---------- ANIM: telefonlar pastdan tepaga ketma-ket ko'tariladi ----------
+// JS (main.js -> initFooterBanner) banner'ga data-anim qo'yadi va ekranga kirganda .is-visible beradi.
+// Animatsiya faqat rasmga (img) beriladi: telefon konteyneri transform olmasa, ichidagi "pill"
+// link oq gradient ustida aniq turadi.
+.footer-banner-image-phone {
+	@for $n from 1 through 5 {
+		&:nth-child(#{$n}) {
+			--i: #{$n - 1};
+		}
+	}
+}
+
+.footer-banner[data-anim] {
+	.footer-banner-image-phone > img {
+		opacity: 0;
+		transform: translateY(140px);
+	}
+
+	.footer-banner-image-phone-bottom {
+		opacity: 0;
+	}
+
+	&.is-visible {
+		.footer-banner-image-phone > img {
+			animation: footerPhoneUp 0.9s cubic-bezier(0.22, 0.8, 0.3, 1) forwards;
+			animation-delay: calc(var(--i, 0) * 0.18s);
+		}
+
+		.footer-banner-image-phone-bottom {
+			animation: footerPillIn 0.5s ease forwards;
+			animation-delay: calc(var(--i, 0) * 0.18s + 0.55s);
+		}
+	}
+}
+
+@keyframes footerPillIn {
+	from {
+		opacity: 0;
+	}
+
+	to {
+		opacity: 1;
+	}
+}
+
+@media (prefers-reduced-motion: reduce) {
+	.footer-banner[data-anim] {
+
+		.footer-banner-image-phone > img,
+		.footer-banner-image-phone-bottom {
+			opacity: 1;
+			transform: none;
+			animation: none;
+		}
+
+		.footer-banner-image-phone-bottom {
+			transform: translateX(-50%);
+		}
+	}
+}

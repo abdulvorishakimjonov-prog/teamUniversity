@@ -1,0 +1,102 @@
+@use '../config/mixins' as *;
+
+.rules {
+
+	&-image {
+		display: flex;
+		align-items: center;
+		gap: 20px;
+		margin-bottom: 20px;
+	}
+
+	&-main {
+		background: #FFFFFF;
+		border-radius: 32px;
+		padding: 24px;
+
+		@include devices(md) {
+			border-radius: 24px;
+			padding: 20px 16px;
+		}
+
+		@include devices(sm) {
+			border-radius: 20px;
+			padding: 14px;
+		}
+
+		&-text {
+			display: flex;
+			flex-direction: column;
+			gap: 8px;
+			padding: 0 0 20px;
+			border-bottom: 1px solid #E2E8F0;
+			margin-bottom: 20px;
+		}
+
+		&-card {
+			background: #F5F7F9;
+			border-radius: 24px;
+			padding: 10px 16px 10px 10px;
+			display: flex;
+			align-items: center;
+			justify-content: space-between;
+
+			&-left {
+				display: flex;
+				align-items: center;
+				gap: 12px;
+
+				&-icon {
+					width: 52px;
+					height: 52px;
+					border-radius: 16px;
+					padding: 10px;
+					background: #FFFFFF;
+
+					img {
+						width: 100%;
+						height: 100%;
+						object-fit: cover;
+					}
+				}
+			}
+
+			&-right {
+				width: 44px;
+				height: 44px;
+				border-radius: 34px;
+				background: #FFFFFF;
+				padding: 10px;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+
+				img {
+					width: 100%;
+					height: 100%;
+					object-fit: cover;
+				}
+			}
+		}
+	}
+}
+
+// ---------- RESP: responsive ----------
+.rules-image {
+	@include devices(sm) {
+		flex-wrap: wrap;
+		gap: 12px;
+	}
+}
+
+.rules-main-card {
+	@include devices(sm) {
+		padding: 8px 12px 8px 8px;
+	}
+}
+
+.rules-main-card-left {
+	@include devices(sm) {
+		gap: 8px;
+	}
+}

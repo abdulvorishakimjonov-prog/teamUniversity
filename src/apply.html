@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	@@include('components/layout/head.html', {"title":"Apply","description":"TEAM University — the first entrepreneurial university in Uzbekistan, in partnership with London South Bank University."})
+</head>
+
+<body>
+	@@include('components/layout/header.html')
+	@@include('components/layout/menu.html')
+	@@include('components/layout/breadcrumb.html', {"title":"Apply","first":"Apply","last":""})
+	<div class="layout">
+		<div class="container">
+			<div class="layout-content">
+				<div class="apply">
+					<div class="sudents-label">
+						<div class="sudents-label-title">
+							<h5 class="subtitle2 slate900">Apply to TEAM University</h5>
+							<p class="body3 slate600">
+								Submit your undergraduate application online.
+							</p>
+						</div>
+
+						<form class="sudents-label-form" action="" method="post" enctype="multipart/form-data" data-form="apply">
+<!-- BACKEND: CSRF token (Laravel: @csrf) va action URL shu yerga -->
+	<div class="sudents-label-form-section">
+		<h6 class="sudents-label-form-section-title subtitle4 slate900">About you</h6>
+
+		<div class="sudents-label-form-grid">
+			<div class="sudents-label-form-group">
+				<label for="apply-full-name">Full name</label>
+				<input autocomplete="name" type="text" id="apply-full-name" name="full_name" placeholder="Full name">
+			</div>
+
+			<div class="sudents-label-form-group">
+				<label for="apply-date-of-birth">Date of birth</label>
+				<input type="text" id="apply-date-of-birth" name="date_of_birth" placeholder="dd-mm-yyyy"
+					onfocus="this.type='date'" onblur="if(!this.value)this.type='text'">
+			</div>
+
+			<div class="sudents-label-form-group">
+				<label for="apply-phone">Phone</label>
+				<input autocomplete="tel" type="tel" id="apply-phone" name="phone" placeholder="Phone number">
+			</div>
+
+			<div class="sudents-label-form-group">
+				<label for="apply-email">Email</label>
+				<input autocomplete="email" type="email" id="apply-email" name="email" placeholder="Email">
+			</div>
+		</div>
+	</div>
+
+	<div class="sudents-label-form-section">
+		<h6 class="sudents-label-form-section-title subtitle4 slate900">Your study plans</h6>
+
+		<div class="sudents-label-form-grid">
+			<div class="sudents-label-form-group">
+				<label for="apply-programme">Programme</label>
+				<select id="apply-programme" name="programme">
+					<option value="" selected disabled>Select programme</option>
+					<option value="business">Business Management</option>
+					<option value="finance">Finance</option>
+					<option value="it">Information Technology</option>
+				</select>
+			</div>
+
+			<div class="sudents-label-form-group">
+				<label for="apply-school-lyceum-and-year-of-graduation">School / lyceum and year of graduation</label>
+				<select id="apply-school-lyceum-and-year-of-graduation" name="school_lyceum_and_year_of_graduation">
+					<option value="" selected disabled>Select</option>
+					<option value="2024">2024</option>
+					<option value="2025">2025</option>
+					<option value="2026">2026</option>
+				</select>
+			</div>
+
+			<div class="sudents-label-form-group">
+				<label for="apply-city">City</label>
+				<input type="text" id="apply-city" name="city" placeholder="City">
+			</div>
+
+			<div class="sudents-label-form-group">
+				<label for="apply-how-did-you-hear-about-us">How did you hear about us?</label>
+				<select id="apply-how-did-you-hear-about-us" name="how_did_you_hear_about_us">
+					<option value="" selected disabled>Select</option>
+					<option value="social-media">Social media</option>
+					<option value="friends">Friends or family</option>
+					<option value="website">University website</option>
+					<option value="event">University event</option>
+				</select>
+			</div>
+		</div>
+	</div>
+
+	<div class="sudents-label-form-section">
+		<h6 class="sudents-label-form-section-title subtitle4 slate900">
+			English certificate
+		</h6>
+
+		<div class="sudents-label-form-grid">
+			<div class="sudents-label-form-group">
+				<label for="apply-ielts-or-other-certificate-score">
+					IELTS or other certificate score (optional)
+				</label>
+
+				<select id="apply-ielts-or-other-certificate-score" name="ielts_or_other_certificate_score">
+					<option value="" selected>Select</option>
+					<option value="ielts-5">IELTS 5.0</option>
+					<option value="ielts-5.5">IELTS 5.5</option>
+					<option value="ielts-6">IELTS 6.0</option>
+					<option value="ielts-6.5">IELTS 6.5</option>
+					<option value="ielts-7">IELTS 7.0+</option>
+					<option value="other">Other certificate</option>
+				</select>
+			</div>
+
+			<div class="sudents-label-form-group">
+				<label for="apply-certificate">
+					Certificate upload (optional)
+				</label>
+
+				<label class="sudents-label-form-file" for="apply-certificate">
+					<span class="sudents-label-form-file-icon"><i class="i-calendar"></i></span>
+					<span class="sudents-label-form-file-text">Choose file</span>
+					<input type="file" id="apply-certificate" name="certificate" accept=".pdf,.jpg,.jpeg,.png">
+				</label>
+			</div>
+		</div>
+	</div>
+
+	<div class="sudents-label-form-footer">
+		<label class="sudents-label-form-consent">
+			<input id="apply-consent" type="checkbox" name="consent" required>
+			<span class="body3 slate700">Consent to personal data processing</span>
+		</label>
+
+		<button class="sudents-label-form-submit button" type="submit">
+			Submit application
+			<i class="i-arrow"></i>
+		</button>
+	</div>
+	</form>
+	</div>
+	</div>
+	</div>
+	<div class="layout-sidebar">
+		@@include('components/layout/sidebar.html')
+	</div>
+	</div>
+	</div>
+
+	@@include('components/layout/footer.html')
+
+</body>
+
+</html>

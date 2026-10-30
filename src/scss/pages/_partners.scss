@@ -1,0 +1,143 @@
+@use '../config/mixins' as *;
+
+.partners {
+	padding-bottom: 357px;
+	position: relative;
+	// RESP: ::after (z-index: -1) sahifa fonidan orqaga tushib ketmasligi uchun
+	isolation: isolate;
+
+	// RESP: lg uchun oraliq qiymat (357px dan 60px ga birdan sakramasin)
+	@include devices(lg) {
+		padding-bottom: 220px;
+	}
+
+	@include devices(md) {
+		padding-bottom: 60px;
+	}
+
+	@include devices(sm) {
+		padding-bottom: 40px;
+	}
+
+	&::after {
+		content: '';
+		position: absolute;
+		inset: 0;
+		z-index: -1;
+		filter: contrast(.94);
+		background: url("../images/partners-bg.png") no-repeat center / cover;
+	}
+
+	&-section {
+		display: flex;
+		flex-direction: column;
+		gap: 16px;
+		overflow: hidden;
+		margin-top: 32px;
+
+		@include devices(md) {
+			margin-top: 24px;
+		}
+
+		@include devices(sm) {
+			margin-top: 20px;
+			gap: 12px;
+		}
+
+		&-wrapper {
+			.owl-stage {
+				animation: marquee 30s linear alternate infinite;
+
+				// RESP: harakatni kamaytirishni yoqqan foydalanuvchilar uchun
+				@media (prefers-reduced-motion: reduce) {
+					animation: none;
+				}
+			}
+
+			// RESP: sensorli ekranda hover "tiqilib" qolmasligi uchun
+			@media (hover: hover) {
+				&:hover .owl-stage {
+					animation-play-state: paused;
+				}
+			}
+
+			&.reverse {
+				.owl-stage {
+					animation: marquee-reverse 30s linear alternate infinite;
+
+					@media (prefers-reduced-motion: reduce) {
+						animation: none;
+					}
+				}
+
+				@media (hover: hover) {
+					&:hover .owl-stage {
+						animation-play-state: paused;
+					}
+				}
+			}
+
+			&-item {
+				width: 240px;
+				height: 180px;
+				padding: 16px;
+				background: #fff;
+				border-radius: 24px;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+
+				// RESP: desktop va md orasidagi oraliq o'lcham
+				@include devices(lg) {
+					width: 200px;
+					height: 140px;
+				}
+
+				@include devices(md) {
+					width: 170px;
+					height: 90px;
+					border-radius: 20px;
+				}
+
+				@include devices(sm) {
+					width: 140px;
+					height: 76px;
+					padding: 12px;
+					border-radius: 16px;
+				}
+
+				a {
+
+					width: 100%;
+					height: 100%;
+				}
+
+				img {
+					width: 100%;
+					height: 100%;
+					object-fit: contain;
+				}
+			}
+		}
+	}
+}
+
+@keyframes marquee {
+	from {
+		transform: translateX(0);
+	}
+
+	to {
+		transform: translateX(-50%);
+	}
+}
+
+@keyframes marquee-reverse {
+	from {
+		transform: translateX(-50%);
+	}
+
+	to {
+		transform: translateX(0);
+	}
+}

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	@@include('components/layout/head.html', {"title":"News View","description":"TEAM University — the first entrepreneurial university in Uzbekistan, in partnership with London South Bank University."})
+</head>
+
+<body>
+	@@include('components/layout/header.html')
+	@@include('components/layout/menu.html')
+	@@include('components/layout/breadcrumb.html', {"title":"News View","first":"News","last":"View"})
+	<div class="layout">
+		<div class="container">
+			<div class="layout-content">
+				<div class="news-view">
+
+					<!-- CHAP: rasm + thumbnail -->
+					<div class="news-view-gallery content-section">
+						<div class="news-view-img">
+							<img src="@/images/news-2.jpg" alt="" id="news-main-img">
+						</div>
+
+						<div class="news-view-carousel owl-carousel owl-theme">
+							<a href="#" class="news-view-carousel-link">
+								<img src="./images/news-2.jpg" alt="">
+							</a>
+							<a href="#" class="news-view-carousel-link">
+								<img src="./images/news-3.jpg" alt="">
+							</a>
+							<a href="#" class="news-view-carousel-link">
+								<img src="./images/news-1.jpg" alt="">
+							</a>
+							<a href="#" class="news-view-carousel-link">
+								<img src="./images/news-1.jpg" alt="">
+							</a>
+						</div>
+					</div>
+
+					<!-- O'NG: kontent -->
+					<div class="news-view-content content-section">
+						<h1 class="news-view-title subtitle1 slate900">Margulan Seissembai visited TEAM University!</h1>
+
+						<div class="news-view-details-meta">
+							<div class="news-view-details-meta-item">
+								<i class="i-calendar"></i>
+								<p class="body8">22.08.2026</p>
+							</div>
+							<div class="news-view-details-meta-item">
+								<i class="i-view"></i>
+								<p class="body8">123</p>
+							</div>
+						</div>
+
+						<div class="news-view-text content-text body3 slate600">
+							<p>TEAM University, the entrepreneurial university of Uzbekistan, held a significant ceremony — the first graduation of students. Graduates who successfully completed their studies received two diplomas at once:
+								from TEAM University and London South Bank University (LSBU), which confirms their readiness for an international career and gives them a significant advantage in the labor market.</p>
+							<p>The ceremony was held in the presence of guests from London South Bank University, who noted the high level of preparation of the students and the importance of the partnership between the two universities.
+								The event was also attended by parents who supported the graduates at this solemn moment</p>
+							<p>One of the key moments was the presentation of grants to outstanding students. Those who showed high academic results were awarded full 100% and partial 50% grants, which emphasizes TEAM University's
+								commitment to supporting and encouraging its students.</p>
+							<p>TEAM University actively cooperates with government programs to provide grants for students, which gives an opportunity for even more talented young people to gain access to quality education. In addition, the
+								University offers unique grants from The Stirling Foundation, which are specifically aimed at supporting girls who want to develop entrepreneurial skills.</p>
+						</div>
+
+						<div class="news-view-footer">
+							<p class="body2 slate900">Share this article:</p>
+							<div class="news-view-socials">
+								<a href="#"><i class="i-telegram"></i></a>
+								<a href="#"><i class="i-instagram"></i></a>
+								<a href="#"><i class="i-facebook"></i></a>
+							</div>
+						</div>
+					</div>
+
+				</div>
+			</div>
+			<div class="layout-sidebar">
+				@@include('components/layout/sidebar.html')
+			</div>
+		</div>
+	</div>
+	@@include('components/layout/footer.html')
+
+
+</body>
+
+</html>

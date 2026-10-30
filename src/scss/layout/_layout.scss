@@ -1,0 +1,67 @@
+@use '../config/mixins' as *;
+
+.layout {
+	.container {
+		display: flex;
+		// flex-flow: row wrap;
+		padding: 16px 16px 0;
+		margin-bottom: 100px;
+		gap: 16px;
+
+		> * {
+			min-width: 0;
+			max-width: 100%;
+		}
+
+		// RESP: sidebar bilan kontent planshet/telefonda ustma-ust turadi
+		// (qatorda qolsa, kontent 0 kenglikkacha siqilib ketardi)
+		@include devices(md) {
+			flex-direction: column;
+			margin-bottom: 60px;
+		}
+
+		@include devices(sm) {
+			margin-bottom: 40px;
+		}
+	}
+
+	&-sidebar {
+		width: var(--width-sidebar);
+		position: relative;
+		flex: 0 0 auto;
+		margin-bottom: 256px;
+
+		@media(max-width:992px) {
+			margin: 0;
+			width: 100%;
+		}
+	}
+
+	&-content {
+		display: flex;
+		flex-direction: column;
+		flex: 1 1 auto;
+		max-width: calc(100% - var(--width-sidebar) - 16px);
+		margin-bottom: 256px;
+
+		@media(max-width:992px) {
+			margin-bottom: 20px;
+			max-width: 100%;
+		}
+
+	}
+
+	&-index {
+		.container {
+			padding: 60px 16px;
+
+			@include devices(md) {
+				padding: 40px 16px;
+			}
+
+			@include devices(sm) {
+				padding: 20px 8px;
+			}
+		}
+	}
+}

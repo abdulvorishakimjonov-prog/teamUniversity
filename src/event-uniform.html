@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+   @@include('components/layout/head.html', {"title":"Request","description":"TEAM University — the first entrepreneurial university in Uzbekistan, in partnership with London South Bank University."})
+</head>
+
+<body>
+   @@include('components/layout/header.html')
+   @@include('components/layout/menu.html')
+   @@include('components/layout/breadcrumb.html', {"title":"Request","first":"Request","last":""})
+   <div class="layout">
+      <div class="container">
+         <div class="layout-content">
+            <div class="apply">
+               <div class="sudents-label">
+                  <div class="sudents-label-title">
+                     <h5 class="subtitle2 slate900">Request a corporate programme</h5>
+                     <p class="body3 slate600">
+                        Tell us about your team and task — we will come back with a proposal.
+                     </p>
+                  </div>
+
+                  <form class="sudents-label-form" action="" method="post" enctype="multipart/form-data" data-form="request">
+                     <!-- BACKEND: CSRF token (Laravel: @csrf) va action URL shu yerga -->
+                     <div class="sudents-label-form-section">
+                        <h6 class="sudents-label-form-section-title subtitle4 slate900">About you</h6>
+
+                        <div class="sudents-label-form-grid">
+                           <div class="sudents-label-form-group">
+                              <label for="request-full-name">Full name</label>
+                              <input autocomplete="name" type="text" id="request-full-name" name="full_name" placeholder="Full name">
+                           </div>
+
+                           <div class="sudents-label-form-group">
+                              <label for="request-phone">Phone</label>
+                              <input autocomplete="tel" type="tel" id="request-phone" name="phone" placeholder="Phone number">
+                           </div>
+
+                           <div class="sudents-label-form-group">
+                              <label for="request-full-name">Email</label>
+                              <input autocomplete="name" type="text" id="request-full-name" name="full_name" placeholder="Email">
+                           </div>
+
+                           <div class="sudents-label-form-group">
+                              <label for="request-full-name">Company or Organization</label>
+                              <input autocomplete="name" type="text" id="request-full-name" name="full_name" placeholder="Company or Organization">
+                           </div>
+
+                           <div class="sudents-label-form-group">
+                              <label for="request-full-name">Position / Job Title</label>
+                              <input autocomplete="name" type="text" id="request-full-name" name="full_name" placeholder="Position / Job Title">
+                           </div>
+
+                           <div class="sudents-label-form-group">
+                              <label for="request-programme">How did you hear about us?</label>
+                              <select id="request-programme" name="programme">
+                                 <option value="" selected disabled>Select</option>
+                                 <option value="business">Business Management</option>
+                                 <option value="finance">Finance</option>
+                                 <option value="it">Information Technology</option>
+                              </select>
+                           </div>
+                        </div>
+                     </div>
+
+
+                     <div class="sudents-label-form-footer">
+                        <label class="sudents-label-form-consent">
+                           <input id="request-consent" type="checkbox" name="consent" required>
+                           <span class="body3 slate700">Consent to personal data processing</span>
+                        </label>
+
+                        <button class="sudents-label-form-submit button" type="submit">
+                           Submit application
+                           <i class="i-arrow"></i>
+                        </button>
+                     </div>
+                  </form>
+               </div>
+            </div>
+         </div>
+         <div class="layout-sidebar">
+            @@include('components/layout/sidebar.html')
+         </div>
+      </div>
+   </div>
+
+   @@include('components/layout/footer.html')
+
+</body>
+
+</html>

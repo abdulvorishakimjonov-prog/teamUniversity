@@ -1,0 +1,139 @@
+@use '../config/mixins' as *;
+
+.pagination {
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
+	gap: 6px;
+	width: 100%;
+	padding: 32px 0 0;
+	max-width: 100%;
+	list-style: none;
+	margin: 0;
+
+	&-container {
+		width: 100%;
+	}
+
+	.page-item {
+		display: flex;
+
+
+		&.disabled {
+			display: none;
+
+			.page-link {
+				opacity: 0.5;
+				pointer-events: none;
+				cursor: default;
+			}
+		}
+
+		&.active {
+			.page-link {
+				border: 1px solid #002266;
+				color: #002266;
+				font-weight: 600;
+			}
+		}
+	}
+
+	.page-link {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		min-width: 48px;
+		height: 48px;
+		padding: 0 12px;
+		background: white;
+		border-radius: 12px;
+		transition: all 0.2s ease;
+		backdrop-filter: blur(8px);
+		text-decoration: none;
+		cursor: pointer;
+		border: 1px solid var(--gray-200, #e5e7eb);
+		background-color: transparent;
+		@include font(#667085, 16px, 500);
+
+		@include devices(sm) {
+			min-width: 40px;
+			height: 40px;
+			padding: 0 8px;
+		}
+
+		&:hover {
+			border: 1px solid #002266;
+			color: #002266;
+		}
+	}
+
+	&-arrow {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		flex-shrink: 0;
+		width: 52px;
+		height: 52px;
+		background: #FFFFFF;
+		border-radius: 50%;
+		transition: all 0.2s ease;
+
+		i {
+			font-size: 20px;
+			color: var(--slate800);
+			transition: color 0.2s ease;
+		}
+
+		&:hover {
+			background: var(--blue900);
+
+			i {
+				color: #FFFFFF;
+			}
+		}
+
+		@include devices(sm) {
+			width: 40px;
+			height: 40px;
+		}
+	}
+
+	&-list {
+		display: flex;
+		align-items: center;
+		gap: 4px;
+		padding: 4px;
+		background: #FFFFFF;
+		border-radius: 40px;
+		min-width: 0;
+	}
+
+	&-item {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		min-width: 44px;
+		height: 44px;
+		padding: 0 8px;
+		border-radius: 50%;
+		color: var(--slate800);
+		text-decoration: none;
+		transition: all 0.2s ease;
+		font-size: 16px;
+		font-weight: 500;
+
+		@include devices(sm) {
+			min-width: 34px;
+			height: 34px;
+			padding: 0 4px;
+			font-size: 14px;
+		}
+
+		&:hover:not(.pagination-dots),
+		&.active {
+			background: var(--blue900);
+			color: #FFFFFF;
+		}
+	}
+}
