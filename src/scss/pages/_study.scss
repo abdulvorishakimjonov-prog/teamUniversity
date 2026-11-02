@@ -219,3 +219,14 @@
 		gap: 12px;
 	}
 }
+
+// ---------- RESP: tor ekranda matn va muddat qatorga o'tadi ----------
+.visa-main-info-wrapper-item {
+	flex-wrap: wrap;
+	gap: 6px 12px;
+
+	&-text {
+		min-width: 0;
+		flex: 1 1 140px;
+	}
+}

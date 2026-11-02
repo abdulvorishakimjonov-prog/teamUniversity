@@ -330,8 +330,23 @@
 
 			.grid._2 {
 				display: grid;
-				grid-template-columns: repeat(2, 1fr);
+				grid-template-columns: repeat(2, minmax(0, 1fr));
 				gap: 16px;
+			}
+
+			// planshet va telefon: katta kartochka va 2x2 to'r ustma-ust
+			@include devices(md) {
+				&,
+				&:last-child {
+					grid-template-columns: minmax(0, 1fr);
+				}
+			}
+
+			@include devices(xs) {
+				.grid._2 {
+					grid-template-columns: minmax(0, 1fr);
+					gap: 12px;
+				}
 			}
 		}
 
@@ -435,8 +450,9 @@
 
 			&-info {
 				display: flex;
+				flex-wrap: wrap;
 				align-items: center;
-				gap: 18px;
+				gap: 4px 18px;
 
 				span {
 					display: flex;
@@ -639,15 +655,15 @@
 
 			&-image {
 				height: 181px;
-				width: 100%;
+				width: auto;
+				margin: 0 20px; // rasm quti chetidan ikki yonga 20px ichkarida
 				position: relative;
 
 				img {
 					width: 100%;
 					height: 100%;
 					object-fit: cover;
-					border-top-left-radius: 24px;
-					border-top-right-radius: 24px;
+					border-radius: 24px;
 				}
 			}
 
@@ -671,6 +687,8 @@
 				display: flex;
 				align-items: center;
 				gap: 16px;
+				position: relative; // rasmning pastki qismi quti ostida qoladi
+				margin-top: -20px;
 
 				&-title {
 					display: flex;
@@ -797,4 +815,31 @@
 	}
 
 
+}
+// ---------- RESP: tadbir kartasi (tor ekranda matn sig'ishi uchun) ----------
+.news-events-card-box {
+	@include devices(xs) {
+		gap: 10px;
+		padding: 16px 14px;
+	}
+
+	&-title {
+		@include devices(xs) {
+			flex-shrink: 0;
+			max-width: 70px;
+		}
+	}
+
+	&-text {
+		min-width: 0;
+		flex: 1;
+	}
+
+	&-line {
+		@include devices(xs) {
+			height: auto;
+			align-self: stretch;
+			min-height: 80px;
+		}
+	}
 }

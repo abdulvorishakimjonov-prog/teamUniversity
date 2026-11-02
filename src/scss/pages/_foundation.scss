@@ -592,3 +592,16 @@
 		}
 	}
 }
+// ---------- RESP: juda tor ekranlar (≤574px; Galaxy Fold ≈ 280px gacha) ----------
+.foundation-info-wrapper-item {
+	> * {
+		min-width: 0;
+		overflow-wrap: anywhere;
+	}
+
+	@include devices(xs) {
+		grid-template-columns: 28px 36px minmax(0, 1fr);
+		column-gap: 10px;
+		padding: 12px;
+	}
+}

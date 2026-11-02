@@ -84,3 +84,14 @@
 		}
 	}
 }
+// ---------- RESP: tor ekranda sana/ko'rishlar va "Learn more" qatorga o'tadi ----------
+.media-card-bottom,
+.media-card-meta {
+	flex-wrap: wrap;
+}
+
+.media-card-top {
+	@include devices(xs) {
+		flex-wrap: wrap;
+	}
+}

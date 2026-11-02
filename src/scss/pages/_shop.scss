@@ -2,7 +2,6 @@
 
 .shop {
 	width: 100%;
-	margin-bottom: 256px;
 
 	&-empty {
 		padding: 40px 0;
@@ -364,7 +363,7 @@
 		align-items: start;
 
 		@media (max-width: 768px) {
-			grid-template-columns: 1fr;
+			grid-template-columns: minmax(0, 1fr);
 		}
 
 		&-gallery {
@@ -452,6 +451,7 @@
 					display: flex;
 					align-items: center;
 					gap: 8px;
+					flex-wrap: wrap;
 				}
 			}
 		}
@@ -465,7 +465,7 @@
 		align-items: start;
 
 		@media (max-width: 992px) {
-			grid-template-columns: 1fr;
+			grid-template-columns: minmax(0, 1fr);
 		}
 
 		&-order {

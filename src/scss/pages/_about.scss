@@ -715,3 +715,84 @@
 		}
 	}
 }
+// ---------- RESP: "About TEAM University" bo'limi (bosh sahifa) ----------
+// Planshet va telefonda: tepada matn bloki to'liq kenglikda, uning ostida ikkala rasm yonma-yon, matnlar markazda.
+// (Oldin 3 ta blok to'rning ustunlariga ketma-ket tushib, rasmlar ustma-ust/yonma-yon aralashib qolardi.)
+.about-section > .grid._3:first-child {
+	@include devices(md) {
+		grid-template-columns: repeat(2, minmax(0, 1fr));
+		gap: 16px 12px;
+
+		> .about-section-content {
+			min-width: 0;
+			align-items: center;
+			text-align: center;
+
+			&:first-child {
+				grid-column: 1 / -1;
+			}
+
+			a:has(> img) {
+				display: block;
+				width: 100%;
+			}
+
+			// ikkala rasm bir qatorda tekis turishi uchun matn doim rasm ostida (2-blokda u DOM'da rasmdan oldin)
+			&:nth-child(2) > div {
+				order: 1;
+			}
+
+			img {
+				display: block;
+				width: 100%;
+				height: auto;
+				aspect-ratio: 4 / 3;
+				object-fit: cover;
+				border-radius: 16px;
+			}
+		}
+
+		.content-text {
+			text-align: center;
+		}
+	}
+
+	@include devices(sm) {
+		gap: 12px 8px;
+
+		> .about-section-content img {
+			border-radius: 12px;
+		}
+	}
+
+	@include devices(xs) {
+		> .about-section-content:not(:first-child) > div {
+			font-size: 13px;
+			line-height: 1.4;
+		}
+	}
+}
+
+// ---------- RESP: statistika kartochkalari (.about-page-content-wrapper) ----------
+// lg (<=1199px) da yon panel bilan birga kontent tor: 4 ta karta bir qatorda sig'maydi va oq blokdan chiqib,
+// yon panel tagiga kirib ketardi (board sahifasi, 1024px). Endi kartalar keyingi qatorga o'tadi, ajratuvchi chiziqlar yashiriladi.
+.about-page-content-wrapper {
+	@include devices(lg) {
+		flex-wrap: wrap;
+		justify-content: flex-start;
+		gap: 16px 24px;
+	}
+}
+
+.about-page-content-wrapper-card {
+	@include devices(lg) {
+		flex: 1 1 200px;
+		min-width: 0;
+	}
+}
+
+.about-page-content-wrapper-line {
+	@include devices(lg) {
+		display: none;
+	}
+}

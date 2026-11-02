@@ -93,6 +93,14 @@
 					font-size: 28px;
 					color: var(--red700);
 				}
+
+				// ikonka <img> bo'lsa ham o'lchami bir xil bo'lsin (oldin o'lcham berilmagani uchun rasmlar turlicha va kesilib chiqardi)
+				img {
+					width: 48px;
+					height: 48px;
+					flex-shrink: 0;
+					object-fit: contain;
+				}
 			}
 		}
 	}

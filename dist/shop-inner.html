@@ -335,7 +335,8 @@
 
 	</div>
 </header>
-	<div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasMenu" aria-labelledby="offcanvasMenuLabel">
+	<!-- ESKI MENYU (offcanvas): mobil uchun, ochilishi main.js dagi USE_MEGAMENU bilan boshqariladi -->
+<div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasMenu" aria-labelledby="offcanvasMenuLabel">
 	<div class="offcanvas-header">
 		<a href="/" class="offcanvas-logo" aria-label="TEAM University" id="offcanvasMenuLabel">
 			<img src="./images/logo.svg" alt="TEAM University">
@@ -356,6 +357,153 @@
 		<div class="offcanvas-footer-contacts">
 			<a href="tel:+998781130828" class="body3 slate700">+998 78 113 08 28</a>
 			<a href="mailto:teamuniversity@mail.com" class="body3 slate700">teamuniversity@mail.com</a>
+		</div>
+	</div>
+</div>
+
+<!-- Full-screen menyu: header'dagi burger bosilganda ochiladi. Tepa qism (kontakt, logo) haqiqiy .header, bu yerda faqat qidiruv + mazmun. Mantiq: assets/js/main.js (initMegamenu) -->
+<div class="megamenu" id="megamenu" role="dialog" aria-modal="true" aria-label="Site menu" hidden>
+	<div class="megamenu-search">
+		<div class="container megamenu-search-container">
+			<button type="button" class="megamenu-close" data-megamenu-close aria-label="Close menu"></button>
+			<label class="megamenu-search-field">
+				<input type="search" class="megamenu-search-input body8" placeholder="Search" aria-label="Search">
+			</label>
+		</div>
+	</div>
+
+	<div class="megamenu-body">
+		<div class="container">
+			<nav class="megamenu-grid" aria-label="Main">
+
+				<div class="megamenu-col">
+					<h6 class="megamenu-col-title subtitle2 blue900">About</h6>
+					<ul class="megamenu-col-list">
+						<li><a href="about.html" class="megamenu-col-link body7 slate900">Vision, Mission &amp; Values</a></li>
+						<li><a href="leadership.html" class="megamenu-col-link body7 slate900">Leadership &amp; Governance</a></li>
+						<li><a href="staff.html" class="megamenu-col-link body7 slate900">Academic staff</a></li>
+						<li><a href="research.html" class="megamenu-col-link body7 slate900">Research</a></li>
+						<li><a href="partnership.html" class="megamenu-col-link body7 slate900">Partnerships</a></li>
+						<li><a href="rules.html" class="megamenu-col-link body7 slate900">Rules &amp; Regulations</a></li>
+						<li><a href="careers.html" class="megamenu-col-link body7 slate900">Careers at TEAM</a></li>
+					</ul>
+				</div>
+
+				<div class="megamenu-col">
+					<h6 class="megamenu-col-title subtitle2 blue900">Programmes</h6>
+					<ul class="megamenu-col-list">
+						<li><a href="undergraduate.html" class="megamenu-col-link body7 slate900">Undergraduate</a></li>
+						<li><a href="executive.html" class="megamenu-col-link body7 slate900">Executive</a></li>
+					</ul>
+				</div>
+
+				<div class="megamenu-col">
+					<h6 class="megamenu-col-title subtitle2 blue900">Admissions</h6>
+					<ul class="megamenu-col-list">
+						<li><a href="sudents.html" class="megamenu-col-link body7 slate900">Undergraduate admissions</a></li>
+						<li><a href="admissions.html" class="megamenu-col-link body7 slate900">Executive admissions</a></li>
+						<li><a href="admission.html" class="megamenu-col-link body7 slate900">Visit TEAM / Open days</a></li>
+						<li><a href="coming.html" class="megamenu-col-link body7 slate900">Admissions statistics</a></li>
+					</ul>
+				</div>
+
+				<div class="megamenu-col">
+					<h6 class="megamenu-col-title subtitle2 blue900">Corporate Solutions</h6>
+					<ul class="megamenu-col-list">
+						<li><a href="overview.html" class="megamenu-col-link body7 slate900">Overview</a></li>
+						<li><a href="corporate.html" class="megamenu-col-link body7 slate900">About corporate programmes</a></li>
+						<li><a href="types.html" class="megamenu-col-link body7 slate900">Programme types &amp; examples</a></li>
+						<li><a href="clubs.html" class="megamenu-col-link body7 slate900">Corporate sponsorship</a></li>
+						<li><a href="coming.html" class="megamenu-col-link body7 slate900">Case studies</a></li>
+					</ul>
+				</div>
+
+				<div class="megamenu-col">
+					<h6 class="megamenu-col-title subtitle2 blue900">Student Life</h6>
+					<ul class="megamenu-col-list">
+						<li><a href="life.html" class="megamenu-col-link body7 slate900">Overview</a></li>
+						<li><a href="campus.html" class="megamenu-col-link body7 slate900">Campus &amp; Learning</a></li>
+						<li><a href="support.html" class="megamenu-col-link body7 slate900">Student support</a></li>
+						<li><a href="experience.html" class="megamenu-col-link body7 slate900">Student experience</a></li>
+						<li><a href="abroad.html" class="megamenu-col-link body7 slate900">Study abroad &amp; Exchange</a></li>
+					</ul>
+				</div>
+
+				<div class="megamenu-col">
+					<h6 class="megamenu-col-title subtitle2 blue900">Faculty &amp; Research</h6>
+					<ul class="megamenu-col-list">
+						<li><a href="staff.html" class="megamenu-col-link body7 slate900">Academic staff</a></li>
+						<li><a href="research.html" class="megamenu-col-link body7 slate900">Research initiatives</a></li>
+						<li><a href="publications.html" class="megamenu-col-link body7 slate900">Faculty publications</a></li>
+					</ul>
+				</div>
+
+				<div class="megamenu-col">
+					<h6 class="megamenu-col-title subtitle2 blue900">Alumni</h6>
+					<ul class="megamenu-col-list">
+						<li><a href="alumni.html" class="megamenu-col-link body7 slate900">Graduate stories and testimonials</a></li>
+						<li><a href="alumni.html" class="megamenu-col-link body7 slate900">EMBA alumni club</a></li>
+					</ul>
+				</div>
+
+				<div class="megamenu-col">
+					<h6 class="megamenu-col-title subtitle2 blue900">News &amp; Events</h6>
+					<ul class="megamenu-col-list">
+						<li><a href="news.html" class="megamenu-col-link body7 slate900">News &amp; Articles</a></li>
+						<li><a href="news-events.html" class="megamenu-col-link body7 slate900">Events</a></li>
+						<li><a href="media.html" class="megamenu-col-link body7 slate900">Media about us</a></li>
+					</ul>
+				</div>
+
+				<div class="megamenu-col">
+					<h6 class="megamenu-col-title subtitle2 blue900">Contact Us</h6>
+					<ul class="megamenu-col-list">
+						<li><a href="faq.html" class="megamenu-col-link body7 slate900">FAQ</a></li>
+						<li><a href="contacts.html" class="megamenu-col-link body7 slate900">Contact form</a></li>
+					</ul>
+				</div>
+
+			</nav>
+		</div>
+
+		<!-- bo'lim va kartalar orasidagi harakatlanuvchi TEAM UNIVERSITY yozuvi (boshqa sahifalardagi bilan bir xil) -->
+		<div class="about-section-carousel owl-carousel owl-theme">
+			<div class="about-section-carousel-item">
+				<img src="./images/about-section-bg.svg" alt="">
+			</div>
+		</div>
+
+		<div class="container">
+			<div class="megamenu-cards">
+				<a href="current.html" class="megamenu-card megamenu-card--blue">
+					<div class="megamenu-card-content">
+						<h6 class="megamenu-card-title subtitle8"><i class="i-graduation-cap"></i>Current Students</h6>
+						<p class="megamenu-card-text body3">Your university life, all in one place.</p>
+					</div>
+					<img class="megamenu-card-img" src="./images/menu-card-students.png" alt="" loading="lazy" onerror="this.hidden=true">
+				</a>
+				<a href="#" class="megamenu-card megamenu-card--orange">
+					<div class="megamenu-card-content">
+						<h6 class="megamenu-card-title subtitle8"><i class="i-monitor"></i>LMS</h6>
+						<p class="megamenu-card-text body3">Learn, study and track progress.</p>
+					</div>
+					<img class="megamenu-card-img" src="./images/menu-card-lms.png" alt="" loading="lazy" onerror="this.hidden=true">
+				</a>
+				<a href="#" class="megamenu-card megamenu-card--indigo">
+					<div class="megamenu-card-content">
+						<h6 class="megamenu-card-title subtitle8"><i class="i-users"></i>TEAMHUB</h6>
+						<p class="megamenu-card-text body3">Connect with the TEAM community.</p>
+					</div>
+					<img class="megamenu-card-img megamenu-card-img--fade" src="./images/menu-card-hub.png" alt="" loading="lazy" onerror="this.hidden=true">
+				</a>
+				<a href="shop.html" class="megamenu-card megamenu-card--red">
+					<div class="megamenu-card-content">
+						<h6 class="megamenu-card-title subtitle8"><i class="i-link"></i>Shop</h6>
+						<p class="megamenu-card-text body3">Official TEAM merchandise.</p>
+					</div>
+					<img class="megamenu-card-img" src="./images/menu-card-shop.png" alt="" loading="lazy" onerror="this.hidden=true">
+				</a>
+			</div>
 		</div>
 	</div>
 </div>
@@ -599,7 +747,6 @@
 <script src="./assets/libs/owl-carousel/owl-carousel.js"></script>
 <script src="./assets/js/main.js"></script>
 <script src="./assets/js/carousels.js"></script>
-
 
 </body>
 

@@ -976,3 +976,103 @@ window.switchToTabByIndex = function (system, i) {
 
 document.addEventListener('DOMContentLoaded', initAppOnContentLoaded)
 window.addEventListener('load', initAppOnFullLoad)
+
+// ---------- MENYU: katta (full-screen) menyu va kichik (offcanvas) menyu ----------
+// Burger bosilganda ekran kengligiga qarab BITTA menyu ochiladi:
+//   ekran >= 992px (responsiv emas, desktop)  -> yangi full-screen menyu (.megamenu)
+//   ekran <= 991px (responsiv: planshet/telefon) -> eski offcanvas menyu (.offcanvas)
+// Sinflari alohida, shuning uchun bir-biriga xalaqit bermaydi. Hammasini o'chirish uchun USE_MEGAMENU = false.
+;(function () {
+	const USE_MEGAMENU = true
+	const DESKTOP_MIN = 992 // scss devices(md) = 991px, undan keng ekranlar
+
+	function initMegamenu() {
+		if (!USE_MEGAMENU) return
+
+		const menu = document.getElementById('megamenu')
+		if (!menu) return
+
+		const header = document.querySelector('.header')
+		const isDesktop = () => window.innerWidth >= DESKTOP_MIN
+
+		// menyu qayerdan boshlanishi: desktop'da header tepa qismi tagidan, mobilda butun header tagidan
+		const setOffset = () => {
+			if (!header) return
+			const anchor = isDesktop() ? header.querySelector('.header-top') || header : header
+			menu.style.setProperty('--megamenu-offset', Math.round(anchor.getBoundingClientRect().bottom) + 'px')
+		}
+
+		const isOpen = () => menu.classList.contains('is-open')
+
+		const open = () => {
+			setOffset()
+			menu.hidden = false
+			// hidden olinganidan keyin transition ishlashi uchun keyingi kadrda
+			requestAnimationFrame(() => {
+				menu.classList.add('is-open')
+				// karusel yashirin paytda initsializatsiya qilingan, o'lchamlarni yangilaymiz
+				if (window.jQuery) window.jQuery(menu).find('.owl-carousel').trigger('refresh.owl.carousel')
+			})
+			header?.classList.add('is-menu-open')
+			document.body.classList.add('megamenu-open')
+		}
+
+		const close = () => {
+			menu.classList.remove('is-open')
+			header?.classList.remove('is-menu-open')
+			document.body.classList.remove('megamenu-open')
+			setTimeout(() => {
+				if (!isOpen()) menu.hidden = true
+			}, 260)
+		}
+
+		const burgerSelector = '.header-button[data-bs-target="#offcanvasMenu"], .header-button[aria-label="Open menu"]'
+		const legacy = document.getElementById('offcanvasMenu')
+
+		// 1) Desktop: Bootstrap offcanvas'ni ishga tushirmasdan oldin (capture) ushlab, katta menyuni ochamiz.
+		//    Mobilda hech narsa qilmaymiz: burgerdagi data-bs-toggle eski offcanvas menyuni o'zi ochadi.
+		document.addEventListener(
+			'click',
+			event => {
+				if (!isDesktop() || !event.target.closest(burgerSelector)) return
+				event.preventDefault()
+				event.stopImmediatePropagation()
+				isOpen() ? close() : open()
+			},
+			true
+		)
+
+		// 2) Ehtiyot: desktop'da eski offcanvas boshqa yo'l bilan ochilmoqchi bo'lsa ham to'xtatib, katta menyuni ochamiz
+		if (legacy) {
+			legacy.addEventListener('show.bs.offcanvas', event => {
+				if (!isDesktop()) return
+				event.preventDefault()
+				open()
+			})
+		}
+
+		menu.querySelectorAll('[data-megamenu-close]').forEach(btn => btn.addEventListener('click', close))
+
+		// havolaga o'tganda yoki Esc bosilganda yopiladi
+		menu.addEventListener('click', event => {
+			if (event.target.closest('a[href]')) close()
+		})
+
+		document.addEventListener('keydown', event => {
+			if (event.key === 'Escape' && isOpen()) close()
+		})
+
+		// ekran o'lchami o'zgarganda (masalan telefon gorizontal bo'lsa): ochiq menyu mos keladigani bilan almashadi
+		window.addEventListener('resize', () => {
+			if (isOpen() && !isDesktop()) close()
+			else if (isOpen()) setOffset()
+
+			if (isDesktop() && legacy?.classList.contains('show') && window.bootstrap?.Offcanvas) {
+				window.bootstrap.Offcanvas.getInstance(legacy)?.hide()
+			}
+		})
+	}
+
+	if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', initMegamenu)
+	else initMegamenu()
+})()

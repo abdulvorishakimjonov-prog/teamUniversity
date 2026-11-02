@@ -173,6 +173,7 @@
 					justify-content: space-between;
 					gap: 12px;
 					width: 512px;
+					max-width: 100%;
 					height: 450px;
 					padding: 33px 20px 20px;
 					font-style: italic;
@@ -180,6 +181,18 @@
 					background: #fff;
 					border-radius: 32px;
 					transition: background 0.4s, color 0.4s, box-shadow 0.4s;
+
+					// kichik ekran: matn sig'ishi uchun balandlik kontentga qarab o'sadi
+					@include devices(sm) {
+						height: auto;
+						min-height: 380px;
+						padding: 24px 16px 16px;
+						border-radius: 24px;
+					}
+
+					@include devices(xs) {
+						min-height: 340px;
+					}
 
 					&::after {
 						content: "";
@@ -234,7 +247,6 @@
 }
 
 .club {
-	margin-bottom: 256px;
 
 	&-content {
 		background: #FFFFFF;
@@ -451,5 +463,76 @@
 .club-main-cohort-card-image {
 	@include devices(sm) {
 		height: 200px;
+	}
+}
+
+// ---------- RESP: alumni galereyasi (planshet va telefon) ----------
+// Desktop'da 4 ustunli kollaj, ustiga hikoyalar bloki -396px bilan chiqadi. Kichik ekranda bu ishlamaydi:
+// karta tepada to'liq kenglikda, rasmlar 2 ustunli to'rda, hikoyalar oddiy oqimda.
+// Selektorlar atayin kuchliroq (.alumni-main .alumni-main-...): minify paytida media-query'lar qayta
+// guruhlanadi va eski sm qoidasi (grid-auto-rows: 56px) tartib bo'yicha yutib ketmasligi kerak.
+.alumni-main {
+	@include devices(md) {
+		margin-bottom: 32px;
+	}
+
+	.alumni-main-gallery {
+		@include devices(md) {
+			grid-template-columns: repeat(2, minmax(0, 1fr));
+			grid-auto-rows: auto;
+			gap: 12px;
+
+			&::after {
+				display: none;
+			}
+		}
+	}
+
+	.alumni-main-gallery-item {
+		@include devices(md) {
+			grid-area: auto;
+			aspect-ratio: 4 / 3;
+			border-radius: 20px;
+		}
+
+		&:nth-child(n+6) {
+			@include devices(md) {
+				display: none;
+			}
+		}
+	}
+
+	.alumni-main-gallery-card {
+		@include devices(md) {
+			grid-area: auto;
+			grid-column: 1 / -1;
+			order: -1;
+			padding: 24px 16px;
+			border-radius: 24px;
+		}
+
+		@include devices(sm) {
+			padding: 20px 14px;
+			border-radius: 20px;
+		}
+
+		.button {
+			@include devices(md) {
+				max-width: 100%;
+			}
+		}
+	}
+
+	.alumni-main-stories {
+		@include devices(md) {
+			margin-top: 24px;
+		}
+	}
+
+	// owl autoWidth kartaning haqiqiy kengligini o'lchaydi: aniq kenglik bermasak 512px bo'lib, ekrandan chiqib ketadi
+	.alumni-main-stories-list-card {
+		@include devices(md) {
+			width: min(512px, calc(100vw - 32px));
+		}
 	}
 }

@@ -29,7 +29,6 @@
 		width: var(--width-sidebar);
 		position: relative;
 		flex: 0 0 auto;
-		margin-bottom: 256px;
 
 		@media(max-width:992px) {
 			margin: 0;
@@ -42,7 +41,6 @@
 		flex-direction: column;
 		flex: 1 1 auto;
 		max-width: calc(100% - var(--width-sidebar) - 16px);
-		margin-bottom: 256px;
 
 		@media(max-width:992px) {
 			margin-bottom: 20px;

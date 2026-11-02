@@ -85,3 +85,14 @@
 		line-height: 20px;
 	}
 }
+// ---------- RESP: tor flex ota ichida tugma/havola siqilmasin ----------
+// "Apply now" kabi qisqa yozuvli tugma yonidagi matn bilan bir qatorda qolsa, siqilib ikki qatorga bo'linardi.
+// Uzun yozuvlar max-width: 100% tufayli baribir ota kengligida o'raladi.
+.button {
+	flex-shrink: 0;
+}
+
+.link {
+	flex-shrink: 0;
+	white-space: nowrap;
+}

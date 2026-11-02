@@ -538,12 +538,26 @@
 			gap: 8px;
 		}
 
+		// kichik telefonlar: matn va "Developed by" logotipi bir qatorga sig'masa pastga tushsin
+		@include devices(xs) {
+			flex-wrap: wrap;
+			justify-content: center;
+			text-align: center;
+		}
 
 		&-item {
 			opacity: 0.6;
 			display: flex;
 			align-items: center;
 			gap: 4px;
+			min-width: 0;
+
+			img {
+				width: 96px;
+				height: 24px;
+				max-width: 100%;
+				object-fit: contain;
+			}
 
 			@include devices(md) {
 				font-size: 15px;
@@ -572,20 +586,9 @@
 
 
 			img {
-				height: 28px;
-
-
-				@include devices(md) {
-					height: 26px;
-				}
-
-				@include devices(sm) {
-					height: 24px;
-				}
-
-				@include devices(xs) {
-					height: 22px;
-				}
+				// Proend logotipi: barcha ekranlarda 96x24px
+				width: 96px;
+				height: 24px;
 			}
 		}
 	}
@@ -649,5 +652,213 @@
 		.footer-banner-image-phone-bottom {
 			transform: translateX(-50%);
 		}
+	}
+}
+// ---------- RESP: telefon rasmlarisiz banner (≤1712px) ----------
+// Bu o'lchamlarda telefon rasmlari (footer-img-*.png) yashiriladi, shuning uchun o'ng tomonda
+// ijtimoiy tarmoqlar toza kartalar to'ri bo'lib turadi: ikonka + nom, hover'da ko'tariladi.
+.footer-banner {
+	@include devices(xxl) {
+		align-items: center;
+		gap: 24px 48px;
+		padding: 32px;
+
+		.footer-banner-text {
+			padding-bottom: 0;
+		}
+
+		.footer-banner-image {
+			flex: 1;
+			width: 100%;
+			max-width: 620px;
+			grid-template-columns: repeat(3, minmax(0, 1fr));
+			place-items: stretch;
+			gap: 12px;
+			padding: 0;
+		}
+
+		.footer-banner-image-phone {
+			flex: none;
+			width: 100%;
+			align-self: stretch;
+		}
+
+		.footer-banner-image-phone-bottom {
+			position: static;
+			left: auto;
+			bottom: auto;
+			transform: none;
+			width: 100%;
+			max-width: none;
+			justify-content: flex-start;
+			gap: 12px;
+			padding: 12px 16px 12px 12px;
+			border: 1px solid #E5EAF3;
+			border-radius: 18px;
+			background: #F5F7FB;
+			backdrop-filter: none;
+			box-shadow: none;
+			font-size: 16px;
+			line-height: 1.2;
+
+			&:hover,
+			&:focus-visible {
+				background: #FFFFFF;
+				border-color: #C9D5EE;
+				box-shadow: 0 10px 24px rgba(28, 57, 142, 0.12);
+				translate: 0 -3px;
+			}
+
+			> div {
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				flex-shrink: 0;
+				width: 40px;
+				height: 40px;
+				padding: 9px;
+				border-radius: 12px;
+				background: #FFFFFF;
+				box-shadow: 0 2px 8px rgba(15, 23, 42, 0.06);
+
+				img {
+					width: 100%;
+					height: 100%;
+					object-fit: contain;
+				}
+			}
+		}
+	}
+
+	@include devices(lg) {
+		.footer-banner-image {
+			max-width: 520px;
+			grid-template-columns: repeat(2, minmax(0, 1fr));
+		}
+	}
+
+	@include devices(md) {
+		align-items: stretch;
+		padding: 24px;
+
+		.footer-banner-text {
+			max-width: 100%;
+		}
+
+		.footer-banner-image {
+			max-width: none;
+			margin-left: 0;
+			padding: 0;
+		}
+	}
+
+	// sm da eski qoida rasmlarni ustun qilib qo'yardi: kartalar 2 ustunli to'r bo'lib qoladi
+	@include devices(sm) {
+		.footer-banner-image {
+			display: grid;
+			grid-template-columns: repeat(2, minmax(0, 1fr));
+			padding: 0;
+		}
+	}
+
+	@include devices(xs) {
+		padding: 20px 16px;
+
+		.footer-banner-image {
+			grid-template-columns: minmax(0, 1fr);
+		}
+
+		.footer-banner-image-phone-bottom {
+			padding: 10px 14px 10px 10px;
+			font-size: 15px;
+		}
+	}
+}
+
+// ---------- RESP: kichik ekranlarda footer tepa qismi ----------
+// sm (≤768px) da footer-top ustunlari yashiriladi; faqat logo va "Contact our team" tugmasi (1-blok) ko'rinib turadi.
+.footer-top--item:first-child {
+	@include devices(sm) {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		text-align: center;
+	}
+
+	.footer-top--item-logo {
+		@include devices(sm) {
+			width: 100%;
+			max-width: 220px;
+		}
+	}
+
+	.footer-top--item-contact {
+		@include devices(sm) {
+			gap: 24px;
+			max-width: 100%;
+		}
+	}
+}
+
+// ---------- RESP: banner hamkorlar karuselini yopib qo'ymasin ----------
+// Desktop'da banner yuqoridagi bo'limga -200px kiradi (partners paddingi 357px). Kichik ekranda banner
+// balandroq va partners paddingi kichik, shuning uchun kirish miqdori ham kamaytiriladi.
+.footer-banner {
+	@include devices(lg) {
+		margin-top: -120px;
+	}
+
+	@include devices(md) {
+		margin-top: -48px;
+	}
+
+	@include devices(sm) {
+		margin-top: -36px;
+	}
+
+	@include devices(xs) {
+		margin-top: -24px;
+	}
+}
+
+// ---------- Footer sahifa kontentidan pastga suriladi ----------
+// Avval har bir sahifada (.contacts, .faq, .shop, .details, .club, .layout-content, .layout-sidebar ...) alohida
+// margin-bottom: 256px berilgan edi. Endi bitta joyda: footer'ning tepasidagi bo'shliq. Banner yuqoriga (-200px dan
+// boshlab kamayadi) kirib turgani uchun bo'shliq ekranga qarab kichrayadi.
+.footer {
+	margin-top: 256px;
+
+	@include devices(lg) {
+		margin-top: 176px;
+	}
+
+	@include devices(md) {
+		margin-top: 96px;
+	}
+
+	@include devices(sm) {
+		margin-top: 72px;
+	}
+
+	@include devices(xs) {
+		margin-top: 56px;
+	}
+}
+
+// Bosh sahifada hamkorlar bo'limi (.partners) o'zining pastki padding'i bilan banner uchun joy qoldiradi,
+// shuning uchun u yerda qo'shimcha tepa bo'shliq kerak emas.
+.partners + .footer {
+	margin-top: 20px;
+
+	@include devices(md) {
+		margin-top: 16px;
+	}
+
+	@include devices(sm) {
+		margin-top: 12px;
+	}
+
+	@include devices(xs) {
+		margin-top: 8px;
 	}
 }

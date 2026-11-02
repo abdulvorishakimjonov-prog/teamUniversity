@@ -71,51 +71,93 @@
 			display: flex;
 			gap: 32px;
 			justify-content: space-between;
+			
 
+			// planshet va telefon: sarlavha va tavsif ustma-ust (oldin flex qatorda qolib toshib chiqardi)
 			@include devices(md) {
-				grid-template-columns: repeat(1);
+				flex-direction: column;
+				align-items: center;
 				gap: 20px;
+				text-align: center;
 			}
 
 			&-left {
-				h1 {
-					max-width: 520px;
-					font-family: MazzardH, sans-serif;
-					font-weight: 700;
-					font-size: clamp(32px, 5vw + 8px, 58px);
-					line-height: 1.1;
-					overflow-wrap: break-word;
+					min-width: 0;
+
+					@include devices(md) {
+						width: 100%;
+						text-align: center;
+					}
+
+					h1 {
+						max-width: 520px;
+						font-family: MazzardH, sans-serif;
+						font-weight: 700;
+						font-size: clamp(32px, 5vw + 8px, 58px);
+						line-height: 1.1;
+						overflow-wrap: break-word;
+
+						// planshet va telefon: h1 dagi Bootstrap .text-start (!important) ni bosib o'tib, markazga qo'yamiz
+						@include devices(md) {
+							max-width: 100%;
+							margin-inline: auto;
+							text-align: center !important;
+						}
+					}
 				}
-			}
 
 			&-right {
 				max-width: 429px;
+				min-width: 0;
 				display: flex;
 				flex-direction: column;
 				gap: 26px;
 
 				@include devices(md) {
 					align-items: center;
+					max-width: 100%;
+					text-align: center;
 					gap: 16px;
 				}
 
+				p {
+						text-align: center;
+
+						@include devices(md) {
+							text-align: center !important;
+						}
+					}
+
 				&-wrapper {
-					display: flex;
-					flex-direction: row;
-					gap: 32px;
+						display: flex;
+						flex-direction: row;
+						gap: 32px;
 
-					@include devices(md) {
-						flex-wrap: wrap;
-						justify-content: center;
-					}
+						@include devices(md) {
+							flex-wrap: wrap;
+							justify-content: center;
+							align-items: center;
+						}
 
-					@include devices(sm) {
-						flex-direction: column;
-						align-items: stretch;
-						width: 100%;
-						gap: 12px;
+						// telefon: tugma va havola ustma-ust, ikkalasi markazda (tugma o'z kengligida, cho'zilmaydi)
+						@include devices(sm) {
+							align-items: center;
+							width: 100%;
+							gap: 12px;
+
+							.button {
+								max-width: 100%;
+							}
+
+							.link {
+								justify-content: center;
+							}
+						}
+
+						@include devices(xs) {
+							flex-direction: column;
+						}
 					}
-				}
 			}
 		}
 
@@ -191,7 +233,7 @@
 
 					@include devices(md) {
 						display: grid;
-						grid-template-columns: repeat(2, 1fr);
+						grid-template-columns: repeat(2, minmax(0, 1fr));
 						justify-content: space-between;
 						gap: 16px 24px;
 						padding: 12px 16px;
@@ -201,6 +243,12 @@
 					@include devices(sm) {
 						gap: 12px 16px;
 						border-radius: 16px;
+					}
+
+					// tor telefonlar: kartalar sig'maydi, bir ustunga tushadi
+					@include devices(xs) {
+						grid-template-columns: minmax(0, 1fr);
+						padding: 12px;
 					}
 
 					.vl {

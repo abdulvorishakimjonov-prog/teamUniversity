@@ -1,5 +1,6 @@
 @use '../config/mixins' as *;
 
+// ESKI MENYU (offcanvas): mobil uchun. Sinflar (.offcanvas, .menu, .submenu) yangi .megamenu bilan umuman kesishmaydi.
 // Offcanvas (mobil) menyu: oq fon, tepada loyiha logosi, ranglar saytniki (ko'k #1C398E, qizil #C10007)
 .offcanvas {
 	--bs-offcanvas-width: 340px;
@@ -218,4 +219,316 @@
 	.offcanvas {
 		--bs-offcanvas-width: 100vw;
 	}
+}
+
+// Full-screen menyu: header'dagi burger bosilganda ochiladi.
+// Tepa qism (kontakt, logo, havolalar) haqiqiy .header; menyu uning ostida, ekranning qolgan qismini egallaydi.
+// --megamenu-offset: header tepa qismining pastki chegarasi (megamenu.js o'lchaydi).
+.megamenu {
+	position: fixed;
+	inset: 0;
+	// .header (z-index 111) ustida emas, uning ostida: header ko'rinib turadi
+	z-index: 110;
+	display: flex;
+	flex-direction: column;
+	padding-top: var(--megamenu-offset, 0px);
+	overflow-y: auto;
+	background: var(--slate50);
+	opacity: 0;
+	visibility: hidden;
+	transition: opacity 0.25s ease, visibility 0s linear 0.25s;
+
+	&[hidden] {
+		display: none;
+	}
+
+	&.is-open {
+		opacity: 1;
+		visibility: visible;
+		transition: opacity 0.25s ease;
+	}
+
+	// ---------- qidiruv qatori ----------
+	&-search {
+		background: #FFFFFF;
+		border-top: 1px solid var(--slate100);
+		border-bottom: 1px solid var(--slate100);
+
+		&-container {
+			display: flex;
+			align-items: center;
+			gap: 24px;
+			min-height: 44px;
+			padding-top: 8px;
+			padding-bottom: 8px;
+		}
+
+		&-field {
+			flex: 1;
+			display: flex;
+			align-items: center;
+			margin: 0;
+		}
+
+		&-input {
+			width: 100%;
+			height: 38px;
+			padding: 8px 16px 6px;
+			border: 1px solid transparent;
+			border-radius: 38px;
+			outline: none;
+			background: #F5F7F9;
+			color: var(--slate800);
+			font-size: 12px;
+			font-weight: 400;
+			line-height: 1;
+			-webkit-appearance: none;
+			appearance: none;
+			transition: border-color 0.2s ease, background-color 0.2s ease;
+
+			&::placeholder {
+				color: var(--slate800);
+				opacity: 1;
+			}
+
+			&:focus {
+				border-color: var(--slate300);
+				background: #FFFFFF;
+			}
+
+			// brauzerning standart "x" tozalash tugmasi chiqmasin
+			&::-webkit-search-cancel-button {
+				-webkit-appearance: none;
+				appearance: none;
+			}
+		}
+	}
+
+	// × tugmasi (ikonka shriftida yo'q, shuning uchun CSS bilan chiziladi)
+	&-close {
+		position: relative;
+		flex-shrink: 0;
+		width: 28px;
+		height: 28px;
+		padding: 0;
+		border: 0;
+		background: transparent;
+		cursor: pointer;
+
+		&::before,
+		&::after {
+			content: '';
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			width: 18px;
+			height: 1px;
+			border-radius: 2px;
+			background: var(--slate800);
+			transition: background-color 0.2s ease;
+		}
+
+		&::before {
+			transform: translate(-50%, -50%) rotate(45deg);
+		}
+
+		&::after {
+			transform: translate(-50%, -50%) rotate(-45deg);
+		}
+
+		&:hover::before,
+		&:hover::after {
+			background: var(--red700);
+		}
+	}
+
+	// ---------- asosiy qism ----------
+	&-body {
+		flex: 1;
+		padding: 28px 0 48px;
+		background: var(--slate50);
+	}
+
+	&-grid {
+		display: grid;
+		grid-template-columns: repeat(5, minmax(0, 1fr));
+		gap: 44px 24px;
+		margin-bottom: 52px;
+
+		@include devices(lg) {
+			grid-template-columns: repeat(4, minmax(0, 1fr));
+		}
+
+		@include devices(md) {
+			grid-template-columns: repeat(2, minmax(0, 1fr));
+			gap: 28px 20px;
+			margin-bottom: 32px;
+		}
+
+		@include devices(sm) {
+			grid-template-columns: 1fr;
+		}
+	}
+
+	&-col {
+		min-width: 0;
+
+		&-title {
+			margin: 0 0 12px;
+		}
+
+		&-list {
+			display: flex;
+			flex-direction: column;
+			gap: 9px;
+			margin: 0;
+			padding: 0;
+			list-style: none;
+		}
+
+		&-link {
+			display: inline-block;
+			// o'lcham/qalinlik body7 klassidan, rang slate900 klassidan
+			text-transform: uppercase;
+			text-decoration: none;
+			transition: color 0.2s ease, transform 0.2s ease;
+
+			&:hover {
+				color: var(--red700);
+				transform: translateX(3px);
+			}
+		}
+	}
+
+	// ---------- bo'lim va kartalar orasidagi yozuv-karusel ----------
+	// asosiy stil _about.scss dagi .about-section-carousel; u 24px padding'li ota uchun yozilgan, bu yerda to'liq kenglik
+	.about-section-carousel {
+		width: 100%;
+		margin: 0 0 28px;
+	}
+
+	// ---------- pastdagi rangli kartalar ----------
+	&-cards {
+		display: grid;
+		grid-template-columns: repeat(4, minmax(0, 1fr));
+		gap: 12px;
+
+		@include devices(lg) {
+			grid-template-columns: repeat(2, minmax(0, 1fr));
+		}
+
+		@include devices(sm) {
+			grid-template-columns: 1fr;
+		}
+	}
+
+	&-card {
+		position: relative;
+		display: flex;
+		align-items: flex-start;
+		min-height: 80px;
+		padding: 14px 16px;
+		border-radius: 16px;
+		overflow: hidden; // rasm karta ichida qirqiladi
+		isolation: isolate;
+		color: #FFFFFF;
+		text-decoration: none;
+		transition: transform 0.2s ease, box-shadow 0.2s ease;
+
+		&:hover {
+			transform: translateY(-3px);
+			box-shadow: 0 10px 24px rgba(15, 23, 42, 0.18);
+			color: #FFFFFF;
+		}
+
+		// matn: chap tomonda, rasm ustiga chiqmasligi uchun cheklangan kenglik
+		&-content {
+			position: relative;
+			z-index: 1;
+			display: flex;
+			flex-direction: column;
+			gap: 4px;
+			max-width: 62%;
+		}
+
+		&-title {
+			display: flex;
+			align-items: center;
+			gap: 6px;
+			margin: 0;
+			color: inherit;
+
+			i {
+				flex-shrink: 0;
+				font-size: 20px;
+			}
+		}
+
+		&-text {
+			margin: 0;
+			color: rgba(255, 255, 255, 0.92);
+		}
+
+		// o'ng tomondagi rasm: kartaning pastki-o'ng burchagiga tiraladi
+		&-img {
+			position: absolute;
+			z-index: 0;
+			right: 0;
+			bottom: 0;
+			height: 100%;
+			width: auto;
+			max-width: 58%;
+			object-fit: contain;
+			object-position: right bottom;
+			pointer-events: none;
+
+			// keng/binoviy rasm (masalan bino): chapga qarab asta so'nadi
+			&--fade {
+				width: 58%;
+				object-fit: cover;
+				opacity: 0.55;
+				mix-blend-mode: luminosity;
+				-webkit-mask-image: linear-gradient(90deg, transparent 0%, #000 55%);
+				mask-image: linear-gradient(90deg, transparent 0%, #000 55%);
+			}
+		}
+
+		&--blue {
+			background: linear-gradient(135deg, #1C398E 0%, #2B50C0 100%);
+		}
+
+		&--orange {
+			background: linear-gradient(135deg, #C10007 0%, #E8481F 100%);
+		}
+
+		&--indigo {
+			background: linear-gradient(135deg, #1D4ED8 0%, #3B7BE8 100%);
+		}
+
+		&--red {
+			background: linear-gradient(135deg, #9F0712 0%, #D4161F 100%);
+		}
+	}
+}
+
+// menyu ochiq paytda header: fon tepa qismda menyu rangida, menyu qatori (nav) yashirin, bosishlar menyuga o'tadi
+// desktop: nav qatori o'rniga menyudagi qidiruv qatori turadi (mobilda header o'zgarmaydi)
+@media (min-width: 992px) {
+	.header.is-menu-open {
+		background-color: transparent;
+		pointer-events: none;
+
+		.header-top {
+			pointer-events: auto;
+		}
+
+		.header-bottom {
+			visibility: hidden;
+		}
+	}
+}
+
+// menyu ochiq paytda sahifa aylanmasin
+body.megamenu-open {
+	overflow: hidden;
 }

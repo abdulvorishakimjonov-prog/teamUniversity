@@ -539,8 +539,16 @@
 }
 
 .international-content-main-title-bottom {
+	// sig'masa tugma-tug pastga o'tadi (oldin faqat sm da; 1024px da tugma siqilib, strelka qirqilardi)
+	flex-wrap: wrap;
+	row-gap: 16px;
+
+	> .button {
+		flex-shrink: 0;
+		max-width: 100%;
+	}
+
 	@include devices(sm) {
-		flex-wrap: wrap;
 		gap: 16px;
 	}
 }

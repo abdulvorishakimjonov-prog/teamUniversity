@@ -83,3 +83,22 @@
 .partnership-bottom--pull-up {
 	margin: -26px 0 5% 0 !important;
 }
+// ---------- RESP: sarlavha va "See more" havolasi ----------
+// Tor ekranda "See more" / "See All" ikki qatorga bo'linib, strelka alohida qolib ketardi, sarlavha esa
+// so'zni o'rtasidan sindirardi ("happeni/ng"). Endi havola o'z kengligida turadi; sarlavhaga kamida 200px joy
+// kerak, yetmasa havola sarlavha tagiga tushadi.
+.section-top {
+	flex-wrap: wrap;
+	row-gap: 8px;
+
+	> div:first-child {
+		flex: 1 1 200px;
+		min-width: 0;
+	}
+
+	> a,
+	> .link {
+		flex-shrink: 0;
+		white-space: nowrap;
+	}
+}

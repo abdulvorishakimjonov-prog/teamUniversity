@@ -68,3 +68,11 @@
 		}
 	}
 }
+// ---------- RESP: uzun tab nomi tor ekranga sig'masa qatorga o'tsin ----------
+.tab-navigation .tab-button {
+	@include devices(xs) {
+		max-width: 100%;
+		white-space: normal;
+		text-align: left;
+	}
+}
