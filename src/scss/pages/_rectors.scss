@@ -252,3 +252,28 @@
 
 	}
 }
+// ---------- RESP: Chair & CEO imzolari telefonda ----------
+// Ikki kishi har xil kenglikda bo'lgani uchun wrap bo'lganda chap chetlari tekis bo'lmasdi (biri markazda, biri chapda).
+// Telefonda ustun bo'lib, chap cheti bir xil, blok markazda turadi.
+.rectors-content .rectors-content-users {
+	@include devices(sm) {
+		flex-direction: column;
+		flex-wrap: nowrap;
+		align-items: flex-start;
+		width: fit-content;
+		max-width: 100%;
+		margin-inline: auto;
+		gap: 16px;
+	}
+
+	.rectors-content-users-left {
+		@include devices(sm) {
+			width: 100%;
+			min-width: 0;
+		}
+
+		> div {
+			min-width: 0;
+		}
+	}
+}

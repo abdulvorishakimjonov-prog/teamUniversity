@@ -609,3 +609,42 @@
       .course-wrapper-card > .grid._4 { grid-template-columns: 1fr; }
    }
 }
+
+// ---------- RESP: "globally recognised business school" bloki telefonda ----------
+.executive-mba-inner {
+   @include devices(sm) {
+      align-items: stretch;
+
+      .executive-mba-inner-main-text {
+         h5 {
+            font-size: 20px;
+            line-height: 1.25;
+         }
+
+         p {
+            font-size: 15px;
+            line-height: 1.5;
+         }
+      }
+
+      .executive-mba-inner-accreditations {
+         flex-wrap: wrap;
+         gap: 14px 20px;
+      }
+   }
+
+   @include devices(xs) {
+      .executive-mba-inner-main-logo {
+         height: 60px;
+         width: 140px;
+      }
+
+      .executive-mba-inner-main-text h5 {
+         font-size: 18px;
+      }
+
+      .executive-mba-inner-accreditations img {
+         height: 30px;
+      }
+   }
+}

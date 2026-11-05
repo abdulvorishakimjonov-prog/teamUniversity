@@ -9,7 +9,7 @@
 			position: relative;
 			background: linear-gradient(180deg, #DBEAFE 0%, #FFFFFF 100%);
 			border-radius: 24px;
-			max-width: 317px;
+			max-width: 340px;
 			height: 360px;
 			width: 100%;
 			overflow: hidden;
@@ -28,7 +28,7 @@
 				left: 6px;
 				right: 6px;
 				bottom: 6px;
-				height: 85px;
+				height: 108px; // lavozim 2 qatorga o'tsa ham sig'adi
 				background: #fff;
 				background-image: url("../images/leadership-img-2.svg");
 				background-repeat: no-repeat;
@@ -379,5 +379,57 @@
 
 	@include devices(sm) {
 		grid-template-columns: 1fr;
+	}
+}
+// ---------- RESP: rahbarlar kartalari to'r ichida markazda ----------
+// Karta max-width: 317px, to'r katakchasi esa undan keng bo'lib qoladi (planshet 2 ustun, telefon 1 ustun):
+// karta katakchaning chap chetiga yopishib turardi. Endi har bir karta o'z katakchasining o'rtasida.
+.leadership-wrapper-card {
+	@include devices(lg) {
+		justify-self: center;
+		// karta to'g'ridan-to'g'ri to'r elementi bo'lmasa (o'rab turuvchi blok ichida) ham markazda tursin
+		margin-inline: auto;
+	}
+}
+
+// ---------- RESP: profil rasmi (max-width: 226px) planshet/telefonda markazda ----------
+.leadership-view-content-image {
+	@include devices(md) {
+		margin-inline: auto;
+	}
+}
+
+// ---------- RESP: sahifa tagidagi bo'sh joy ----------
+// Desktopdagi 382px bo'shliq tor ekranda sahifa tagida katta bo'sh joy qoldirardi.
+.leadership {
+	@include devices(lg) {
+		margin-bottom: 160px;
+	}
+
+	@include devices(md) {
+		margin-bottom: 100px;
+	}
+
+	@include devices(sm) {
+		margin-bottom: 60px;
+	}
+
+	@include devices(xs) {
+		margin-bottom: 40px;
+	}
+}
+
+// ---------- RESP: xodim kartasi telefonda ----------
+// Karta 317px (desktop o'lchami) bilan qolib, oq blokda ikki yonida bo'sh joy qoldirardi va rasm siqilib ko'rinardi.
+// Endi karta bloki kengligida (ko'pi bilan 420px), nisbati saqlanadi, rasm tepadan ko'rinadi.
+.leadership-wrapper-card.leadership-wrapper-card {
+	@include devices(sm) {
+		max-width: 340px;
+		height: auto;
+		aspect-ratio: 317 / 360;
+
+		img {
+			object-position: top;
+		}
 	}
 }

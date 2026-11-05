@@ -536,3 +536,87 @@
 		}
 	}
 }
+
+// ---------- RESP: klub kartasi planshet/telefonda markazda (max-width: 385px, katakcha kengroq) ----------
+.club-main-cohort-card {
+	@include devices(md) {
+		margin-inline: auto;
+		width: 100%;
+	}
+}
+
+// ---------- RESP: sahifa tagidagi bo'sh joy (desktopdagi 230px tor ekranda juda katta) ----------
+.alumni {
+	@include devices(md) {
+		margin-bottom: 100px;
+	}
+
+	@include devices(sm) {
+		margin-bottom: 60px;
+	}
+
+	@include devices(xs) {
+		margin-bottom: 40px;
+	}
+}
+
+// ---------- RESP: alumni galereyasi 1400px gacha (noutbuk / katta planshet) ----------
+// Kollaj 4 ustunda qolsa, karta bitta qator balandligida (~150px) bo'lib, sarlavha/matn/tugma sig'maydi va kesilardi.
+// Shu sababli md dagi tartib xl dan boshlanadi: karta tepada to'liq kenglikda, rasmlar 4 ustunli to'rda (md da 2 ustun), hikoyalar oddiy oqimda.
+.alumni-main {
+	.alumni-main-gallery {
+		@include devices(xl) {
+			grid-template-columns: repeat(4, minmax(0, 1fr));
+			grid-auto-rows: auto;
+			gap: 16px;
+
+			&::after {
+				display: none;
+			}
+		}
+
+		@include devices(md) {
+			grid-template-columns: repeat(2, minmax(0, 1fr));
+		}
+	}
+
+	.alumni-main-gallery-item {
+		@include devices(xl) {
+			grid-area: auto;
+			aspect-ratio: 4 / 3;
+			border-radius: 24px;
+		}
+
+		@include devices(md) {
+			border-radius: 20px;
+		}
+	}
+
+	.alumni-main-gallery-card {
+		@include devices(xl) {
+			grid-area: auto;
+			grid-column: 1 / -1;
+			order: -1;
+			padding: 28px 24px;
+			border-radius: 24px;
+		}
+
+		@include devices(md) {
+			padding: 24px 16px;
+		}
+
+		@include devices(sm) {
+			padding: 20px 14px;
+		}
+	}
+
+	.alumni-main-stories {
+		@include devices(xl) {
+			margin-top: 28px;
+		}
+
+		@include devices(md) {
+			margin-top: 24px;
+		}
+	}
+}

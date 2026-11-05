@@ -171,3 +171,112 @@
 		padding: 8px;
 	}
 }
+
+// ---------- RESP: telefonda rasm tepada, matn bloki tagida (rasm matn tagida yo'qolib qolmasin) ----------
+// Selektorlar atayin kuchliroq: media-query'lar qayta guruhlanganda yuqoridagi sm qoidalari yutib ketmasin.
+.partnership .partnership-item {
+	@include devices(md) {
+		border-radius: 24px;
+
+		> img {
+			height: 320px;
+			min-height: 0;
+		}
+	}
+
+	.partnership-item-main {
+		@include devices(md) {
+			flex-direction: column-reverse;
+			align-items: flex-start;
+			position: relative;
+			left: auto;
+			right: auto;
+			bottom: auto;
+			margin: -64px 16px 16px;
+			gap: 12px;
+		}
+	}
+
+	.partnership-item-main-box {
+		@include devices(md) {
+			max-width: 100%;
+			padding: 20px;
+			border-radius: 14px;
+
+			h5 {
+				font-size: 20px;
+				line-height: 1.3;
+			}
+
+			p {
+				margin-top: 6px;
+				font-size: 15px;
+				line-height: 1.5;
+			}
+		}
+	}
+
+	.partnership-item-main-logo {
+		@include devices(xs) {
+			max-width: 120px;
+		}
+	}
+}
+
+.partnership-bottom {
+	@include devices(sm) {
+		padding: 4px 14px 14px;
+		border-radius: 20px;
+	}
+}
+
+.partnership-min-card {
+	@include devices(sm) {
+		padding: 14px;
+		border-radius: 18px;
+		gap: 16px;
+	}
+}
+
+.partnership-min-card-text {
+	@include devices(sm) {
+		h5 {
+			font-size: 18px;
+		}
+
+		p {
+			font-size: 15px;
+		}
+	}
+}
+
+.partnership .partnership-item-main-box {
+	@include devices(sm) {
+		padding: 16px;
+	}
+}
+
+// ---------- RESP: matn bloki kartaning to'liq kengligida (chetlardan bo'sh joysiz) ----------
+.partnership .partnership-item {
+	.partnership-item-main {
+		@include devices(md) {
+			margin: -64px 0 0;
+		}
+	}
+
+	.partnership-item-main-box {
+		@include devices(md) {
+			border-radius: 0;
+		}
+	}
+
+	.partnership-item-main-logo {
+		@include devices(md) {
+			margin-left: 16px;
+		}
+
+		@include devices(sm) {
+			margin-left: 12px;
+		}
+	}
+}

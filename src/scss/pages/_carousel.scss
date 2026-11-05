@@ -142,7 +142,7 @@
 
 				// <=574px: owl bitta karta (items: 1, autoWidth o'chiq) beradi, karta shu katakchani to'ldiradi
 				@include devices(xs) {
-					width: 100%;
+					width: min(520px, calc(100vw - 72px));
 				}
 
 				&-subtitle {
@@ -213,7 +213,7 @@
 // (aks holda karta o'z kontenti kengligida qolib, 360px da 33px toshib chiqardi).
 .carousel-section-wrapper-main {
 	@include devices(xs) {
-		width: 100%;
+		width: min(520px, calc(100vw - 72px));
 		min-width: 0;
 	}
 }

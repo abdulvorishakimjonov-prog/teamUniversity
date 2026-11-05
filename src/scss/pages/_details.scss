@@ -72,3 +72,28 @@
 		}
 	}
 }
+
+// ---------- RESP: rasm (max-width: 260px) planshet/telefonda markazda ----------
+.details-main-image {
+	@include devices(md) {
+		margin-inline: auto;
+	}
+}
+
+// margin-inline: auto grid katagida elementni kontent kengligigacha siqardi (rasm ~80px bo'lib qolardi): kengligi aniq berilsin
+.details-main .details-main-image {
+	@include devices(md) {
+		width: min(260px, 100%);
+	}
+
+	@include devices(xs) {
+		width: min(220px, 100%);
+	}
+}
+
+// iqtibosdagi qo'lda qo'yilgan <br> tor ekranda qatorni keraksiz sindirardi
+.details-main-text-head-quote br {
+	@include devices(md) {
+		display: none;
+	}
+}

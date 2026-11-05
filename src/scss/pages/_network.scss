@@ -136,3 +136,10 @@
 		}
 	}
 }
+// ---------- RESP: kontakt kartalari to'r katakchasida markazda ----------
+.network-contact-card {
+	@include devices(lg) {
+		margin-inline: auto;
+		justify-self: center;
+	}
+}

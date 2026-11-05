@@ -124,22 +124,15 @@ eventsCarousel.owlCarousel({
 	margin: 12,
 	nav: false,
 	dots: false,
-	smartSpeed: 4000,
+	smartSpeed: 800,
+	autoplay: true,
+	autoplayTimeout: 4000,
+	autoplayHoverPause: true,
 	autoWidth: true,
 	mouseDrag: true,
 	touchDrag: true,
 
-	responsive: {
-		0: {
-			autoWidth: false,
-			items: 1
-		},
-
-		576: {
-			autoWidth: true,
-			items: 1
-		}
-	}
+	// telefonda ham autoWidth: qo'shni kartalar chetdan ko'rinib tursin
 });
 
 

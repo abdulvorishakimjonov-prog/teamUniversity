@@ -128,3 +128,26 @@
 		padding: 12px;
 	}
 }
+
+// ---------- RESP: "Study Abroad as a TEAM Student" kartalari ----------
+// Yon panel bilan kontent tor bo'lganda 4 ustun (1400px gacha) / 3 ustun (lg) kartalarni 130px ga siqardi: sarlavha va matn 6-7 qatorga
+// cho'zilib, kartalar balandligi va sarlavhalari har xil joyda chiqardi. Endi 2 ustun (telefonda 1), sarlavhalar bir chiziqda.
+.abroad-tabs-section .grid._4 {
+	@include devices(xl) {
+		grid-template-columns: repeat(2, minmax(0, 1fr));
+	}
+
+	@include devices(sm) {
+		grid-template-columns: minmax(0, 1fr);
+	}
+}
+
+.abroad-tabs-section .abroad-tabs-section-card {
+	justify-content: flex-start;
+	gap: 20px;
+
+	@include devices(sm) {
+		gap: 14px;
+		padding: 14px;
+	}
+}

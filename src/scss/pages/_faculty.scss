@@ -118,3 +118,46 @@
 		}
 	}
 }
+// ---------- RESP: "Explore Student Life" bo'limi (life sahifasi) ----------
+// Oldingi statistika blokining inline margin-bottom'i (5%) tor ekranda ~14px bo'lib, sarlavha bloklarga yopishib qolardi.
+.partnership-bottom + .faculty-main {
+	@include devices(md) {
+		margin-top: 28px;
+	}
+
+	@include devices(sm) {
+		margin-top: 24px;
+	}
+}
+
+.faculty-main .faculty-main-title h5 {
+	@include devices(sm) {
+		font-size: 22px;
+	}
+}
+
+.faculty-main .grid {
+	@include devices(sm) {
+		row-gap: 14px;
+	}
+}
+
+// ---------- RESP: "Learn from Academics and Practitioners" kartalari ----------
+// Yon panel bilan kontent tor bo'lganda 4 ustun (1400px gacha) / 3 ustun (lg) kartalarni ~190px ga siqardi: sarlavhalar 1-2 qatorga
+// bo'linib, matnlar har xil balandlikdan boshlanardi. Endi 2 ustun (telefonda 1).
+.faculty-main .grid._4 {
+	@include devices(xl) {
+		grid-template-columns: repeat(2, minmax(0, 1fr));
+	}
+
+	@include devices(sm) {
+		grid-template-columns: minmax(0, 1fr);
+	}
+}
+
+// tor kontentda qo'lda qo'yilgan <br> "undergraduate" so'zini yolg'iz qatorga tashlab qo'yardi
+.faculty-main .faculty-main-title br {
+	@include devices(xl) {
+		display: none;
+	}
+}

@@ -372,3 +372,65 @@
 		}
 	}
 }
+// ---------- RESP: hamkor kompaniyalar logotiplari ----------
+// `object-fit: cover` logotipni kesib tashlardi (yuqori va pastki qismi ko'rinmasdi). Logo butun holda ko'rinsin,
+// telefonda 2 ustunda ixcham kartalar.
+.experience-main .experience-main-card img {
+	object-fit: contain;
+}
+
+.experience-main .grid {
+	@include devices(md) {
+		grid-template-columns: repeat(3, minmax(0, 1fr));
+		gap: 12px;
+	}
+
+	@include devices(sm) {
+		grid-template-columns: repeat(2, minmax(0, 1fr));
+	}
+}
+
+.experience-main .experience-main-card {
+	@include devices(md) {
+		height: 110px;
+		padding: 18px 20px;
+	}
+
+	@include devices(sm) {
+		height: 90px;
+		padding: 14px 16px;
+	}
+}
+
+// ---------- RESP: experience-inner kartalari va rasmlari ----------
+// Rasm radiusi faqat telefonda ishlardi (overflow: hidden sm da edi), katta ekranda burchaklari to'rtburchak chiqardi.
+// Rasm doim 3:2 nisbatda, kartalar bilan bir xil radiusda; kartalar qatorda bir xil balandlikda.
+.experience-inner .experience-inner-image {
+	max-width: none;
+	min-height: 0;
+	aspect-ratio: 3 / 2;
+	overflow: hidden;
+	border-radius: 24px;
+
+	@include devices(md) {
+		border-radius: 20px;
+	}
+
+	@include devices(sm) {
+		border-radius: 16px;
+	}
+
+	img {
+		display: block;
+	}
+}
+
+.experience-inner .grid {
+	align-items: stretch;
+}
+
+.experience-inner .overview-main-card {
+	@include devices(md) {
+		gap: 20px;
+	}
+}

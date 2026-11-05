@@ -777,7 +777,7 @@
 // lg (<=1199px) da yon panel bilan birga kontent tor: 4 ta karta bir qatorda sig'maydi va oq blokdan chiqib,
 // yon panel tagiga kirib ketardi (board sahifasi, 1024px). Endi kartalar keyingi qatorga o'tadi, ajratuvchi chiziqlar yashiriladi.
 .about-page-content-wrapper {
-	@include devices(lg) {
+	@include devices(xl) {
 		flex-wrap: wrap;
 		justify-content: flex-start;
 		gap: 16px 24px;
@@ -785,14 +785,32 @@
 }
 
 .about-page-content-wrapper-card {
-	@include devices(lg) {
-		flex: 1 1 200px;
+	@include devices(xl) {
+		flex: 0 0 calc((100% - 48px) / 3);
 		min-width: 0;
 	}
 }
 
 .about-page-content-wrapper-line {
-	@include devices(lg) {
+	@include devices(xl) {
 		display: none;
+	}
+}
+
+// ---------- RESP: bosh sahifa "About" rasmlari telefonda ustma-ust ----------
+// Tor telefonda ikki rasm yonma-yon bo'lsa, matnlari siqilib, 6-7 qatorga cho'zilardi: endi bittadan, to'liq kenglikda.
+.about-section > .grid._3:first-child {
+	@include devices(xs) {
+		grid-template-columns: minmax(0, 1fr);
+		gap: 20px;
+
+		> .about-section-content:not(:first-child) > div {
+			font-size: 15px;
+			line-height: 1.5;
+		}
+
+		> .about-section-content img {
+			aspect-ratio: 16 / 10;
+		}
 	}
 }

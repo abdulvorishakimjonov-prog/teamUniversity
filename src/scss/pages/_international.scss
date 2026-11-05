@@ -649,3 +649,41 @@
 		grid-template-columns: 1fr;
 	}
 }
+
+// ---------- RESP: bosh blok matnlari telefonda kichikroq ----------
+.international .international-content-main-title {
+	@include devices(sm) {
+		h5 {
+			font-size: 22px;
+			line-height: 1.25;
+		}
+
+		p {
+			font-size: 15px;
+			line-height: 1.5;
+		}
+
+		.button,
+		.link {
+			font-size: 14px;
+		}
+	}
+
+	@include devices(xs) {
+		h5 {
+			font-size: 20px;
+		}
+
+		p {
+			font-size: 14px;
+		}
+	}
+}
+
+// ---------- RESP: ikonka kartadan 25px tepaga chiqib turadi ----------
+// Bir ustunda kartalar orasi 16px bo'lgani uchun ikonka oldingi kartaning ustiga chiqib qolardi.
+.international-wrapper-cards .international-wrapper-cards-item {
+	@include devices(md) {
+		margin-top: 30px;
+	}
+}

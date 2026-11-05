@@ -211,3 +211,25 @@
 
 
 }
+// ---------- RESP: "Campus Address" kartasi ----------
+// `max-height: 412px` desktop uchun edi. Tor ekranda xarita ma'lumotlar tagiga tushadi, kontent 412px dan oshib,
+// xarita oq kartadan pastga chiqib ketardi.
+.compus-main .compus-main-item {
+	@include devices(md) {
+		max-height: none;
+	}
+
+	.compus-main-item-text {
+		@include devices(sm) {
+			font-size: 14px;
+			line-height: 1.5;
+		}
+	}
+
+	.compus-main-item-address p {
+		@include devices(sm) {
+			font-size: 17px;
+			line-height: 1.35;
+		}
+	}
+}

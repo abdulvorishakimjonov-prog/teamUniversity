@@ -592,16 +592,59 @@
 		}
 	}
 }
-// ---------- RESP: juda tor ekranlar (≤574px; Galaxy Fold ≈ 280px gacha) ----------
+// ---------- RESP: foundation-info qatorlari (tor ekran) ----------
+// Raqam ustuni (01, 02...) qat'iy 28-32px edi: shrift sig'maganda "02" ikki qatorga bo'linib "0 / 2" bo'lardi.
+// Endi ustun 34-36px (ikki raqamga yetadi), raqamlar bir xil kenglikda (tabular-nums) va hech qachon bo'linmaydi.
 .foundation-info-wrapper-item {
 	> * {
 		min-width: 0;
 		overflow-wrap: anywhere;
 	}
 
+	> h5:first-child {
+		white-space: nowrap;
+		overflow-wrap: normal;
+		font-variant-numeric: tabular-nums;
+	}
+
+	@include devices(sm) {
+		grid-template-columns: 36px 40px minmax(0, 1fr);
+		column-gap: 12px;
+	}
+
 	@include devices(xs) {
-		grid-template-columns: 28px 36px minmax(0, 1fr);
+		grid-template-columns: 34px 36px minmax(0, 1fr);
 		column-gap: 10px;
 		padding: 12px;
+	}
+}
+
+// ---------- RESP: foundation-info ustunlari yon panelli sahifalarda ----------
+// Ustunlar qat'iy (66+80+250px + 3x54px oraliq) edi: 1200-1700px ekranda, yon panel bilan kontent tor bo'lganda
+// matn ustuni 1-2 harfga siqilib, qator minglab px cho'zilardi. Endi sarlavha va matn ustunlari kenglikka qarab bo'linadi.
+.foundation-info-wrapper-item.foundation-info-wrapper-item {
+	@include devices(xxl) {
+		grid-template-columns: 50px 56px minmax(0, 1fr) minmax(0, 1.4fr);
+		column-gap: 24px;
+	}
+
+	@include devices(lg) {
+		grid-template-columns: 50px 56px 200px minmax(0, 1fr);
+		column-gap: 20px;
+	}
+
+	@include devices(md) {
+		grid-template-columns: 40px 48px minmax(150px, 0.8fr) minmax(0, 1fr);
+		column-gap: 16px;
+	}
+
+	@include devices(sm) {
+		grid-template-columns: 36px 40px minmax(0, 1fr);
+		column-gap: 12px;
+	}
+
+	@include devices(xs) {
+		grid-template-columns: 34px 36px minmax(0, 1fr);
+		column-gap: 10px;
 	}
 }

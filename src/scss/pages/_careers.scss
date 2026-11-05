@@ -402,3 +402,33 @@
 		}
 	}
 }
+// ---------- RESP: ariza formasi ----------
+// Telefonda forma 2 ustunda qolib ketardi (sm blokda grid ustiga flex-direction berilgan edi, u ishlamaydi).
+// Endi 1 ustun, yorliqlar bir xil uslubda, kiritish maydonlari to'liq kenglikda.
+.careers-view .careers-view-contact-form {
+	align-items: start;
+
+	@include devices(md) {
+		grid-template-columns: minmax(0, 1fr);
+	}
+
+	.careers-view-contact-form-col label > span {
+		font-size: 14px;
+		font-weight: 500;
+		line-height: 1.3;
+		color: #344054;
+	}
+
+	.careers-view-contact-form-col,
+	.careers-view-contact-form-item {
+		min-width: 0;
+	}
+}
+
+.careers-view .careers-view-contact {
+	@include devices(sm) {
+		h5 {
+			font-size: 20px;
+		}
+	}
+}

@@ -12,9 +12,9 @@
 	&-bar {
 		display: flex;
 		align-items: center;
-		gap: 12px;
+		gap: 14px;
 		margin-bottom: 16px;
-		padding: 10px 16px;
+		padding: 14px 16px;
 		background: #fff;
 		border-radius: 32px;
 
@@ -22,15 +22,17 @@
 			display: flex;
 			align-items: center;
 			gap: 8px;
-			flex: 1;
+			// dizayn: qidiruv chapda, taxminan yarim kenglikda; saralash va ikonkalar o'ng chetda
+			flex: 0 1 49%;
 			margin: 0;
-			padding: 0 14px;
-			height: 36px;
-			background: var(--slate100);
-			border-radius: 12px;
+			padding: 0 10px;
+			height: 35px;
+			background: #F5F7F9;
+			border-radius: 10px;
 
 			i {
-				color: var(--slate500);
+				font-size: 16px;
+				color: var(--slate700);
 			}
 
 			input {
@@ -40,23 +42,24 @@
 				outline: 0;
 				color: var(--slate900);
 				background: transparent;
-				font-size: 14px;
+				font-size: 13px;
 
 				&::placeholder {
-					color: var(--slate400);
+					color: var(--slate700);
 				}
 			}
 		}
 
 		&-sort {
-			width: 150px;
-			height: 36px;
+			margin-left: auto;
+			width: 153px;
+			height: 35px;
 			padding: 0 32px 0 12px;
 			font-size: 13px;
 			color: var(--slate600);
-			background: var(--slate100) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%23334155' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E") no-repeat right 10px center;
+			background: #F5F7F9 url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%23334155' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E") no-repeat right 10px center;
 			border: 0;
-			border-radius: 12px;
+			border-radius: 10px;
 			outline: 0;
 			appearance: none;
 			-webkit-appearance: none;
@@ -68,10 +71,16 @@
 			display: flex;
 			align-items: center;
 			justify-content: center;
-			flex: 0 0 36px;
-			width: 36px;
-			height: 36px;
+			flex: 0 0 35px;
+			width: 35px;
+			height: 35px;
 			border-radius: 50%;
+
+			img,
+			svg {
+				width: 18px;
+				height: 18px;
+			}
 
 			span[hidden] {
 				display: none;
@@ -645,6 +654,10 @@
 }
 
 .shop-bar-search {
+	@include devices(md) {
+		flex: 1 1 auto;
+	}
+
 	@include devices(sm) {
 		flex: 1 1 100%;
 	}
@@ -696,5 +709,125 @@
 
 	span {
 		font-size: 13px;
+	}
+}
+
+// ---------- Mahsulot kartasi: dizayn bo'yicha 304px ----------
+// Selektorlar atayin ikki marta yozilgan (.x.x): media-query'lar qayta guruhlanganda yuqoridagi grid qoidalari yutib ketmasin.
+.shop-grid.shop-grid {
+	grid-template-columns: repeat(auto-fill, 304px);
+	gap: 20px;
+	justify-content: start;
+
+	@include devices(sm) {
+		justify-content: center;
+	}
+}
+
+.shop-card.shop-card {
+	width: 304px;
+	max-width: 100%;
+	gap: 12px;
+	padding: 10px 10px 16px;
+	border-radius: 28px;
+
+	.shop-card-image {
+		aspect-ratio: 286 / 256;
+		border-radius: 24px;
+
+		.shop-like {
+			top: 10px;
+			right: 10px;
+			flex-basis: 50px;
+			width: 50px;
+			height: 50px;
+			background: #FEF2F2;
+
+			&.is-active {
+				background: #fff;
+			}
+
+			svg {
+				width: 22px;
+				height: 22px;
+			}
+		}
+	}
+
+	.shop-card-body {
+		gap: 8px;
+		padding: 0 8px;
+	}
+
+	.shop-card-name {
+		font-size: 18px;
+		font-weight: 600;
+	}
+
+	.shop-card-price {
+		font-size: 17px;
+		font-weight: 600;
+	}
+
+	.shop-sizes {
+		gap: 10px;
+		margin-top: 4px;
+
+		.shop-sizes-label {
+			margin-right: 2px;
+			font-size: 14px;
+		}
+
+		button {
+			min-width: 35px;
+			height: 35px;
+			padding: 0;
+			font-size: 14px;
+			border-radius: 50%;
+		}
+	}
+
+	.shop-card-actions {
+		gap: 12px;
+		margin-top: 8px;
+		padding-top: 16px;
+		border-top: 1px solid #E2E8F0;
+	}
+
+	.shop-qty {
+		flex: 0 0 auto;
+		gap: 4px;
+		height: 52px;
+		padding: 0 14px;
+		border-radius: 26px;
+
+		button img {
+			width: 22px;
+			height: 22px;
+		}
+
+		span {
+			min-width: 30px;
+			font-size: 18px;
+		}
+	}
+
+	.shop-buy {
+		flex: 1 1 auto;
+		height: 52px;
+		padding: 0 6px 0 24px;
+		font-size: 16px;
+		border-radius: 26px;
+
+		.shop-buy-icon {
+			flex-shrink: 0;
+			width: 40px;
+			height: 40px;
+
+			img {
+				width: 22px;
+				height: 22px;
+			}
+		}
 	}
 }

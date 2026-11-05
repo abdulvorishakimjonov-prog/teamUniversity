@@ -564,3 +564,40 @@
 		gap: 16px;
 	}
 }
+// ---------- RESP: "Progression" bloki telefonda ----------
+// `.course-bg img { min-height: 220px }` ikonka rasmiga ham tushib, uni kvadratdan chiqarib yuborardi (ikonka bo'sh ko'rinardi).
+// Selektor kuchliroq: media-query'lar qayta guruhlanganda ham ikonka o'lchami saqlansin.
+.course-bg .course-bg-title-item-icon img {
+	min-height: 0;
+	height: 100%;
+}
+
+.course-bg .course-bg-title {
+	@include devices(sm) {
+		h5 {
+			font-size: 20px;
+		}
+
+		p {
+			font-size: 15px;
+			line-height: 1.5;
+		}
+
+		.course-bg-title-item {
+			padding: 8px;
+			gap: 10px;
+		}
+
+		.course-bg-title-item-icon {
+			width: 44px;
+			height: 44px;
+			padding: 8px;
+			border-radius: 10px;
+		}
+
+		.course-bg-title-item p {
+			font-size: 15px;
+			line-height: 1.35;
+		}
+	}
+}

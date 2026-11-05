@@ -652,18 +652,27 @@
 }
 
 // ---------- RESP: responsive ----------
+// xl (<=1400px) da yon panel bilan kontent tor: 455px rasm + 1fr ustun 263px gacha siqilib, matn bloki 5000px+ cho'zilardi.
+// Shuning uchun rasm va blok xl dan boshlab ustma-ust.
 .sudents-grid {
-	@include devices(md) {
-		grid-template-columns: 1fr;
+	@include devices(xl) {
+		grid-template-columns: minmax(0, 1fr);
 		gap: 16px;
 	}
 }
 
-.sudents-grid-box {
-	@include devices(md) {
+.sudents-grid-box.sudents-grid-box {
+	@include devices(xl) {
 		width: 100%;
 		height: auto;
 		min-height: 260px;
+		aspect-ratio: 16 / 9;
+		max-height: 420px;
+	}
+
+	@include devices(md) {
+		aspect-ratio: auto;
+		max-height: none;
 	}
 }
 
@@ -728,5 +737,128 @@
 
 	.button {
 		max-width: 100%;
+	}
+}
+
+// ---------- RESP: tab kontenti matnlari telefonda kichikroq ----------
+.sudents-primary-title-left-text,
+.sudents-list-title,
+.sudents-admission-min {
+	@include devices(sm) {
+		h6,
+		h5 {
+			font-size: 22px;
+			line-height: 1.25;
+		}
+
+		> p,
+		p.body3 {
+			font-size: 15px;
+			line-height: 1.5;
+		}
+	}
+}
+
+.sudents-list-card-text {
+	@include devices(sm) {
+		b {
+			font-size: 17px;
+			line-height: 1.25;
+		}
+
+		p {
+			font-size: 15px;
+			line-height: 1.3;
+		}
+	}
+
+	@include devices(xs) {
+		b {
+			font-size: 16px;
+		}
+
+		p {
+			font-size: 14px;
+		}
+	}
+}
+
+// ---------- RESP: sarlavha va tugma (Exam at a glance) ----------
+// Telefonda matn va tugma bir qatorda siqilib, matn 1-2 so'zlik ustunga aylanardi: endi tugma matn tagiga tushadi.
+.sudents-list .sudents-list-title {
+	@include devices(md) {
+		flex-wrap: wrap;
+		align-items: flex-start;
+		gap: 16px;
+	}
+
+	.sudents-list-title-text {
+		@include devices(md) {
+			flex: 1 1 280px;
+			min-width: 0;
+		}
+	}
+
+	.button {
+		@include devices(sm) {
+			flex-shrink: 0;
+		}
+	}
+}
+
+// ---------- RESP: stipendiya kartalari (sudents-admission-min) ----------
+// Sarlavha pill'i ("First year entry") matnni siqib, so'zma-so'z ustunga aylantirardi; "15%" yonidagi
+// "Example Benchmark" pill'i ham ikki qatorga cho'zilib, ko'rinishi buzilardi.
+.sudents-admission .sudents-admission-min {
+	.sudents-admission-min-title {
+		@include devices(md) {
+			flex-wrap: wrap;
+			align-items: flex-start;
+			gap: 12px;
+		}
+
+		.sudents-admission-min-title-text {
+			@include devices(md) {
+				flex: 1 1 260px;
+				min-width: 0;
+			}
+		}
+
+		.sudents-admission-min-title-btn {
+			@include devices(md) {
+				flex-shrink: 0;
+				white-space: nowrap;
+			}
+		}
+	}
+
+	.sudents-admission-min-flex-card-con {
+		@include devices(md) {
+			flex-wrap: wrap;
+			justify-content: flex-start;
+			gap: 8px 12px;
+			width: 100%;
+		}
+
+		h3 {
+			@include devices(md) {
+				margin-bottom: 0;
+			}
+		}
+
+		.sudents-admission-min-flex-card-con-bg {
+			@include devices(md) {
+				min-width: 0;
+				padding: 4px 10px;
+				border-radius: 16px;
+			}
+
+			p {
+				@include devices(md) {
+					font-size: 14px;
+					line-height: 1.3;
+				}
+			}
+		}
 	}
 }

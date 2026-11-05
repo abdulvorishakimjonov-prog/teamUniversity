@@ -131,3 +131,37 @@
 	}
 }
 
+
+// ---------- RESP: uzun sarlavha (breadcrumb) ----------
+// Uzun nomli sahifada sarlavha chapga yopishib, chetdan chiqib qolardi: endi chetlardan joy, markazda, kichikroq shriftda.
+.breadcrumbs .container {
+	@include devices(md) {
+		padding-inline: 16px;
+	}
+}
+
+.breadcrumbs .breadcrumbs-wrapper {
+	h1 {
+		max-width: 100%;
+		text-align: center;
+		overflow-wrap: break-word;
+		text-wrap: balance;
+
+		@include devices(md) {
+			font-size: 28px;
+			margin-bottom: 0.5rem;
+		}
+
+		@include devices(sm) {
+			font-size: 24px;
+		}
+	}
+
+	.d-flex {
+		@include devices(md) {
+			flex-wrap: wrap;
+			justify-content: center;
+			text-align: center;
+		}
+	}
+}

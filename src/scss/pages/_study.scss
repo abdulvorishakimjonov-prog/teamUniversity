@@ -230,3 +230,70 @@
 		flex: 1 1 140px;
 	}
 }
+
+// ---------- RESP: rasmlar qatori o'zidan keyingi bloklarning ustiga chiqib ketmasin ----------
+// `max-height: 271px` desktopda bir qatorli to'r uchun edi. Planshet/telefonda rasmlar 2 yoki 3 qatorga tushib,
+// to'rdan tashqariga chiqardi va keyingi ("Coming soon") bloklar ustiga tushardi.
+.study .study-image {
+	@include devices(md) {
+		max-height: none;
+
+		> div {
+			min-width: 0;
+		}
+
+		img {
+			display: block;
+			height: auto;
+			aspect-ratio: 16 / 9;
+			border-radius: 16px;
+		}
+	}
+}
+
+// ---------- RESP: turar joy kartalari (accom-main) ----------
+// Telefonda rasm tor ustunga siqilib, matn bloki ham torayib qolardi: endi rasm tepada to'liq kenglikda, ma'lumotlar tagida.
+.accom-main .accom-main-card {
+	@include devices(sm) {
+		flex-direction: column;
+		align-items: stretch;
+		gap: 12px;
+		padding: 12px;
+		border-radius: 20px;
+	}
+
+	.accom-main-card-image {
+		@include devices(sm) {
+			max-width: none;
+			max-height: none;
+			height: 200px;
+		}
+	}
+
+	.accom-main-card-item {
+		@include devices(sm) {
+			min-width: 0;
+			padding: 14px;
+		}
+	}
+
+	.accom-main-card-item-box-text {
+		@include devices(sm) {
+			flex-wrap: wrap;
+			gap: 2px 12px;
+		}
+
+		p {
+			@include devices(sm) {
+				font-size: 15px;
+			}
+		}
+	}
+}
+
+// planshetda ikki kartani yonma-yon qo'ysak ikkalasi ham siqiladi: bir ustun
+.accom-main .grid {
+	@include devices(md) {
+		grid-template-columns: minmax(0, 1fr);
+	}
+}

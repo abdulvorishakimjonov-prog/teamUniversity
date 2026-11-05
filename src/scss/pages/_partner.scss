@@ -135,3 +135,49 @@
 		gap: 10px;
 	}
 }
+
+// ---------- RESP: karta o'ng yuqoridagi bayroq/ikonka o'lchami ----------
+// Ba'zi kartalarda bu yerga bayroq o'rniga katta logo (masalan Uzum) tushadi va karta sarlavhasini cho'zib yuboradi.
+// Rasm doim kichik va ixcham bo'lsin.
+.partner-main-item-card-title-icon {
+	flex-shrink: 0;
+	max-width: 50%;
+
+	img {
+		flex-shrink: 0;
+		width: 32px;
+		height: 32px;
+		max-width: 100%;
+		object-fit: contain;
+		border-radius: 50%;
+	}
+}
+
+.partner-main-item-card-title {
+	align-items: flex-start;
+}
+
+// ---------- RESP: karta ichidagi "Academic partner" / sayt havolasi ----------
+// Ikonka o'z o'lchamida (juda katta) chiqib, "Academic partner" yozuvini ikki qatorga siqib qo'yardi.
+.partner-main-item-card-link {
+	flex-wrap: wrap;
+	gap: 8px 12px;
+
+	.partner-main-item-card-link-area {
+		padding: 5px 10px 5px 6px;
+		gap: 6px;
+		max-width: 100%;
+
+		img {
+			flex-shrink: 0;
+			width: 24px;
+			height: 24px;
+			object-fit: contain;
+		}
+
+		p {
+			min-width: 0;
+			overflow-wrap: anywhere;
+		}
+	}
+}

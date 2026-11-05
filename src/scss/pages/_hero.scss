@@ -70,7 +70,7 @@
 		&-top {
 			display: flex;
 			gap: 32px;
-			justify-content: space-between;
+			justify-content: center;
 			
 
 			// planshet va telefon: sarlavha va tavsif ustma-ust (oldin flex qatorda qolib toshib chiqardi)
@@ -90,7 +90,7 @@
 					}
 
 					h1 {
-						max-width: 520px;
+						// max-width: 520px;
 						font-family: MazzardH, sans-serif;
 						font-weight: 700;
 						font-size: clamp(32px, 5vw + 8px, 58px);
@@ -112,6 +112,7 @@
 				display: flex;
 				flex-direction: column;
 				gap: 26px;
+				display: none;
 
 				@include devices(md) {
 					align-items: center;
@@ -154,9 +155,7 @@
 							}
 						}
 
-						@include devices(xs) {
-							flex-direction: column;
-						}
+
 					}
 			}
 		}
@@ -296,7 +295,7 @@
 		display: flex;
 		flex-direction: column;
 		align-items: flex-end;
-		position: fixed;
+		position: absolute;
 		top: 50%;
 		right: 0;
 		transform: translate(0%, -50%);
@@ -548,4 +547,95 @@
 		}
 	}
 
+}
+// ---------- RESP: hero rasmi telefonda ----------
+// Kartalar (Explore + statistika) rasmning katta qismini yopib, odamlar ko'rinmay qolardi.
+// Endi rasm tepada ochiq turadi, kartalar ixcham bo'lib pastga yig'iladi.
+// Selektorlar atayin kuchliroq: media-query'lar qayta guruhlanganda yuqoridagi qoidalar yutib ketmasin.
+.hero .hero-content-bottom {
+	@include devices(sm) {
+		min-height: 520px;
+	}
+
+	.hero-content-bottom-wrapper {
+		@include devices(sm) {
+			gap: 8px;
+		}
+
+		.hero-content-bottom-wrapper-left {
+			@include devices(xs) {
+				grid-template-columns: repeat(2, minmax(0, 1fr));
+				gap: 10px 8px;
+				padding: 10px;
+				width: 100%;
+			}
+
+			.infocard {
+				@include devices(xs) {
+					gap: 8px;
+					min-width: 0;
+				}
+
+				.infocard-media {
+					@include devices(xs) {
+						flex-shrink: 0;
+						width: 40px;
+						height: 40px;
+						flex-basis: 40px;
+						border-radius: 12px;
+					}
+				}
+
+				.infocard-image {
+					@include devices(xs) {
+						width: 100%;
+						height: 100%;
+						padding: 7px;
+					}
+				}
+
+				.infocard-value {
+					@include devices(xs) {
+						font-size: 17px;
+					}
+				}
+
+				.infocard-label {
+					@include devices(xs) {
+						font-size: 13px;
+					}
+				}
+			}
+		}
+
+		.hero-content-bottom-wrapper-right {
+			@include devices(xs) {
+				width: 100%;
+				padding: 8px 10px;
+			}
+		}
+	}
+}
+
+// ---------- RESP: hero kartalari butun kenglikda (planshet va telefon) ----------
+.hero .hero-content-bottom .hero-content-bottom-wrapper {
+	@include devices(md) {
+		align-items: stretch;
+		width: 100%;
+	}
+
+	.hero-content-bottom-wrapper-left,
+	.hero-content-bottom-wrapper-right {
+		@include devices(md) {
+			width: 100%;
+			box-sizing: border-box;
+		}
+	}
+}
+
+// ---------- RESP: ijtimoiy tarmoq paneli mobilda yashirin ----------
+.hero .hero-social {
+	@include devices(sm) {
+		display: none;
+	}
 }
